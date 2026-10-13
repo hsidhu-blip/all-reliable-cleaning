@@ -8,11 +8,15 @@
      --------------------------------------------------------------------- */
   var CONFIG = {
     GA4_ID: '{{GA4_ID}}',                         // e.g. G-XXXXXXXXXX
-    GADS_ID_AND_LABEL: '{{GADS_ID_AND_LABEL}}',   // e.g. AW-123456789/AbCdEfGhIjk
+    GADS_ID_AND_LABEL: '{{GADS_ID_AND_LABEL}}',   // lead form conversion, e.g. AW-123456789/AbCdEfGhIjk
+    GADS_CALL_ID_AND_LABEL: '{{GADS_CALL_ID_AND_LABEL}}', // optional: website call-click conversion
     GHL_WEBHOOK_URL: '{{GHL_WEBHOOK_URL}}',       // GoHighLevel inbound webhook URL
     THANK_YOU_URL: 'thank-you.html',
     REDIRECT_AFTER_MS: 1500,
     LEAD_FLAG: 'arc_lead',
+    EC_KEY: 'arc_ec',             // enhanced conversions: phone held until the thank-you page, then deleted
+    ATTR_KEY: 'arc_attr',         // ad click attribution (gclid / UTM), kept 90 days
+    ATTR_DAYS: 90,
     TILT_MAX_DEG: 6
   };
 
@@ -38,14 +42,16 @@
      --------------------------------------------------------------------- */
   var ga4On = isConfigured(CONFIG.GA4_ID);
   var adsOn = isConfigured(CONFIG.GADS_ID_AND_LABEL);
-  var adsAccount = adsOn ? CONFIG.GADS_ID_AND_LABEL.split('/')[0] : '';
+  var callOn = isConfigured(CONFIG.GADS_CALL_ID_AND_LABEL);
+  var adsAccount = adsOn ? CONFIG.GADS_ID_AND_LABEL.split('/')[0] : (callOn ? CONFIG.GADS_CALL_ID_AND_LABEL.split('/')[0] : '');
+  var trackingOn = ga4On || !!adsAccount;
 
-  if (ga4On || adsOn) {
+  if (trackingOn) {
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
     if (ga4On) window.gtag('config', CONFIG.GA4_ID);
-    if (adsOn) window.gtag('config', adsAccount);
+    if (adsAccount) window.gtag('config', adsAccount, { allow_enhanced_conversions: true });
     var tag = doc.createElement('script');
     tag.async = true;
     tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4On ? CONFIG.GA4_ID : adsAccount);
@@ -53,7 +59,40 @@
   }
 
   function track(eventName, params) {
-    if (typeof window.gtag === 'function' && (ga4On || adsOn)) window.gtag('event', eventName, params || {});
+    if (trackingOn && typeof window.gtag === 'function') window.gtag('event', eventName, params || {});
+  }
+
+  /* Ad click attribution: capture gclid / gbraid / wbraid / UTMs from the
+     landing URL so every lead in GHL says which campaign and keyword it came from. */
+  var ATTR_FIELDS = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  function readAttribution() {
+    try {
+      var saved = JSON.parse(window.localStorage.getItem(CONFIG.ATTR_KEY) || 'null');
+      if (saved && Date.now() - saved.ts < CONFIG.ATTR_DAYS * 864e5) return saved;
+    } catch (e) { /* blocked or corrupt: ignore */ }
+    return null;
+  }
+  (function captureAttribution() {
+    var params;
+    try { params = new URLSearchParams(window.location.search); } catch (e) { return; }
+    var found = { ts: Date.now(), landing_page: window.location.pathname };
+    var any = false;
+    ATTR_FIELDS.forEach(function (key) {
+      var value = (params.get(key) || '').slice(0, 200);
+      found[key] = value;
+      if (value) any = true;
+    });
+    if (!any) return; // keep the earlier click; a plain visit doesn't overwrite it
+    try { window.localStorage.setItem(CONFIG.ATTR_KEY, JSON.stringify(found)); } catch (e) { /* ignore */ }
+  })();
+
+  // Australian numbers to E.164 for enhanced conversions (+61412345678).
+  function toE164(raw) {
+    var digits = raw.replace(/[^\d+]/g, '');
+    if (/^\+61[23478]\d{8}$/.test(digits)) return digits;
+    if (/^61[23478]\d{8}$/.test(digits)) return '+' + digits;
+    if (/^0[23478]\d{8}$/.test(digits)) return '+61' + digits.slice(1);
+    return '';
   }
 
   // click_to_call on every tel: tap, via one delegated listener.
@@ -64,16 +103,43 @@
       link_location: link.getAttribute('data-call-location') || 'inline',
       page_path: window.location.pathname
     });
+    if (callOn) track('conversion', { send_to: CONFIG.GADS_CALL_ID_AND_LABEL });
   });
 
   // Conversion: thank-you page only, once per submitted lead.
   if (doc.body && doc.body.hasAttribute('data-thank-you')) {
     if (storage('get', CONFIG.LEAD_FLAG)) {
       storage('remove', CONFIG.LEAD_FLAG); // reloads must not double-count
-      if (adsOn) track('conversion', { send_to: CONFIG.GADS_ID_AND_LABEL });
+      var ecPhone = storage('get', CONFIG.EC_KEY);
+      storage('remove', CONFIG.EC_KEY);
+      if (adsOn) {
+        if (ecPhone) window.gtag('set', 'user_data', { phone_number: ecPhone });
+        track('conversion', { send_to: CONFIG.GADS_ID_AND_LABEL });
+      }
       if (ga4On) track('generate_lead', { send_to: CONFIG.GA4_ID });
     }
   }
+
+  /* ---------------------------------------------------------------------
+     Landing pages: match the headline to a suburb ad group (?area=Joondalup).
+     Only suburbs already listed on the page are accepted.
+     --------------------------------------------------------------------- */
+  (function personaliseArea() {
+    var targets = doc.querySelectorAll('[data-area]');
+    if (!targets.length) return;
+    var wanted;
+    var norm = function (t) { return t.trim().toLowerCase().replace(/[\u2018\u2019`]/g, "'").replace(/[\s_-]+/g, ' '); };
+    try { wanted = norm(new URLSearchParams(window.location.search).get('area') || ''); } catch (e) { return; }
+    if (!wanted) return;
+    var match = null;
+    Array.prototype.forEach.call(doc.querySelectorAll('.suburbs li'), function (li) {
+      if (!match && norm(li.textContent) === wanted) match = li.textContent.trim();
+    });
+    if (!match) return;
+    Array.prototype.forEach.call(targets, function (el) { el.textContent = match; });
+    var suburb = doc.getElementById('q-suburb');
+    if (suburb && !suburb.value) suburb.value = match;
+  })();
 
   /* ---------------------------------------------------------------------
      Mobile navigation toggle (full-site pages only)
@@ -177,8 +243,15 @@
         var input = form.elements[name];
         body.append(name, input ? input.value.trim() : '');
       });
+      var attribution = readAttribution() || {};
+      ATTR_FIELDS.concat('landing_page').forEach(function (key) { body.append(key, attribution[key] || ''); });
+      body.append('submitted_from', window.location.pathname);
 
       storage('set', CONFIG.LEAD_FLAG, '1');
+      if (adsOn) {
+        var e164 = toE164(form.elements.phone.value);
+        if (e164) storage('set', CONFIG.EC_KEY, e164);
+      }
       window.setTimeout(function () { goToThankYou(state); }, CONFIG.REDIRECT_AFTER_MS);
       try {
         fetch(CONFIG.GHL_WEBHOOK_URL, {
@@ -200,6 +273,9 @@
     if (!link) return;
     var first = doc.querySelector('#quote input[name="name"]');
     if (!first) return;
+    var wanted = link.getAttribute('data-service');
+    var select = doc.getElementById('q-service');
+    if (wanted && select) { select.value = wanted; validate(select); }
     window.setTimeout(function () {
       try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); }
     }, reducedMotion ? 0 : 450);

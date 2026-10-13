@@ -41,6 +41,7 @@ grep -rn "{{" --include=*.html --include=*.js --include=*.css --include=*.txt --
 | `{{ABN}}` | All HTML (footer) | The registered ABN (check it on abr.business.gov.au) |
 | `{{OPENING_HOURS}}` | `contact.html` | e.g. `Mon–Sat 7am–6pm` |
 | `{{SITE_URL}}` | All HTML (canonical, JSON-LD), `robots.txt`, `sitemap.xml` | Live origin with **no trailing slash**, e.g. `https://www.example.com.au` |
+| `{{PRIVACY_POLICY_URL}}` | All HTML (form note and footer) | Full URL of your privacy policy. Google Ads can disapprove lead-form ads without one. Host it in GHL or on your domain. |
 | `{{ABOUT_STORY}}` | `about.html` | 2–4 true sentences: who started the business, when, and why. Then remove the "Placeholder:" label and the dashed box (`ph-block` class). |
 
 ### Trust claims (confirm each one is true, or delete it)
@@ -98,9 +99,32 @@ Each block has three placeholders, `_QUOTE`, `_NAME` (e.g. `Sarah M.`) and `_SUB
 |---|---|---|
 | `{{GHL_WEBHOOK_URL}}` | `assets/js/main.js` (`CONFIG`), and the form `action` on `index.html`, `contact.html` and the 4 landing pages (no-JS fallback) | GoHighLevel inbound webhook URL (Automation → Workflow → trigger "Inbound Webhook") |
 | `{{GA4_ID}}` | `assets/js/main.js` (`CONFIG`) | GA4 Measurement ID, e.g. `G-XXXXXXXXXX` |
-| `{{GADS_ID_AND_LABEL}}` | `assets/js/main.js` (`CONFIG`) | Google Ads conversion `send_to` value, e.g. `AW-123456789/AbCdEfGhIjk` |
+| `{{GADS_ID_AND_LABEL}}` | `assets/js/main.js` (`CONFIG`) | Google Ads **lead form** conversion `send_to` value, e.g. `AW-123456789/AbCdEfGhIjk` |
+| `{{GADS_CALL_ID_AND_LABEL}}` | `assets/js/main.js` (`CONFIG`) | Optional. A second Ads conversion action for **website call clicks** (category "Phone call lead"), e.g. `AW-123456789/XyZ123`. Leave the placeholder to switch it off. |
 
-gtag.js only loads once an ID no longer contains `{{`. The form posts these URL-encoded fields to the webhook: `name`, `phone`, `suburb`, `service`, `message`. Map them in the GHL workflow. The honeypot field (`fax`) is never sent.
+gtag.js only loads once an ID no longer contains `{{`. The honeypot field (`fax`) is never sent.
+
+### What the webhook receives
+
+Every lead POSTs these URL-encoded fields. Map them to GHL contact fields; create custom fields for the attribution ones.
+
+| Field | Contents |
+|---|---|
+| `name`, `phone`, `suburb`, `service`, `message` | What the visitor typed or chose |
+| `gclid`, `gbraid`, `wbraid` | Google Ads click IDs from the ad's landing URL. Turn on **auto-tagging** in Google Ads. They let you import offline conversions ("booked job") from GHL back into Ads. |
+| `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content` | UTM tags from the landing URL. Use a tracking template such as `{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}`. |
+| `landing_page` | The page the ad click landed on |
+| `submitted_from` | The page the form was sent from |
+
+Click IDs and UTMs are kept in the visitor's browser for 90 days, so a lead who comes back later is still credited to the ad. Empty fields are sent as empty strings.
+
+### Enhanced conversions
+
+When `GADS_ID_AND_LABEL` is set, the visitor's phone number (converted to `+61…` format) is held in session storage just long enough to reach thank-you.html. It's passed to Google with `gtag('set', 'user_data', …)` for enhanced conversions, which Google hashes before sending, then deleted. Switch on **Enhanced conversions for leads (Google tag)** in the Ads conversion settings, and mention it in your privacy policy.
+
+### Suburb-matched headlines (`?area=`)
+
+Add `?area=Joondalup` (or a `{_area}` custom parameter) to a landing-page final URL. The H1 then reads "End of Lease Cleaning Joondalup: Bond Back Guaranteed" and the suburb field is pre-filled. Only suburbs already in that page's suburb list are accepted. Anything else is ignored and the page keeps "Perth". Use it for suburb ad groups or location-targeted campaigns to lift ad relevance and Quality Score.
 
 ### Brand colours
 
@@ -122,10 +146,13 @@ Edit the hex values, not the comments. Every other colour is derived with `color
 
 **GA4 and Google Ads**
 - [ ] IDs set in `CONFIG`. In GA4 DebugView / Tag Assistant, confirm `page_view` fires on every page.
-- [ ] Tap a phone link and confirm a `click_to_call` event.
+- [ ] Tap a phone link and confirm a `click_to_call` event, plus the call conversion if `GADS_CALL_ID_AND_LABEL` is set.
+- [ ] Open a landing page with `?gclid=test123&utm_campaign=test`, submit a lead, and check the GHL contact shows `gclid=test123` and `utm_campaign=test`.
+- [ ] Open a landing page with `?area=Joondalup` and check the headline and suburb field update.
 - [ ] Submit a test lead and confirm `generate_lead` (GA4) and the Ads `conversion` fire once on thank-you.html. Reload the page: neither should fire again. Opening thank-you.html directly should fire neither.
 - [ ] In Google Ads, set the conversion action to "Count: one" and check it shows "Recording conversions".
 - [ ] Mark `generate_lead` as a key event in GA4.
+- [ ] In Google Ads, turn on auto-tagging and enhanced conversions for leads. Optionally set up offline conversion import from GHL using `gclid`.
 
 **Claims the client must confirm in writing**
 - [ ] Bond-back guarantee and re-clean guarantee terms (index, all landing pages, about, thank-you), including `{{GUARANTEE_DAYS}}` and the exclusions. The site states the guarantee is a free re-clean, never a bond refund.
@@ -136,7 +163,7 @@ Edit the hex values, not the comments. Every other colour is derived with `color
 - [ ] Rating, review count and years in business are current and accurate.
 - [ ] Operational copy: "we bring the equipment and products", "truck-mounted or portable extraction", "receipt for your property manager", the office walkthrough, after-hours access and keyholding, and the rebooking and cancellation notice periods.
 - [ ] Testimonials are real, verified and approved by the customer, with the placeholder badges removed.
-- [ ] A privacy policy URL is available. Google Ads and the Australian Privacy Principles expect one when you collect personal information. This build adds no extra pages, so host it separately (e.g. in GHL) and link it in the form note before launch.
+- [ ] `{{PRIVACY_POLICY_URL}}` points at a live privacy policy that mentions Google Ads/Analytics cookies, enhanced conversions and GHL. Google Ads and the Australian Privacy Principles expect one when you collect personal information.
 
 **Final**
 - [ ] The grep command in section 1 returns nothing.

@@ -30,20 +30,32 @@
     </span>
     <div class="header-actions">
       <a class="header-phone" href="tel:{{PHONE}}" data-call-location="header"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>{{PHONE}}</a>
+      <a class="header-call" href="tel:{{PHONE}}" data-call-location="header-mobile"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>Call</span></a>
       <a class="btn btn-cta header-cta" href="#quote">Get My Free Quote</a>
     </div>
   </div>
 </header>
 <main id="main">
 <section class="hero">
+  <div class="hero-decor" aria-hidden="true">
+    <span class="blob blob-a"></span><span class="blob blob-b"></span><span class="blob blob-c"></span>
+    <svg class="spark spark-1" viewBox="0 0 24 24" width="22" height="22" focusable="false"><path d="M12 0c1.3 6.4 4.6 9.7 12 12-7.4 2.3-10.7 5.6-12 12C10.7 17.6 7.4 14.3 0 12 7.4 9.7 10.7 6.4 12 0z"/></svg>
+    <svg class="spark spark-2" viewBox="0 0 24 24" width="14" height="14" focusable="false"><path d="M12 0c1.3 6.4 4.6 9.7 12 12-7.4 2.3-10.7 5.6-12 12C10.7 17.6 7.4 14.3 0 12 7.4 9.7 10.7 6.4 12 0z"/></svg>
+    <svg class="spark spark-3" viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M12 0c1.3 6.4 4.6 9.7 12 12-7.4 2.3-10.7 5.6-12 12C10.7 17.6 7.4 14.3 0 12 7.4 9.7 10.7 6.4 12 0z"/></svg>
+    <svg class="spark spark-4" viewBox="0 0 24 24" width="10" height="10" focusable="false"><path d="M12 0c1.3 6.4 4.6 9.7 12 12-7.4 2.3-10.7 5.6-12 12C10.7 17.6 7.4 14.3 0 12 7.4 9.7 10.7 6.4 12 0z"/></svg>
+  </div>
   <div class="container hero-grid">
     <div class="hero-copy">
-      <h1>Carpet Steam Cleaning Perth</h1>
+      <p class="hero-pills"><span>Free quote</span><span>Same-day response</span><span>{{GUARANTEE_DAYS}}-day guarantee</span></p>
+      <h1>Carpet Steam Cleaning <span class="hl" data-area>Perth</span></h1>
       <p class="hero-lead">Hot water extraction that lifts dirt, stains and pet odours.</p>
     </div>
     <div class="hero-form">
 <div class="quote-card" id="quote">
-  <h2 class="quote-title">Free quote, same-day response</h2>
+  <div class="quote-head">
+    <h2 class="quote-title">Your fixed price, same day</h2>
+    <p class="quote-badges" aria-label="Quote promises"><span>Free</span><span>No obligation</span><span>60 seconds</span></p>
+  </div>
   <p class="quote-sub">Takes about 60 seconds. No obligation, no spam.</p>
   <form class="quote-form" action="{{GHL_WEBHOOK_URL}}" method="post" novalidate data-quote-form>
     <div class="field-row">
@@ -84,42 +96,45 @@
       <label for="q-fax">Leave this field empty</label>
       <input id="q-fax" name="fax" type="text" tabindex="-1" autocomplete="off" data-hp>
     </div>
-    <button class="btn btn-cta btn-block" type="submit">Get My Free Quote</button>
-    <p class="form-note">We reply the same day. Your details are only used for your quote.</p>
+    <button class="btn btn-cta btn-block" type="submit"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    <p class="form-note">We reply the same day. Details are only used for your quote. <a href="{{PRIVACY_POLICY_URL}}" target="_blank" rel="noopener">Privacy policy</a></p>
   </form>
 </div>
     </div>
     <div class="hero-extra">
       <ul class="trust glass" aria-label="Why customers book with us">
-    <li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span><strong>{{GOOGLE_RATING}}&#9733; Google rating</strong>from {{REVIEW_COUNT}} reviews</span></li>
-    <li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><strong>{{YEARS_IN_BUSINESS}} years</strong>cleaning {{CITY_STATE}}</span></li>
-    <li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span><strong>Fully insured</strong>{{INSURANCE_DETAILS}}</span></li>
-    <li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c.8-3.8 3.6-6 7-6s6.2 2.2 7 6"/><path d="m16 11 2 2 4-4"/></svg><span><strong>Police-checked</strong>{{POLICE_CHECK_DETAILS}}</span></li>
-    <li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg><span><strong>{{GUARANTEE_DAYS}}-day guarantee</strong>free re-clean if anything is missed</span></li>
+    <li><span class="trust-ico"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span><span><strong>{{GOOGLE_RATING}}&#9733; Google rating</strong>from {{REVIEW_COUNT}} reviews</span></li>
+    <li><span class="trust-ico"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><strong>{{YEARS_IN_BUSINESS}} years</strong>cleaning {{CITY_STATE}}</span></li>
+    <li><span class="trust-ico"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span><span><strong>Fully insured</strong>{{INSURANCE_DETAILS}}</span></li>
+    <li><span class="trust-ico"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c.8-3.8 3.6-6 7-6s6.2 2.2 7 6"/><path d="m16 11 2 2 4-4"/></svg></span><span><strong>Police-checked</strong>{{POLICE_CHECK_DETAILS}}</span></li>
+    <li><span class="trust-ico"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg></span><span><strong>{{GUARANTEE_DAYS}}-day guarantee</strong>free re-clean if anything is missed</span></li>
   </ul>
       <ul class="hero-points"><li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Truck-mounted or portable hot water extraction to suit your building</span></li><li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Stain and traffic-lane pre-treatment included</span></li><li><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Receipt supplied for your property manager at end of lease</span></li></ul>
     </div>
   </div>
+  <svg class="hero-wave wave-surface" viewBox="0 0 1440 64" width="1440" height="64" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 64V34c160 22 320 30 520 14S920 0 1120 8s250 26 320 34v22z"/></svg>
 </section>
 <section class="section ">
   <div class="container">
     <div class="section-head reveal">
+      <p class="kicker">What&rsquo;s included</p>
       <h2>What every carpet clean includes</h2>
       <p>Every room gets the same five-stage process, so carpets come up evenly with no patchy areas.</p>
     </div>
     <div class="grid grid-2 reveal">
-      <div class="card"><h3>Before we clean</h3><ul class="checklist"><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Pre-inspection for stains, wear and fibre type</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Furniture moved where safe (beds and wardrobes stay)</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Dry vacuum to lift loose grit</span></li></ul></div>
-      <div class="card"><h3>Pre-treatment</h3><ul class="checklist"><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Traffic lanes pre-sprayed</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Spot treatment for food, drink and mud stains</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Pet accident areas treated</span></li></ul></div>
-      <div class="card"><h3>Hot water extraction</h3><ul class="checklist"><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>High-temperature rinse flushes dirt from the base of the fibres</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Powerful extraction removes the water and soil</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Edges and corners cleaned</span></li></ul></div>
-      <div class="card"><h3>Finish</h3><ul class="checklist"><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Carpet groomed so fibres dry evenly</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Deodoriser applied</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Drying advice and a receipt for your records</span></li></ul></div>
+      <div class="card check-card"><div class="check-head"><span class="tile"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Before we clean</h3></div><ul class="checklist"><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Pre-inspection for stains, wear and fibre type</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Furniture moved where safe (beds and wardrobes stay)</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Dry vacuum to lift loose grit</span></li></ul></div>
+      <div class="card check-card"><div class="check-head"><span class="tile"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span><h3>Pre-treatment</h3></div><ul class="checklist"><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Traffic lanes pre-sprayed</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Spot treatment for food, drink and mud stains</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Pet accident areas treated</span></li></ul></div>
+      <div class="card check-card"><div class="check-head"><span class="tile"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M4 9h16M4 15h16M2 7v2M2 15v2M22 7v2M22 15v2"/></svg></span><h3>Hot water extraction</h3></div><ul class="checklist"><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>High-temperature rinse flushes dirt from the base of the fibres</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Powerful extraction removes the water and soil</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Edges and corners cleaned</span></li></ul></div>
+      <div class="card check-card"><div class="check-head"><span class="tile"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 4.5 3 6.5 7.5 7.5-4.5 1-6.5 3-7.5 7.5-1-4.5-3-6.5-7.5-7.5C9 9.5 11 7.5 12 3z"/></svg></span><h3>Finish</h3></div><ul class="checklist"><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Carpet groomed so fibres dry evenly</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Deodoriser applied</span></li><li><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Drying advice and a receipt for your records</span></li></ul></div>
     </div>
-    <div class="addons reveal"><p><strong>Add-ons:</strong> pet odour treatment, stain protector, rug cleaning and upholstery cleaning, quoted on the same visit.</p></div>
-    <div class="section-cta"><a class="btn btn-cta" href="#quote">Get My Free Quote</a></div>
+    <div class="addons reveal"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 4.5 3 6.5 7.5 7.5-4.5 1-6.5 3-7.5 7.5-1-4.5-3-6.5-7.5-7.5C9 9.5 11 7.5 12 3z"/></svg><p><strong>Add-ons:</strong> pet odour treatment, stain protector, rug cleaning and upholstery cleaning, quoted on the same visit.</p></div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
-<section class="section section-dark">
+<section class="section section-dark section-steps">
   <div class="container">
     <div class="section-head reveal">
+      <p class="kicker">How it works</p>
       <h2>How carpet steam cleaning works</h2>
       <p>Four steps from quote to fresh, dry carpets.</p>
     </div>
@@ -129,43 +144,56 @@
       <li><h3>We steam clean</h3><p>We pre-treat, extract and groom every room. Most homes take one to three hours.</p></li>
       <li><h3>Dry and done</h3><p>Carpets are typically dry in {{CARPET_DRY_HOURS}} hours. Moving out? You get a receipt for your property manager.</p></li>
     </ol>
-    <div class="section-cta"><a class="btn btn-cta" href="#quote">Get My Free Quote</a></div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
-<section class="section section-tint">
+<section class="section section-tint section-prices">
   <div class="container">
     <div class="section-head reveal">
+      <p class="kicker">Upfront pricing</p>
       <h2>Carpet steam cleaning prices</h2>
       <p>Starting prices for standard-size rooms. Your quote confirms the exact price.</p>
     </div>
-    <div class="grid grid-3 reveal">
+    <div class="grid grid-3 price-grid reveal">
       <div class="card price-card" data-tilt>
         <p class="price-label">1 room</p>
-        <p class="price"><small>from </small>${{PRICE_CARPET_1ROOM}}</p>
+        <p class="price"><small>from </small><span class="cur">$</span>{{PRICE_CARPET_1ROOM}}</p>
         <p class="price-unit">bedroom or living area</p>
-        <ul><li>Pre-treatment included</li><li>Deodoriser included</li></ul>
+        <ul class="price-list"><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Pre-treatment included</span></li><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Deodoriser included</span></li></ul>
+        <a class="btn btn-cta btn-block btn-sm" href="#quote" data-service="Carpet steam cleaning"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="card price-card" data-tilt>
+      <div class="card price-card price-card--feature" data-tilt>
         <p class="price-label">3 rooms</p>
-        <p class="price"><small>from </small>${{PRICE_CARPET_3ROOMS}}</p>
+        <p class="price"><small>from </small><span class="cur">$</span>{{PRICE_CARPET_3ROOMS}}</p>
         <p class="price-unit">typical unit or small house</p>
-        <ul><li>Most popular for end of lease</li><li>Hallway included</li></ul>
+        <ul class="price-list"><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Suits most end of lease units</span></li><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Hallway included</span></li></ul>
+        <a class="btn btn-cta btn-block btn-sm" href="#quote" data-service="Carpet steam cleaning"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="card price-card" data-tilt>
         <p class="price-label">5 rooms</p>
-        <p class="price"><small>from </small>${{PRICE_CARPET_5ROOMS}}</p>
+        <p class="price"><small>from </small><span class="cur">$</span>{{PRICE_CARPET_5ROOMS}}</p>
         <p class="price-unit">family house</p>
-        <ul><li>Best price per room</li><li>Hallway and stairs quoted</li></ul>
+        <ul class="price-list"><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Best price per room</span></li><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Hallway and stairs quoted</span></li></ul>
+        <a class="btn btn-cta btn-block btn-sm" href="#quote" data-service="Carpet steam cleaning"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <p class="price-note">Heavy soiling, pet treatments and stairs are priced in your written quote. The price we quote is the price you pay.</p>
-    <div class="section-cta"><a class="btn btn-cta" href="#quote">Get My Free Quote</a></div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
-<section class="section section-dark">
+<section class="section section-dark section-guarantee">
   <div class="container">
     <div class="guarantee glass reveal">
-      <div>
+      <div class="guarantee-lead">
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 200 200" width="168" height="168" focusable="false">
+            <defs><path id="seal-ring" d="M100 100m-80 0a80 80 0 1 1 160 0a80 80 0 1 1-160 0"/></defs>
+            <circle class="seal-outer" cx="100" cy="100" r="97"/>
+            <circle class="seal-line" cx="100" cy="100" r="64"/>
+            <g class="seal-spin"><text class="seal-text"><textPath href="#seal-ring" textLength="496" lengthAdjust="spacingAndGlyphs">BOND-BACK CARPET GUARANTEE &#8226; FREE RE-CLEAN &#8226; {{GUARANTEE_DAYS}}-DAY CLAIM WINDOW &#8226; </textPath></text></g>
+            <g transform="translate(64 62) scale(1.12)"><path class="mk-roof" d="M13 31 32 15l19 16" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-check" d="m20 38 9 8 16-16" fill="none" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-spark" d="M50 40c.9 3.4 2.3 4.8 5.6 5.6-3.3.9-4.7 2.3-5.6 5.6-.9-3.3-2.3-4.7-5.6-5.6 3.3-.8 4.7-2.2 5.6-5.6z"/></g>
+          </svg>
+        </div>
         <p class="eyebrow">Our guarantee</p>
         <h2>Bond-back carpet guarantee: we re-clean until it passes</h2>
         <p class="big">If your property manager rejects the carpets we cleaned at the exit inspection, we come back and re-clean them at no charge.</p>
@@ -181,48 +209,54 @@
         </ol>
       </div>
     </div>
-    <div class="section-cta"><a class="btn btn-cta" href="#quote">Get My Free Quote</a></div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
-<section class="section ">
+<section class="section section-reviews">
   <div class="container">
     <div class="section-head reveal">
+      <p class="kicker">Reviews</p>
       <h2>What carpet cleaning clients say</h2>
       <p>These blocks are placeholders. Replace them with real, verified reviews before the page goes live.</p>
     </div>
     <div class="grid grid-3 reveal">
       <figure class="card testimonial" data-tilt>
         <span class="ph-badge">Placeholder review: replace before launch</span>
+        <svg class="quote-glyph" width="40" height="32" viewBox="0 0 40 32" aria-hidden="true" focusable="false"><path d="M0 32V19C0 8.6 5.4 2.2 16 0l2 4.4C12 6.6 9.4 10 9 15h8v17zm22 0V19C22 8.6 27.4 2.2 38 0l2 4.4C34 6.6 31.4 10 31 15h8v17z"/></svg>
         <blockquote><p>&ldquo;{{CARPET_TESTIMONIAL_1_QUOTE}}&rdquo;</p></blockquote>
-        <figcaption>{{CARPET_TESTIMONIAL_1_NAME}}, {{CARPET_TESTIMONIAL_1_SUBURB}}</figcaption>
+        <figcaption><span class="avatar"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><span>{{CARPET_TESTIMONIAL_1_NAME}}<small>{{CARPET_TESTIMONIAL_1_SUBURB}}</small></span></figcaption>
       </figure>
       <figure class="card testimonial" data-tilt>
         <span class="ph-badge">Placeholder review: replace before launch</span>
+        <svg class="quote-glyph" width="40" height="32" viewBox="0 0 40 32" aria-hidden="true" focusable="false"><path d="M0 32V19C0 8.6 5.4 2.2 16 0l2 4.4C12 6.6 9.4 10 9 15h8v17zm22 0V19C22 8.6 27.4 2.2 38 0l2 4.4C34 6.6 31.4 10 31 15h8v17z"/></svg>
         <blockquote><p>&ldquo;{{CARPET_TESTIMONIAL_2_QUOTE}}&rdquo;</p></blockquote>
-        <figcaption>{{CARPET_TESTIMONIAL_2_NAME}}, {{CARPET_TESTIMONIAL_2_SUBURB}}</figcaption>
+        <figcaption><span class="avatar"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><span>{{CARPET_TESTIMONIAL_2_NAME}}<small>{{CARPET_TESTIMONIAL_2_SUBURB}}</small></span></figcaption>
       </figure>
       <figure class="card testimonial" data-tilt>
         <span class="ph-badge">Placeholder review: replace before launch</span>
+        <svg class="quote-glyph" width="40" height="32" viewBox="0 0 40 32" aria-hidden="true" focusable="false"><path d="M0 32V19C0 8.6 5.4 2.2 16 0l2 4.4C12 6.6 9.4 10 9 15h8v17zm22 0V19C22 8.6 27.4 2.2 38 0l2 4.4C34 6.6 31.4 10 31 15h8v17z"/></svg>
         <blockquote><p>&ldquo;{{CARPET_TESTIMONIAL_3_QUOTE}}&rdquo;</p></blockquote>
-        <figcaption>{{CARPET_TESTIMONIAL_3_NAME}}, {{CARPET_TESTIMONIAL_3_SUBURB}}</figcaption>
+        <figcaption><span class="avatar"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><span>{{CARPET_TESTIMONIAL_3_NAME}}<small>{{CARPET_TESTIMONIAL_3_SUBURB}}</small></span></figcaption>
       </figure>
     </div>
-    <div class="section-cta"><a class="btn btn-cta" href="#quote">Get My Free Quote</a></div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
-<section class="section section-tint">
+<section class="section section-tint section-suburbs">
   <div class="container">
     <div class="section-head reveal">
+      <p class="kicker">Service area</p>
       <h2>Carpet steam cleaning across {{CITY_STATE}}</h2>
       <p>We steam clean carpets in these suburbs every week. Not listed? Add your suburb to the form and we&rsquo;ll confirm the same day.</p>
     </div>
     <ul class="suburbs reveal"><li>Perth CBD</li><li>Subiaco</li><li>Leederville</li><li>Mount Lawley</li><li>Victoria Park</li><li>South Perth</li><li>Como</li><li>Applecross</li><li>Fremantle</li><li>Cottesloe</li><li>Claremont</li><li>Nedlands</li><li>Scarborough</li><li>Karrinyup</li><li>Joondalup</li><li>Hillarys</li><li>Wanneroo</li><li>Ellenbrook</li><li>Midland</li><li>Morley</li><li>Bayswater</li><li>Belmont</li><li>Cannington</li><li>Canning Vale</li><li>Willetton</li><li>Murdoch</li><li>Cockburn Central</li><li>Baldivis</li><li>Rockingham</li><li>Armadale</li></ul>
-    <div class="section-cta"><a class="btn btn-cta" href="#quote">Get My Free Quote</a></div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
-<section class="section ">
+<section class="section section-faq">
   <div class="container">
     <div class="section-head reveal">
+      <p class="kicker">FAQ</p>
       <h2>Carpet steam cleaning questions</h2>
     </div>
     <div class="faq reveal">
@@ -233,25 +267,27 @@
       <div class="card"><h3>Can I change my booking time?</h3><p>Yes. Tell us at least {{RESCHEDULE_NOTICE_HOURS}} hours before and we move it at no cost.</p></div>
       <div class="card"><h3>How long until I can walk on the carpet?</h3><p>Carpets are typically dry in {{CARPET_DRY_HOURS}} hours. Open windows and run fans to speed it up.</p></div>
     </div>
-    <div class="section-cta"><a class="btn btn-cta" href="#quote">Get My Free Quote</a></div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 <section class="section section-dark final-cta">
+  <svg class="big-mark" viewBox="0 0 64 64" width="360" height="360" aria-hidden="true" focusable="false"><path class="mk-roof" d="M13 31 32 15l19 16" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-check" d="m20 38 9 8 16-16" fill="none" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-spark" d="M50 40c.9 3.4 2.3 4.8 5.6 5.6-3.3.9-4.7 2.3-5.6 5.6-.9-3.3-2.3-4.7-5.6-5.6 3.3-.8 4.7-2.2 5.6-5.6z"/></svg>
   <div class="container">
     <div class="section-head reveal">
+      <p class="kicker">Free quote</p>
       <h2>Fresh, clean carpets this week.</h2>
       <p>Get a fixed price today, with a free re-clean if your property manager rejects the carpets within {{GUARANTEE_DAYS}} days.</p>
     </div>
-    <div class="section-cta"><a class="btn btn-cta" href="#quote">Get My Free Quote</a><p class="cta-note">or call <a href="tel:{{PHONE}}" data-call-location="final-cta">{{PHONE}}</a></p></div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><p class="cta-note">or call <a href="tel:{{PHONE}}" data-call-location="final-cta">{{PHONE}}</a></p></div>
   </div>
 </section>
 </main>
 <footer class="site-footer">
   <div class="container">
-    <p class="footer-brand">{{BUSINESS_NAME}}</p>
+    <div class="footer-brand-row"><svg class="footer-mark" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="16" class="mk-tile"/><path class="mk-roof" d="M13 31 32 15l19 16" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-check" d="m20 38 9 8 16-16" fill="none" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-spark" d="M50 40c.9 3.4 2.3 4.8 5.6 5.6-3.3.9-4.7 2.3-5.6 5.6-.9-3.3-2.3-4.7-5.6-5.6 3.3-.8 4.7-2.2 5.6-5.6z"/></svg><p class="footer-brand">{{BUSINESS_NAME}}</p></div>
     <p>Call <a href="tel:{{PHONE}}" data-call-location="footer">{{PHONE}}</a> &middot; Email <a href="mailto:{{EMAIL}}">{{EMAIL}}</a></p>
     <div class="footer-legal">
-      <p>&copy; {{BUSINESS_NAME}} &middot; ABN {{ABN}} &middot; Servicing {{CITY_STATE}}</p>
+      <p>&copy; {{BUSINESS_NAME}} &middot; ABN {{ABN}} &middot; Servicing {{CITY_STATE}} &middot; <a href="{{PRIVACY_POLICY_URL}}" target="_blank" rel="noopener">Privacy policy</a></p>
       <p>Insurance: {{INSURANCE_DETAILS}}</p>
     </div>
   </div>
