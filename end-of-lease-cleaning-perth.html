@@ -79,11 +79,16 @@
       <label for="q-service">Service</label>
       <select id="q-service" name="service" required aria-describedby="q-service-error">
         <option value="">Choose a service</option>
-        <option value="End of lease cleaning" selected>End of lease cleaning</option>
-        <option value="Regular house cleaning">Regular house cleaning</option>
-        <option value="Office cleaning">Office cleaning</option>
-        <option value="Carpet steam cleaning">Carpet steam cleaning</option>
-        <option value="Something else">Something else</option>
+        <optgroup label="Residential">
+          <option value="End of lease cleaning" selected>End of lease cleaning</option>
+          <option value="Regular house cleaning">Regular house cleaning</option>
+          <option value="Carpet steam cleaning">Carpet steam cleaning</option>
+          <option value="Other residential cleaning">Other residential cleaning</option>
+        </optgroup>
+        <optgroup label="Commercial">
+          <option value="Office cleaning">Office cleaning</option>
+          <option value="Other commercial cleaning">Other commercial cleaning</option>
+        </optgroup>
       </select>
       <p class="field-error" id="q-service-error" aria-live="polite"></p>
     </div>

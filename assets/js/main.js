@@ -158,6 +158,19 @@
     });
   }
 
+  // Services dropdown: click or tap to open, Escape or outside click to close. Hover and focus also open it (CSS).
+  var menu = doc.querySelector('.has-menu');
+  if (menu) {
+    var menuBtn = menu.querySelector('.menu-btn');
+    var setMenu = function (open) { menu.classList.toggle('is-open', open); menuBtn.setAttribute('aria-expanded', String(open)); };
+    menuBtn.addEventListener('click', function () { setMenu(!menu.classList.contains('is-open')); });
+    doc.addEventListener('click', function (event) { if (!menu.contains(event.target)) setMenu(false); });
+    doc.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && menu.classList.contains('is-open')) { setMenu(false); menuBtn.focus(); }
+    });
+    menu.addEventListener('focusout', function (event) { if (!menu.contains(event.relatedTarget)) setMenu(false); });
+  }
+
   /* ---------------------------------------------------------------------
      Quote form: inline validation, honeypot, webhook POST, redirect.
      --------------------------------------------------------------------- */
@@ -280,6 +293,16 @@
       try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); }
     }, reducedMotion ? 0 : 450);
   });
+
+  // contact.html?service=Office%20cleaning#quote preselects that service.
+  (function preselectService() {
+    var select = doc.getElementById('q-service');
+    if (!select) return;
+    var wanted;
+    try { wanted = new URLSearchParams(window.location.search).get('service'); } catch (e) { return; }
+    if (!wanted) return;
+    Array.prototype.forEach.call(select.options, function (opt) { if (opt.value && opt.value === wanted) select.value = wanted; });
+  })();
 
   /* ---------------------------------------------------------------------
      Scroll reveal: replays every time (class added on enter, removed on leave).

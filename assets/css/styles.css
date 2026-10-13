@@ -157,7 +157,7 @@ html:not(.js) .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 18px; }
   .header-cta { display: inline-flex; }
   .header-phone { display: inline-flex; }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .nav-toggle { display: none; }
   .header-inner { flex-wrap: nowrap; }
   html.js .site-nav, .site-nav { display: block; border: 0; padding: 0; }
@@ -165,9 +165,54 @@ html:not(.js) .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 18px; }
   .site-nav a { padding: 8px 0; }
   .header-full .site-nav { order: 0; }
 }
-@media (max-width: 1199.98px) {
+@media (max-width: 1023.98px) {
   .header-full .header-inner { flex-wrap: wrap; }
-  .header-full .site-nav { flex-basis: 100%; }
+  .header-full .header-inner { padding-block: 8px; }
+  .header-full .site-nav { flex-basis: 100%; order: 3; }
+}
+
+/* ---------- Services dropdown (Residential / Commercial) ---------- */
+.menu-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 12px 0; background: none; border: 0; cursor: pointer;
+  color: var(--on-dark); font: inherit; font-weight: 600;
+}
+.menu-btn:hover, .has-menu.is-current > .menu-btn { color: var(--accent-colour); }
+.menu-chevron { transition: transform .2s ease; }
+.has-menu.is-open .menu-chevron { transform: rotate(180deg); }
+.menu-title { margin: 0 0 6px; font-size: .74rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-colour); }
+.site-nav .menu-panel .menu-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.menu-panel a { white-space: normal; }
+.menu-panel a strong { display: block; font-weight: 700; }
+.menu-panel a span { display: block; font-size: .86rem; font-weight: 500; color: var(--on-dark-muted); }
+/* Phone and tablet: the groups sit open inside the Menu panel */
+@media (max-width: 1023.98px) {
+  .menu-btn { display: none; }
+  .menu-panel { display: grid; gap: 14px; padding: 10px 0 6px; }
+  .menu-panel a { padding: 8px 0; }
+}
+/* Desktop: a white panel under the Services button */
+@media (min-width: 1024px) {
+  .has-menu { position: relative; }
+  .menu-btn { padding: 8px 0; }
+  .menu-panel {
+    position: absolute; top: calc(100% + 18px); left: -20px; z-index: 70;
+    width: 560px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+    padding: 22px; border-radius: 16px; background: var(--surface); color: var(--ink);
+    box-shadow: 0 30px 70px -24px color-mix(in srgb, #000 55%, transparent);
+    opacity: 0; visibility: hidden; transform: translate3d(0, -8px, 0);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+  }
+  .menu-panel::before { content: ""; position: absolute; left: 0; right: 0; top: -18px; height: 18px; } /* hover bridge */
+  .has-menu.is-open .menu-panel, .has-menu:focus-within .menu-panel {
+    opacity: 1; visibility: visible; transform: none; transition: opacity .18s ease, transform .18s ease, visibility 0s;
+  }
+  .menu-title { color: var(--accent-ink); }
+  .menu-panel a { color: var(--ink); padding: 9px 12px; margin: 0 -12px; border-radius: 10px; }
+  .menu-panel a:hover, .menu-panel a[aria-current="page"] { color: var(--ink); background: var(--accent-wash); }
+  .menu-panel a span { color: var(--ink-muted); }
+}
+@media (min-width: 1024px) and (hover: hover) {
+  .has-menu:hover .menu-panel { opacity: 1; visibility: visible; transform: none; transition: opacity .18s ease, transform .18s ease, visibility 0s; }
 }
 
 /* ---------- Mobile sticky bar ---------- */

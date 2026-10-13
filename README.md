@@ -118,6 +118,15 @@ Every lead POSTs these URL-encoded fields. Map them to GHL contact fields; creat
 
 Click IDs and UTMs are kept in the visitor's browser for 90 days, so a lead who comes back later is still credited to the ad. Empty fields are sent as empty strings.
 
+### Service dropdown values
+
+The form's **Service** dropdown is grouped the same way as the site menu. GHL receives one of these exact values in `service`, so you can branch the workflow on them:
+
+- Residential: `End of lease cleaning`, `Regular house cleaning`, `Carpet steam cleaning`, `Other residential cleaning`
+- Commercial: `Office cleaning`, `Other commercial cleaning`
+
+Link straight to the contact form with a service already chosen with `contact.html?service=Other%20commercial%20cleaning#quote` (any value above, with spaces as `%20`). The menu and footer already use this for the two "Other" options.
+
 ### Enhanced conversions
 
 When `GADS_ID_AND_LABEL` is set, the visitor's phone number (converted to `+61…` format) is held in session storage just long enough to reach thank-you.html. It's passed to Google with `gtag('set', 'user_data', …)` for enhanced conversions, which Google hashes before sending, then deleted. Switch on **Enhanced conversions for leads (Google tag)** in the Ads conversion settings, and mention it in your privacy policy.
