@@ -461,6 +461,40 @@ html.has-tilt [data-tilt] { transition: transform .18s ease-out; }
 .prose p, .prose li { color: var(--ink-muted); }
 .ph-block { border: 1.5px dashed var(--line-strong); border-radius: var(--radius-sm); padding: 14px 16px; }
 
+/* ---------- Photos ---------- */
+.photo { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); aspect-ratio: 3 / 2; background: var(--primary-colour); isolation: isolate; }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.photo:hover img { transform: scale(1.04); }
+.photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 55%, color-mix(in srgb, var(--primary-deep) 70%, transparent)); }
+.photo figcaption {
+  position: absolute; left: 14px; bottom: 14px; right: 14px; z-index: 1;
+  display: inline-flex; align-items: center; gap: 8px; width: fit-content; max-width: calc(100% - 28px);
+  padding: 7px 12px; border-radius: 999px; background: var(--primary-colour); color: var(--on-dark);
+  font-size: .88rem; font-weight: 700; line-height: 1.3;
+}
+.photo figcaption .icon { color: var(--accent-colour); flex: none; }
+.photo-grid { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.photo-grid .photo:first-child { grid-column: 1 / -1; }
+@media (max-width: 599.98px) { .photo-grid .photo:not(:first-child) figcaption { display: none; } } /* the checklist below repeats them */
+@media (min-width: 900px) {
+  .photo-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 18px; } /* 2:1 columns keep every tile close to the photos' 3:2 shape */
+  .photo-grid .photo:first-child { grid-column: 1; grid-row: 1 / span 2; aspect-ratio: auto; }
+}
+.section-photos { padding-bottom: 40px; }
+@media (min-width: 768px) { .section-photos { padding-bottom: 56px; } }
+
+/* Service cards with a photo header; the icon tile overlaps the photo edge */
+.service-card.has-photo { padding-top: 0; overflow: hidden; }
+.card-photo { margin: 0 -22px; aspect-ratio: 16 / 10; overflow: hidden; background: var(--primary-colour); }
+.card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.service-card:hover .card-photo img { transform: scale(1.05); }
+.service-card.has-photo .tile { position: relative; margin-top: -24px; box-shadow: 0 0 0 4px var(--surface); }
+
+/* About: story beside a team photo */
+.about-grid { display: grid; gap: 28px; align-items: start; }
+@media (min-width: 900px) { .about-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; } }
+.photo-tall { aspect-ratio: 3 / 2; }
+
 /* ---------- Footer ---------- */
 .site-footer { background: var(--primary-deep); color: var(--on-dark-muted); padding: 44px 0 28px; font-size: .94rem; }
 .site-footer a { color: var(--on-dark); }
@@ -703,4 +737,5 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
   [data-tilt] { transform: none !important; }
   .price-card--feature { transform: none; }
   .blob, .spark, .seal-spin { animation: none !important; }
+  .photo:hover img, .service-card:hover .card-photo img { transform: none; }
 }

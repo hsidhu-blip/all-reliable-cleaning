@@ -158,6 +158,27 @@ Add `?area=Joondalup` (or a `{_area}` custom parameter) to a landing-page final 
 
 Edit the hex values, not the comments. Every other colour is derived with `color-mix()`. The standalone SVG files and the `theme-color` meta tag hold hard-coded copies of the navy and aqua values. Update those too if you change the brand colours. Button text is navy on orange (about 6.3:1 contrast). If you change the colours, recheck contrast.
 
+### Photos
+
+There are 13 photo spots. Each currently holds a branded placeholder that says **PHOTO PLACEHOLDER** and names its own file. To add a photo, overwrite the file in `assets/img/photos/` and keep the same name. No code changes needed.
+
+| File | Used on | Show |
+|---|---|---|
+| `eol-kitchen.jpg` | End of lease (large), home service card | Spotless kitchen in an empty rental |
+| `eol-bathroom.jpg`, `eol-living.jpg` | End of lease | Clean bathroom / shower screen; empty living room, windows |
+| `regular-living.jpg` | Regular cleaning (large), home service card | Tidy living room |
+| `regular-kitchen.jpg`, `regular-bathroom.jpg` | Regular cleaning | Kitchen benches; bathroom |
+| `office-desks.jpg` | Office (large), home service card | Clean open-plan office |
+| `office-kitchen.jpg`, `office-reception.jpg` | Office | Kitchenette; reception |
+| `carpet-closeup.jpg` | Carpet (large), home service card | Freshly steamed carpet, close up |
+| `carpet-room.jpg`, `carpet-stain.jpg` | Carpet | Room with clean carpet; stain treatment |
+| `about-team.jpg` | About | **A real photo of the team** |
+
+- **Size:** landscape 3:2, 1200 × 800 px, JPG, ideally under 200 KB each (use squoosh.app). Keep the main subject near the centre, because tiles crop slightly at some screen widths.
+- **Best:** your own photos of real jobs, even taken on a phone. They build more trust than stock and are fully yours to use.
+- **Stock:** Unsplash and Pexels allow free commercial use. Pick photos of clean rooms and results, **not people**. Stock photos of "cleaners" would suggest they're your staff, which can count as misleading under Australian Consumer Law. For the same reason, don't use stock for `about-team.jpg`.
+- After swapping a photo, update its `alt` text in the HTML if it no longer matches the picture (search for the file name).
+
 ## 2. Pre-launch checklist
 
 **Webhook**
