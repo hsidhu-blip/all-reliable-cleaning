@@ -122,6 +122,15 @@ Click IDs and UTMs are kept in the visitor's browser for 90 days, so a lead who 
 
 On the four landing pages, visitors see only **name, phone and suburb**. The service is already chosen from the ad and shows as a one-line summary with a "Change" link. The optional note sits behind "+ Add a note (optional)". The home and contact pages still show the Service dropdown. The webhook receives the same fields either way, and without JavaScript the full form shows.
 
+### Exit-intent pop-up
+
+On desktop, every page except thank-you shows a short **name + phone** pop-up whenever the cursor leaves through the top of the window (towards the tabs or close button).
+- It shows on every exit attempt. After it's closed it re-arms after 2 seconds (`CONFIG.EXIT_REARM_MS` in main.js); the pause stops it reopening in a loop while the cursor sits at the window edge.
+- It closes with the X, Esc, a click on the dimmed backdrop, or "No thanks". It never blocks leaving and never touches the back button. Back-button traps break Google Ads' destination and abusive-experience policies, so there's deliberately no phone version (phones keep the sticky Call / Quote bar).
+- It stops for the rest of the visit once a lead has been sent.
+- Leads arrive with `form_type=exit-intent` (main forms send `form_type=main`). On landing pages the service is filled in from the page; suburb arrives empty, so ask for it on the callback.
+- GA4 receives an `exit_intent_shown` event each time it opens, so you can compare shows against `generate_lead`.
+
 ### Service dropdown values
 
 The form's **Service** dropdown is grouped the same way as the site menu. GHL receives one of these exact values in `service`, so you can branch the workflow on them:

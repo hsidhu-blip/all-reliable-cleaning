@@ -103,6 +103,8 @@ ul { padding-left: 1.2em; }
   transition: transform .2s ease;
 }
 .btn:hover { transform: translateY(-2px); }
+/* Hover area reaches 3px below the button, so the 2px lift never moves it out from under a resting cursor (no hover jitter). */
+.btn::before { content: ""; position: absolute; left: 0; right: 0; top: 0; bottom: -3px; border-radius: inherit; }
 .btn:active { transform: translateY(0); }
 /* Conversion buttons: the only place the CTA colour and glow appear. */
 .btn-cta {
@@ -215,6 +217,28 @@ html:not(.js) .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 18px; }
 @media (min-width: 1024px) and (hover: hover) {
   .has-menu:hover .menu-panel { opacity: 1; visibility: visible; transform: none; transition: opacity .18s ease, transform .18s ease, visibility 0s; }
 }
+
+/* ---------- Exit-intent pop-up (desktop) ---------- */
+.exit-modal {
+  width: min(480px, calc(100% - 32px)); max-height: calc(100% - 32px); overflow: auto;
+  border: 0; border-radius: 20px; padding: 30px 28px 22px;
+  background: var(--surface); color: var(--ink);
+  box-shadow: 0 40px 90px -30px color-mix(in srgb, #000 70%, transparent);
+}
+.exit-modal::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; border-radius: 20px 20px 0 0; background: linear-gradient(90deg, var(--accent-colour), color-mix(in srgb, var(--accent-colour) 35%, var(--primary-colour))); }
+.exit-modal::backdrop { background: color-mix(in srgb, var(--primary-colour) 72%, transparent); }
+.exit-modal[open] { animation: exit-in .22s ease-out; }
+@keyframes exit-in { from { opacity: 0; transform: translate3d(0, 14px, 0) scale(.98); } to { opacity: 1; transform: none; } }
+.exit-modal h2 { font-size: 1.55rem; margin-bottom: .35em; padding-right: 32px; }
+.exit-sub { color: var(--ink-muted); margin-bottom: 16px; }
+.exit-close {
+  position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; display: grid; place-items: center;
+  border: 0; border-radius: 50%; background: var(--surface-tint); color: var(--ink); cursor: pointer;
+}
+.exit-close:hover { background: var(--accent-wash); }
+.exit-or { margin: 14px 0 4px; text-align: center; color: var(--ink-muted); }
+.exit-or a { font-weight: 800; }
+.exit-dismiss { display: block; margin: 0 auto; font-size: .9rem; color: var(--ink-muted); }
 
 /* ---------- Mobile sticky bar ---------- */
 .mobile-bar {

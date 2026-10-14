@@ -301,5 +301,33 @@
   <a class="btn btn-call" href="tel:{{PHONE}}" data-call-location="mobile-bar"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call Now</a>
   <a class="btn btn-cta" href="#quote">Get My Free Quote</a>
 </div>
+<dialog class="exit-modal" id="exit-modal" aria-labelledby="exit-title">
+  <button class="exit-close" type="button" data-exit-close aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <p class="kicker">Before you go</p>
+  <h2 id="exit-title">Before you go: get your carpet cleaning price</h2>
+  <p class="exit-sub">Leave your name and number. We&rsquo;ll call or text the same day with a fixed price. No obligation.</p>
+  <form class="quote-form exit-form" action="{{GHL_WEBHOOK_URL}}" method="post" novalidate data-quote-form data-form-type="exit-intent">
+    <div class="field-row">
+    <div class="field">
+      <label for="x-name">Your name</label>
+      <input id="x-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="x-name-error">
+      <p class="field-error" id="x-name-error" aria-live="polite"></p>
+    </div>
+    <div class="field">
+      <label for="x-phone">Phone</label>
+      <input id="x-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required aria-describedby="x-phone-error">
+      <p class="field-error" id="x-phone-error" aria-live="polite"></p>
+    </div>
+    </div>
+      <input type="hidden" name="service" value="Carpet steam cleaning">
+    <div class="hp-field" aria-hidden="true">
+      <label for="x-fax">Leave this field empty</label>
+      <input id="x-fax" name="fax" type="text" tabindex="-1" autocomplete="off" data-hp>
+    </div>
+    <button class="btn btn-cta btn-block" type="submit"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </form>
+  <p class="exit-or">Prefer to talk? <a href="tel:{{PHONE}}" data-call-location="exit-intent">Call {{PHONE}}</a></p>
+  <button class="link-btn exit-dismiss" type="button" data-exit-close>No thanks, I&rsquo;ll keep browsing</button>
+</dialog>
 </body>
 </html>

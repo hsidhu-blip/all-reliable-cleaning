@@ -17,6 +17,8 @@
     EC_KEY: 'arc_ec',             // enhanced conversions: phone held until the thank-you page, then deleted
     ATTR_KEY: 'arc_attr',         // ad click attribution (gclid / UTM), kept 90 days
     ATTR_DAYS: 90,
+    SUBMITTED_KEY: 'arc_submitted', // set once a lead is sent: exit-intent pop-up stops for this visit
+    EXIT_REARM_MS: 2000,            // pause after closing before the pop-up can show again
     TILT_MAX_DEG: 6
   };
 
@@ -296,6 +298,8 @@
       var attribution = readAttribution() || {};
       ATTR_FIELDS.concat('landing_page').forEach(function (key) { body.append(key, attribution[key] || ''); });
       body.append('submitted_from', window.location.pathname);
+      body.append('form_type', form.getAttribute('data-form-type') || 'main');
+      storage('set', CONFIG.SUBMITTED_KEY, '1');
 
       storage('set', CONFIG.LEAD_FLAG, '1');
       if (adsOn) {
@@ -339,6 +343,46 @@
     try { wanted = new URLSearchParams(window.location.search).get('service'); } catch (e) { return; }
     if (!wanted) return;
     Array.prototype.forEach.call(select.options, function (opt) { if (opt.value && opt.value === wanted) select.value = wanted; });
+  })();
+
+  /* ---------------------------------------------------------------------
+     Exit-intent pop-up (desktop only). Opens every time the pointer leaves
+     through the top of the window. Easy to close; never blocks leaving, never
+     touches the back button (both required by Google Ads policy). Re-arms
+     EXIT_REARM_MS after closing.
+     --------------------------------------------------------------------- */
+  (function exitIntent() {
+    var modal = doc.getElementById('exit-modal');
+    if (!modal || typeof modal.showModal !== 'function') return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var armed = false;
+    window.setTimeout(function () { armed = true; }, 1500); // ignore a cursor that starts at the top edge
+
+    function open() {
+      if (!armed || modal.open || storage('get', CONFIG.SUBMITTED_KEY)) return;
+      armed = false;
+      modal.showModal();
+      track('exit_intent_shown', { page_path: window.location.pathname });
+      var first = modal.querySelector('input[name="name"]');
+      if (first) first.focus();
+    }
+    function close() { if (modal.open) modal.close(); }
+
+    doc.addEventListener('mouseout', function (event) {
+      if (event.relatedTarget || event.toElement) return; // still inside the page
+      if (event.clientY > 0) return;                     // left through the sides or bottom
+      open();
+    });
+    // Re-arm only by timer. Leaving through the top again needs the pointer back on the page anyway.
+    modal.addEventListener('close', function () {
+      window.setTimeout(function () { armed = true; }, CONFIG.EXIT_REARM_MS);
+    });
+    Array.prototype.forEach.call(modal.querySelectorAll('[data-exit-close]'), function (btn) { btn.addEventListener('click', close); });
+    modal.addEventListener('click', function (event) { // click on the dimmed backdrop closes it
+      if (event.target !== modal) return;
+      var box = modal.getBoundingClientRect();
+      if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) close();
+    });
   })();
 
   /* ---------------------------------------------------------------------
