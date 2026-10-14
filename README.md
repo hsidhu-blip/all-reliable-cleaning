@@ -118,6 +118,10 @@ Every lead POSTs these URL-encoded fields. Map them to GHL contact fields; creat
 
 Click IDs and UTMs are kept in the visitor's browser for 90 days, so a lead who comes back later is still credited to the ad. Empty fields are sent as empty strings.
 
+### Form length
+
+On the four landing pages, visitors see only **name, phone and suburb**. The service is already chosen from the ad and shows as a one-line summary with a "Change" link. The optional note sits behind "+ Add a note (optional)". The home and contact pages still show the Service dropdown. The webhook receives the same fields either way, and without JavaScript the full form shows.
+
 ### Service dropdown values
 
 The form's **Service** dropdown is grouped the same way as the site menu. GHL receives one of these exact values in `service`, so you can branch the workflow on them:

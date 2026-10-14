@@ -214,7 +214,44 @@
     window.location.href = CONFIG.THANK_YOU_URL; // no personal data in the URL
   }
 
+  /* Fewer visible fields = more leads. On ad landing pages the service is
+     already known, so it collapses to a one-line summary; the optional note
+     collapses to a link on every form. Without JS the full form shows. */
+  function compactForm(form) {
+    var select = form.elements.service;
+    if (form.hasAttribute('data-lock-service') && select && select.value) {
+      var field = select.closest('.field');
+      var summary = doc.createElement('p');
+      summary.className = 'svc-summary';
+      summary.innerHTML = '<span>Service: <strong></strong></span><button type="button" class="link-btn">Change</button>';
+      summary.querySelector('strong').textContent = select.value;
+      field.parentNode.insertBefore(summary, field);
+      field.hidden = true;
+      summary.querySelector('button').addEventListener('click', function () {
+        field.hidden = false;
+        summary.parentNode.removeChild(summary);
+        select.focus();
+      });
+    }
+    var note = form.elements.message;
+    if (note && !note.value) {
+      var noteField = note.closest('.field');
+      var toggle = doc.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'link-btn note-toggle';
+      toggle.textContent = '+ Add a note (optional)';
+      noteField.parentNode.insertBefore(toggle, noteField);
+      noteField.hidden = true;
+      toggle.addEventListener('click', function () {
+        noteField.hidden = false;
+        toggle.parentNode.removeChild(toggle);
+        note.focus();
+      });
+    }
+  }
+
   Array.prototype.forEach.call(doc.querySelectorAll('form[data-quote-form]'), function (form) {
+    compactForm(form);
     form.addEventListener('focusout', function (event) {
       if (RULES[event.target.name]) validate(event.target);
     });

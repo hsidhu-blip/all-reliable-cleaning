@@ -58,6 +58,7 @@
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 16px; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body {
@@ -314,6 +315,10 @@ html:not(.js) .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 18px; }
 .field-error:empty { display: none; }
 .field [aria-invalid="true"] { border-color: var(--error); border-width: 2px; }
 .form-note { margin: 2px 0 0; font-size: .82rem; color: var(--ink-muted); text-align: center; }
+.svc-summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--accent-wash); font-size: .95rem; }
+.svc-summary strong { font-weight: 800; }
+.link-btn { padding: 4px 0; background: none; border: 0; font: inherit; font-weight: 700; color: var(--accent-ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.note-toggle { justify-self: start; font-size: .92rem; }
 .hp-field { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 .quote-form .btn-cta { margin-top: 4px; min-height: 52px; }
 @media (min-width: 768px) {
