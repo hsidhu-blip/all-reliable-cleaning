@@ -4,10 +4,10 @@ A static, multipage site for a {{CITY_STATE}} cleaning business. It has no build
 
 ```
 index.html                          Home: all services, quote form in the hero
-end-of-lease-cleaning-perth.html    Google Ads landing page (no nav)
-regular-house-cleaning-perth.html   Google Ads landing page (no nav)
-office-cleaning-perth.html          Google Ads landing page (no nav)
-carpet-deep-cleaning-perth.html     Google Ads landing page (no nav)
+end-of-lease-cleaning-perth.html    Service page and Google Ads landing page
+regular-house-cleaning-perth.html   Service page and Google Ads landing page
+office-cleaning-perth.html          Service page and Google Ads landing page
+carpet-deep-cleaning-perth.html     Service page and Google Ads landing page
 about.html                          About
 contact.html                        Contact and quote form
 thank-you.html                      Post-submit page (noindex), fires the conversion
