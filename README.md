@@ -1,6 +1,6 @@
-# {{BUSINESS_NAME}}: lead-generation website
+# All Reliable Cleaning: lead-generation website
 
-A static, multipage site for a {{CITY_STATE}} cleaning business. It has no build step, no frameworks and no dependencies. Every page uses relative paths, so it works from `file://` and from any static host.
+A static, multipage site for All Reliable Cleaning, a Perth, Western Australia cleaning business. It has no build step, no frameworks and no dependencies. Every page uses relative paths, so it works from `file://` and from any static host.
 
 ```
 index.html                          Home: all services, quote form in the hero
@@ -31,10 +31,10 @@ grep -rn "{{" --include=*.html --include=*.js --include=*.css --include=*.txt --
 
 ### Business and contact
 
+Already filled in: business name **All Reliable Cleaning** and location **Perth, WA**. Copy says "Perth"; the footer says "Perth, Western Australia"; the JSON-LD has locality Perth, region WA, country AU. If the name ever changes, also redraw the logo text: the inline header SVG in every page and `assets/img/logo.svg`.
+
 | Placeholder | File(s) | Replace with |
 |---|---|---|
-| `{{BUSINESS_NAME}}` | All HTML, `styles.css` and `main.js` (comments only) | Trading name, e.g. `All Reliable Cleaning`. The logo artwork says "All Reliable Cleaning". If the name changes, redraw the `<text>` in the inline header SVG (all HTML) and in `logo.svg`. |
-| `{{CITY_STATE}}` | All HTML | Service city and state, e.g. `Perth WA`. The suburb lists, the landing-page H1s/titles and the file names are Perth-specific. Update them too if the city changes. |
 | `{{SERVICES}}` | All HTML (JSON-LD `description`) | Plain-English list, e.g. `end of lease, regular house, office and carpet steam cleaning` |
 | `{{PHONE}}` | All HTML (shown as text and used in `tel:` links) | The real number, e.g. `08 9xxx xxxx` or `04xx xxx xxx`. Spaces are fine in `tel:` links. |
 | `{{EMAIL}}` | All HTML | Enquiries email address |

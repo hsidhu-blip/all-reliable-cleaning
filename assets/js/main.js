@@ -1,4 +1,4 @@
-/* {{BUSINESS_NAME}} site script. Loaded with defer on every page. No libraries. */
+/* All Reliable Cleaning site script. Loaded with defer on every page. No libraries. */
 (function () {
   'use strict';
 
