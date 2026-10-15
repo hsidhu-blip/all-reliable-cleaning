@@ -148,9 +148,11 @@
      --------------------------------------------------------------------- */
   var navToggle = doc.querySelector('.nav-toggle');
   if (navToggle) {
+    var navLabel = navToggle.querySelector('.nav-toggle-label');
     var setNav = function (open) {
       navToggle.setAttribute('aria-expanded', String(open));
       root.classList.toggle('nav-open', open);
+      if (navLabel) navLabel.textContent = open ? 'Close' : 'Menu';
     };
     navToggle.addEventListener('click', function () {
       setNav(navToggle.getAttribute('aria-expanded') !== 'true');
@@ -159,6 +161,17 @@
       if (event.key === 'Escape' && root.classList.contains('nav-open')) { setNav(false); navToggle.focus(); }
     });
   }
+
+  // Landing pages have no menu (they're for ad traffic). Visitors who arrived from another page
+  // on this site get a way back; visitors from Google Ads never see it.
+  (function backLink() {
+    var link = doc.querySelector('[data-back-link]');
+    if (!link || !doc.referrer) return;
+    try {
+      var from = new URL(doc.referrer);
+      if (from.origin === window.location.origin && from.pathname !== window.location.pathname) link.hidden = false;
+    } catch (e) { /* unparseable referrer: keep hidden */ }
+  })();
 
   // Services dropdown: click or tap to open, Escape or outside click to close. Hover and focus also open it (CSS).
   var menu = doc.querySelector('.has-menu');
