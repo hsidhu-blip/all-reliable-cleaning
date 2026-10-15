@@ -160,24 +160,28 @@ Edit the hex values, not the comments. Every other colour is derived with `color
 
 ### Photos
 
-There are 13 photo spots. Each currently holds a branded placeholder that says **PHOTO PLACEHOLDER** and names its own file. To add a photo, overwrite the file in `assets/img/photos/` and keep the same name. No code changes needed.
+All 13 photos are free stock photos from **Unsplash**, used under the [Unsplash License](https://unsplash.com/license). That licence allows free commercial use, including on websites and in Google Ads, and doesn't require credit. None of them show people, so no stock person can be mistaken for your staff. They're stored in `assets/img/photos/` at 1200 × 800 JPG, 78–164 KB each, and lazy-loaded below the fold.
 
-| File | Used on | Show |
+| File | Used on | Original |
 |---|---|---|
-| `eol-kitchen.jpg` | End of lease (large), home service card | Spotless kitchen in an empty rental |
-| `eol-bathroom.jpg`, `eol-living.jpg` | End of lease | Clean bathroom / shower screen; empty living room, windows |
-| `regular-living.jpg` | Regular cleaning (large), home service card | Tidy living room |
-| `regular-kitchen.jpg`, `regular-bathroom.jpg` | Regular cleaning | Kitchen benches; bathroom |
-| `office-desks.jpg` | Office (large), home service card | Clean open-plan office |
-| `office-kitchen.jpg`, `office-reception.jpg` | Office | Kitchenette; reception |
-| `carpet-closeup.jpg` | Carpet (large), home service card | Freshly steamed carpet, close up |
-| `carpet-room.jpg`, `carpet-stain.jpg` | Carpet | Room with clean carpet; stain treatment |
-| `about-team.jpg` | About | **A real photo of the team** |
+| `eol-kitchen.jpg` | End of lease (large), home service card | https://images.unsplash.com/photo-1484154218962-a197022b5858 |
+| `eol-bathroom.jpg` | End of lease | https://images.unsplash.com/photo-1584622650111-993a426fbf0a |
+| `eol-living.jpg` | End of lease | https://images.unsplash.com/photo-1560448204-e02f11c3d0e2 |
+| `regular-living.jpg` | Regular cleaning (large), home service card | https://images.unsplash.com/photo-1600607687939-ce8a6c25118c |
+| `regular-kitchen.jpg` | Regular cleaning | https://images.unsplash.com/photo-1556911220-bff31c812dba |
+| `regular-bathroom.jpg` | Regular cleaning | https://images.unsplash.com/photo-1620626011761-996317b8d101 |
+| `office-desks.jpg` | Office (large), home service card | https://images.unsplash.com/photo-1462826303086-329426d1aef5 |
+| `office-kitchen.jpg` | Office | https://images.unsplash.com/photo-1497366216548-37526070297c |
+| `office-reception.jpg` | Office | https://images.unsplash.com/photo-1524758631624-e2822e304c36 |
+| `carpet-closeup.jpg` | Carpet (large), home service card | https://images.unsplash.com/photo-1600166898405-da9535204843 |
+| `carpet-room.jpg` | Carpet | https://images.unsplash.com/photo-1600121848594-d8644e57abab |
+| `carpet-stain.jpg` | Carpet | https://images.unsplash.com/photo-1527515637462-cff94eecc1ac |
+| `about-home.jpg` | About | https://images.unsplash.com/photo-1554995207-c18c203602cb |
 
-- **Size:** landscape 3:2, 1200 × 800 px, JPG, ideally under 200 KB each (use squoosh.app). Keep the main subject near the centre, because tiles crop slightly at some screen widths.
-- **Best:** your own photos of real jobs, even taken on a phone. They build more trust than stock and are fully yours to use.
-- **Stock:** Unsplash and Pexels allow free commercial use. Pick photos of clean rooms and results, **not people**. Stock photos of "cleaners" would suggest they're your staff, which can count as misleading under Australian Consumer Law. For the same reason, don't use stock for `about-team.jpg`.
-- After swapping a photo, update its `alt` text in the HTML if it no longer matches the picture (search for the file name).
+- **Photographer credits:** Unsplash's search pages block automated access, so these were taken straight from Unsplash's image server and the photographer names weren't captured. Credit isn't required. If you'd like to credit them anyway, open an "Original" link and use "Search image with Google" to find the photo's Unsplash page.
+- **Replacing a photo:** overwrite the file and keep the same name, size (1200 × 800) and shape (3:2), ideally under 200 KB (squoosh.app). Then update its `alt` text in the HTML (search for the file name).
+- **Better than stock:** your own photos of real jobs. Swap them in as you get them, starting with the large photo on each landing page.
+- **About page:** `about-home.jpg` is a clean living room, not a team photo, because stock people presented as your team would be misleading. When you have a real team photo, use it here.
 
 ## 2. Pre-launch checklist
 
