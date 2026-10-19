@@ -48,7 +48,6 @@ These were claims about the business that can't be made up. Inventing them would
 
 - **Google rating, review count, years in business.** The trust strip now shows promises he controls instead: free quotes, same-day response, 3-day guarantee, checklist cleans and no lock-in contracts.
 - **"Fully insured" and "police-checked".** Recommended before ads go live: public liability insurance (about $20M cover, usually around $500 to $900 a year for a small cleaner) and a National Police Check (about $50 online). Once he has them, add them back to the trust strip, the office page and the About page.
-- **Customer reviews.** The review sections are gone. Add them back once there are real, verified reviews, ideally from his Google Business Profile.
 - **"Truck-mounted" carpet equipment.** The carpet page now just says hot water extraction.
 
 ### Still needed (only the owner can supply these)
@@ -60,6 +59,20 @@ These were claims about the business that can't be made up. Inventing them would
 | `{{ABN}}` | Footer | ABN. Check the business name is registered to it on abr.business.gov.au. |
 | `{{SITE_URL}}` | Canonical links, JSON-LD, `robots.txt`, `sitemap.xml` | Live domain, no trailing slash, e.g. `https://www.allreliablecleaning.com.au` |
 | `{{GHL_WEBHOOK_URL}}`, `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | `main.js` and form `action`s | See Integrations below |
+
+### Reviews (placeholders until real reviews come in)
+
+The home page and each service page have a reviews section with three marked placeholder blocks ("Placeholder review: replace before launch"). Each block has `_QUOTE`, `_NAME` (e.g. `Sarah M.`) and `_SUBURB`, numbered 1 to 3:
+
+| Placeholder set | File |
+|---|---|
+| `{{TESTIMONIAL_1_QUOTE}}` … `{{TESTIMONIAL_3_SUBURB}}` | `index.html` |
+| `{{EOL_TESTIMONIAL_1_QUOTE}}` … `{{EOL_TESTIMONIAL_3_SUBURB}}` | `end-of-lease-cleaning-perth.html` |
+| `{{REGULAR_TESTIMONIAL_1_QUOTE}}` … `{{REGULAR_TESTIMONIAL_3_SUBURB}}` | `regular-house-cleaning-perth.html` |
+| `{{OFFICE_TESTIMONIAL_1_QUOTE}}` … `{{OFFICE_TESTIMONIAL_3_SUBURB}}` | `office-cleaning-perth.html` |
+| `{{CARPET_TESTIMONIAL_1_QUOTE}}` … `{{CARPET_TESTIMONIAL_3_SUBURB}}` | `carpet-deep-cleaning-perth.html` |
+
+Use only real reviews, with the customer's permission. When a block has a real review, delete its "Placeholder review" badge and the "These blocks are placeholders…" sentence above the section. Don't run ads with the placeholders showing: either fill them, or ask for the sections to be hidden until reviews arrive.
 
 When they're filled, this should print nothing except the brand-colour comments in `styles.css`:
 
@@ -186,7 +199,7 @@ All 13 photos are free stock photos from **Unsplash**, used under the [Unsplash 
 - [ ] The suburb lists. Remove any suburb he won't travel to.
 - [ ] The privacy policy (`privacy.html`) is a general template. Have him read it, and get it checked if he wants legal certainty.
 - [ ] Insurance and police checks: once he has them, add the claims back (see section 1).
-- [ ] Reviews: once he has real ones, add a reviews section back.
+- [ ] Reviews: replace the placeholder blocks with real ones, or hide the sections, before ads go live.
 
 **Final**
 - [ ] The grep command in section 1 returns nothing except the brand-colour comments.
