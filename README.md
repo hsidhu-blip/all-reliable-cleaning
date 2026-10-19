@@ -11,6 +11,7 @@ carpet-deep-cleaning-perth.html     Service page and Google Ads landing page
 about.html                          About
 contact.html                        Contact and quote form
 thank-you.html                      Post-submit page (noindex), fires the conversion
+privacy.html                        Privacy policy (Google Ads requirement for lead forms)
 assets/css/styles.css               Shared styles. Brand colours live in :root
 assets/js/main.js                   Shared script (defer). CONFIG object at the top
 assets/img/logo.svg                 Wordmark and mark for light backgrounds
@@ -19,79 +20,54 @@ assets/img/favicon.svg              Favicon
 robots.txt, sitemap.xml
 ```
 
-## 1. Replace the placeholders
+## 1. Business details
 
-Every unknown fact is a literal `{{TOKEN}}`. A project-wide find-and-replace covers every file. When you're done, this command should print nothing:
+### Already set
+
+Set for the owner, who is starting out and asked for working defaults. They're business decisions he has to honour, so walk him through them before launch.
+
+| What | Set to | Where it shows |
+|---|---|---|
+| Business name / location | All Reliable Cleaning, Perth WA | Everywhere; JSON-LD locality Perth, region WA |
+| End of lease, from | 1 bed $249 / 2 bed $349 / 3 bed $449 | End of lease page, home |
+| Regular house clean, from (per visit) | weekly $129 / fortnightly $149 / one-off $199 | Regular cleaning page, home |
+| Office clean, from (per visit) | small $99 / medium $189 / large $329 | Office page, home |
+| Carpet steam clean, from | 1 room $79 / 3 rooms $149 / 5 rooms $219 | Carpet page, home |
+| Re-clean / bond-back guarantee | 3 days | Trust strip, guarantee sections, FAQs |
+| Same-day reply cut-off | 2pm, Monday to Saturday | Trust strip, promises, FAQs |
+| Hours | Monday to Saturday, 7am to 6pm | Contact page |
+| Reschedule / cancel notice | 48 hours | FAQs, office page |
+| Carpet drying time | 4 to 6 hours | Carpet page |
+| Privacy policy | `privacy.html` (new page) | Form notes, footer |
+
+**Prices are starting points, not fixed prices.** Every price shows as "from $X". The copy says the final price depends on size and condition and is confirmed before the job starts, so the owner can quote each job up or down. The figures are pitched near or slightly below typical Perth rates for 2025–26 so a new business can win work. Review them once he has priced his first few jobs.
+
+### Removed until they're real
+
+These were claims about the business that can't be made up. Inventing them would be misleading under Australian Consumer Law and breaks Google Ads' misrepresentation policy, so they're out of the site for now:
+
+- **Google rating, review count, years in business.** The trust strip now shows promises he controls instead: free quotes, same-day response, 3-day guarantee, checklist cleans and no lock-in contracts.
+- **"Fully insured" and "police-checked".** Recommended before ads go live: public liability insurance (about $20M cover, usually around $500 to $900 a year for a small cleaner) and a National Police Check (about $50 online). Once he has them, add them back to the trust strip, the office page and the About page.
+- **Customer reviews.** The review sections are gone. Add them back once there are real, verified reviews, ideally from his Google Business Profile.
+- **"Truck-mounted" carpet equipment.** The carpet page now just says hot water extraction.
+
+### Still needed (only the owner can supply these)
+
+| Placeholder | Where | Replace with |
+|---|---|---|
+| `{{PHONE}}` | Every page (text and `tel:` links) | The business phone number, e.g. `04xx xxx xxx` |
+| `{{EMAIL}}` | Every page, privacy policy | Enquiries email |
+| `{{ABN}}` | Footer | ABN. Check the business name is registered to it on abr.business.gov.au. |
+| `{{SITE_URL}}` | Canonical links, JSON-LD, `robots.txt`, `sitemap.xml` | Live domain, no trailing slash, e.g. `https://www.allreliablecleaning.com.au` |
+| `{{GHL_WEBHOOK_URL}}`, `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | `main.js` and form `action`s | See Integrations below |
+
+When they're filled, this should print nothing except the brand-colour comments in `styles.css`:
 
 ```sh
-grep -rn "{{" --include=*.html --include=*.js --include=*.css --include=*.txt --include=*.xml .
+grep -rn "{{" --include=*.html --include=*.js --include=*.txt --include=*.xml .
 ```
 
-"All HTML" means all 8 pages.
-
-### Business and contact
-
-Already filled in: business name **All Reliable Cleaning** and location **Perth, WA**. Copy says "Perth"; the footer says "Perth, Western Australia"; the JSON-LD has locality Perth, region WA, country AU. If the name ever changes, also redraw the logo text: the inline header SVG in every page and `assets/img/logo.svg`.
-
-| Placeholder | File(s) | Replace with |
-|---|---|---|
-| `{{SERVICES}}` | All HTML (JSON-LD `description`) | Plain-English list, e.g. `end of lease, regular house, office and carpet steam cleaning` |
-| `{{PHONE}}` | All HTML (shown as text and used in `tel:` links) | The real number, e.g. `08 9xxx xxxx` or `04xx xxx xxx`. Spaces are fine in `tel:` links. |
-| `{{EMAIL}}` | All HTML | Enquiries email address |
-| `{{ABN}}` | All HTML (footer) | The registered ABN (check it on abr.business.gov.au) |
-| `{{OPENING_HOURS}}` | `contact.html` | e.g. `Mon–Sat 7am–6pm` |
-| `{{SITE_URL}}` | All HTML (canonical, JSON-LD), `robots.txt`, `sitemap.xml` | Live origin with **no trailing slash**, e.g. `https://www.example.com.au` |
-| `{{PRIVACY_POLICY_URL}}` | All HTML (form note and footer) | Full URL of your privacy policy. Google Ads can disapprove lead-form ads without one. Host it in GHL or on your domain. |
-| `{{ABOUT_STORY}}` | `about.html` | 2–4 true sentences: who started the business, when, and why. Then remove the "Placeholder:" label and the dashed box (`ph-block` class). |
-
-### Trust claims (confirm each one is true, or delete it)
-
-| Placeholder | File(s) | Replace with |
-|---|---|---|
-| `{{GOOGLE_RATING}}` | All HTML (trust strip) | Current Google Business Profile rating, e.g. `4.9`. If there are no reviews yet, delete that `<li>`. |
-| `{{REVIEW_COUNT}}` | All HTML (trust strip) | Current Google review count |
-| `{{YEARS_IN_BUSINESS}}` | All HTML (trust strip), `about.html` | Whole number of years trading |
-| `{{INSURANCE_DETAILS}}` | All HTML (trust strip, footer), `office-cleaning-perth.html`, `about.html` | e.g. `$20M public liability` (match the certificate of currency) |
-| `{{POLICE_CHECK_DETAILS}}` | All HTML (trust strip), `office-cleaning-perth.html`, `about.html` | e.g. `Every cleaner holds a current National Police Certificate` |
-| `{{GUARANTEE_DAYS}}` | All HTML (trust strip, guarantee terms, FAQs, meta descriptions) | Number of days a re-clean can be claimed, e.g. `3` or `7` |
-
-### Policies
-
-| Placeholder | File(s) | Replace with |
-|---|---|---|
-| `{{SAME_DAY_CUTOFF}}` | `index.html`, `contact.html` | Time before which requests get a same-day reply, e.g. `2pm weekdays` |
-| `{{RESCHEDULE_NOTICE_HOURS}}` | `index.html`, `contact.html`, all 4 landing pages | Free rebooking notice, e.g. `48` |
-| `{{CANCELLATION_NOTICE_HOURS}}` | `regular-house-cleaning-perth.html`, `office-cleaning-perth.html` | Cancellation notice for recurring services, e.g. `48` |
-| `{{CARPET_DRY_HOURS}}` | `carpet-deep-cleaning-perth.html` | Typical drying time range, e.g. `2–4` |
-
-### Prices (number only: the `$` and "from" are already in the markup)
-
-| Placeholder | File(s) | Replace with |
-|---|---|---|
-| `{{PRICE_END_OF_LEASE_1BED}}` | `end-of-lease-cleaning-perth.html`, `index.html` | Starting price, 1 bed / 1 bath |
-| `{{PRICE_END_OF_LEASE_2BED}}` | `end-of-lease-cleaning-perth.html` | Starting price, 2 bed / 1 bath |
-| `{{PRICE_END_OF_LEASE_3BED}}` | `end-of-lease-cleaning-perth.html` | Starting price, 3 bed / 2 bath |
-| `{{PRICE_REGULAR_WEEKLY}}` | `regular-house-cleaning-perth.html` | Per-visit starting price, weekly |
-| `{{PRICE_REGULAR_FORTNIGHTLY}}` | `regular-house-cleaning-perth.html`, `index.html` | Per-visit starting price, fortnightly |
-| `{{PRICE_REGULAR_ONEOFF}}` | `regular-house-cleaning-perth.html` | One-off clean starting price |
-| `{{PRICE_OFFICE_SMALL}}` | `office-cleaning-perth.html`, `index.html` | Per-visit starting price, small office |
-| `{{PRICE_OFFICE_MEDIUM}}` | `office-cleaning-perth.html` | Per-visit starting price, medium office |
-| `{{PRICE_OFFICE_LARGE}}` | `office-cleaning-perth.html` | Per-visit starting price, large or multi-floor |
-| `{{PRICE_CARPET_1ROOM}}` | `carpet-deep-cleaning-perth.html`, `index.html` | Starting price, 1 room |
-| `{{PRICE_CARPET_3ROOMS}}` | `carpet-deep-cleaning-perth.html` | Starting price, 3 rooms |
-| `{{PRICE_CARPET_5ROOMS}}` | `carpet-deep-cleaning-perth.html` | Starting price, 5 rooms |
-
-### Testimonials (real, verified, with the customer's permission)
-
-Each block has three placeholders, `_QUOTE`, `_NAME` (e.g. `Sarah M.`) and `_SUBURB`, numbered 1 to 3. Once a block holds a real review, delete its `<span class="ph-badge">Placeholder review…</span>` line and the "These blocks are placeholders…" intro sentence in that section. Never publish invented reviews.
-
-| Placeholder set | File |
-|---|---|
-| `{{TESTIMONIAL_1_QUOTE}}` … `{{TESTIMONIAL_3_SUBURB}}` | `index.html` |
-| `{{EOL_TESTIMONIAL_1_QUOTE}}` … `{{EOL_TESTIMONIAL_3_SUBURB}}` | `end-of-lease-cleaning-perth.html` |
-| `{{REGULAR_TESTIMONIAL_1_QUOTE}}` … `{{REGULAR_TESTIMONIAL_3_SUBURB}}` | `regular-house-cleaning-perth.html` |
-| `{{OFFICE_TESTIMONIAL_1_QUOTE}}` … `{{OFFICE_TESTIMONIAL_3_SUBURB}}` | `office-cleaning-perth.html` |
-| `{{CARPET_TESTIMONIAL_1_QUOTE}}` … `{{CARPET_TESTIMONIAL_3_SUBURB}}` | `carpet-deep-cleaning-perth.html` |
+"All HTML" below means all 9 pages (including `privacy.html`).
 
 ### Integrations
 
@@ -201,19 +177,19 @@ All 13 photos are free stock photos from **Unsplash**, used under the [Unsplash 
 - [ ] Mark `generate_lead` as a key event in GA4.
 - [ ] In Google Ads, turn on auto-tagging and enhanced conversions for leads. Optionally set up offline conversion import from GHL using `gclid`.
 
-**Claims the client must confirm in writing**
-- [ ] Bond-back guarantee and re-clean guarantee terms (index, all landing pages, about, thank-you), including `{{GUARANTEE_DAYS}}` and the exclusions. The site states the guarantee is a free re-clean, never a bond refund.
-- [ ] "Free quote", "same-day response" and `{{SAME_DAY_CUTOFF}}`, plus the "price we quote is the price you pay" promise.
-- [ ] Suburb lists (index, end of lease, regular, carpet: residential list; office: business list). Remove any suburb the business doesn't service.
-- [ ] Every price placeholder and the included-items checklists on each landing page.
-- [ ] Insurance (`{{INSURANCE_DETAILS}}`, matching the certificate of currency) and police checks (`{{POLICE_CHECK_DETAILS}}`).
-- [ ] Rating, review count and years in business are current and accurate.
-- [ ] Operational copy: "we bring the equipment and products", "truck-mounted or portable extraction", "receipt for your property manager", the office walkthrough, after-hours access and keyholding, and the rebooking and cancellation notice periods.
-- [ ] Testimonials are real, verified and approved by the customer, with the placeholder badges removed.
-- [ ] `{{PRIVACY_POLICY_URL}}` points at a live privacy policy that mentions Google Ads/Analytics cookies, enhanced conversions and GHL. Google Ads and the Australian Privacy Principles expect one when you collect personal information.
+**Walk the owner through what the site promises**
+- [ ] The starting prices above, and that each job's final price is confirmed before he starts.
+- [ ] The 3-day re-clean and bond-back guarantee terms: free re-clean, exclusions for damage, wear and permanent stains, and never a bond refund.
+- [ ] A same-day reply to quote requests that arrive by 2pm, Monday to Saturday.
+- [ ] 48 hours' notice to move or cancel, and no lock-in contracts.
+- [ ] Operational promises: he brings equipment and products, gives a carpet-cleaning receipt for property managers, does office walkthroughs and after-hours cleans, and keeps keys and alarm codes secure.
+- [ ] The suburb lists. Remove any suburb he won't travel to.
+- [ ] The privacy policy (`privacy.html`) is a general template. Have him read it, and get it checked if he wants legal certainty.
+- [ ] Insurance and police checks: once he has them, add the claims back (see section 1).
+- [ ] Reviews: once he has real ones, add a reviews section back.
 
 **Final**
-- [ ] The grep command in section 1 returns nothing.
+- [ ] The grep command in section 1 returns nothing except the brand-colour comments.
 - [ ] Spot-check at 390px and on desktop. The landing-page quote form, including the submit button, should sit above the fold on a phone.
 - [ ] Submit `{{SITE_URL}}/sitemap.xml` in Google Search Console.
 

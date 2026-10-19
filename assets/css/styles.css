@@ -518,6 +518,12 @@ html.has-tilt [data-tilt] { transition: transform .18s ease-out; }
 @media (min-width: 900px) { .about-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; } }
 .photo-tall { aspect-ratio: 3 / 2; }
 
+/* Privacy policy */
+.privacy h2 { font-size: 1.3rem; margin: 1.6em 0 .5em; }
+.privacy h2:first-child { margin-top: 0; }
+.privacy ul { display: grid; gap: 8px; }
+.privacy a { overflow-wrap: anywhere; }
+
 /* ---------- Footer ---------- */
 .site-footer { background: var(--primary-deep); color: var(--on-dark-muted); padding: 44px 0 28px; font-size: .94rem; }
 .site-footer a { color: var(--on-dark); }
