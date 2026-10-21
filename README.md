@@ -29,19 +29,26 @@ Set for the owner, who is starting out and asked for working defaults. They're b
 | What | Set to | Where it shows |
 |---|---|---|
 | Business name / location | All Reliable Cleaning, Perth WA | Everywhere; JSON-LD locality Perth, region WA |
+| ABN | 48 702 993 397 (owner's answer) | Footer on every page, JSON-LD `taxID` |
+| Suburbs | All of Perth (owner's answer); the lists show examples | Suburb sections, contact page |
 | Phone | 0452 431 033 (links dial +61452431033) | Header, phone menu, sticky bar, hero, contact, footer, exit pop-up, privacy, JSON-LD |
 | End of lease, from | 1 bed $249 / 2 bed $349 / 3 bed $449 | End of lease page, home |
 | Regular house clean, from (per visit) | weekly $129 / fortnightly $149 / one-off $199 | Regular cleaning page, home |
 | Office clean, from (per visit) | small $99 / medium $189 / large $329 | Office page, home |
 | Carpet steam clean, from | 1 room $79 / 3 rooms $149 / 5 rooms $219 | Carpet page, home |
 | Re-clean / bond-back guarantee | 3 days | Trust strip, guarantee sections, FAQs |
-| Same-day reply cut-off | 2pm, Monday to Saturday | Trust strip, promises, FAQs |
-| Hours | Monday to Saturday, 7am to 6pm | Contact page |
-| Reschedule / cancel notice | 48 hours | FAQs, office page |
+| Same-day reply cut-off | 2pm, any day of the week | Trust strip, promises, FAQs |
+| Hours | Monday to Sunday, 9:30am to 5pm (owner's answer) | Contact page, JSON-LD `openingHours` |
+| Reschedule / cancel notice | 24 hours (owner's answer) | FAQs, office and regular pages, About |
 | Carpet drying time | 4 to 6 hours | Carpet page |
 | Privacy policy | `privacy.html` (new page) | Form notes, footer |
 
 **Prices are starting points, not fixed prices.** Every price shows as "from $X". The copy says the final price depends on size and condition and is confirmed before the job starts, so the owner can quote each job up or down. The figures are pitched near or slightly below typical Perth rates for 2025–26 so a new business can win work. Review them once he has priced his first few jobs.
+
+### Owner follow-ups from his answers
+
+- **Business name isn't registered.** He said "All Reliable Cleaning" is *not* the registered name on ABN 48 702 993 397. Trading and advertising under an unregistered business name breaks ASIC rules, unless it's his own personal name. Register it with ASIC (roughly $45 a year, cheaper if paid for 3 years) before the ads go live.
+- **No carpet machine yet.** The carpet steam cleaning page is live, but he can't do those jobs until he buys a machine. Don't run carpet ads until he has one, and set the drying time from the machine he buys (currently "4 to 6 hours").
 
 ### Removed until they're real
 
@@ -56,7 +63,6 @@ These were claims about the business that can't be made up. Inventing them would
 | Placeholder | Where | Replace with |
 |---|---|---|
 | `{{EMAIL}}` | Every page, privacy policy | Enquiries email, once the domain is bought |
-| `{{ABN}}` | Footer | ABN. Check the business name is registered to it on abr.business.gov.au. |
 | `{{JSS_DIGITAL_URL}}` | Footer credit ("Website by JSS Digital") on every page | Your JSS Digital website address, e.g. `https://jssdigital.com.au` |
 | `{{SITE_URL}}` | Canonical links, JSON-LD, `robots.txt`, `sitemap.xml` | Live domain, no trailing slash, e.g. `https://www.allreliablecleaning.com.au` |
 | `{{GHL_WEBHOOK_URL}}`, `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | `main.js` and form `action`s | See Integrations below |
