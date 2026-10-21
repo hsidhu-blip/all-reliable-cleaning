@@ -40,6 +40,24 @@
   }
 
   /* ---------------------------------------------------------------------
+     Open every new page at the top. Browsers do this anyway, but some
+     embedded viewers (e.g. a preview frame that grows to the page height)
+     keep the outer scroll position between pages. Links to a section
+     (#hash), back/forward and reload keep their normal behaviour.
+     --------------------------------------------------------------------- */
+  (function startAtTop() {
+    if (window.location.hash) return;
+    var nav = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+    var type = nav ? nav.type : (window.performance && performance.navigation ? ['navigate', 'reload', 'back_forward'][performance.navigation.type] : 'navigate');
+    if (type === 'back_forward' || type === 'reload') return;
+    window.scrollTo(0, 0);
+    var pad = root.style.scrollPaddingTop;
+    root.style.scrollPaddingTop = '0px'; // the sticky-header offset is for #section links, not for the top of the page
+    try { root.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'instant' }); } catch (e) { root.scrollIntoView(true); }
+    root.style.scrollPaddingTop = pad;
+  })();
+
+  /* ---------------------------------------------------------------------
      Tracking: gtag.js is injected only once real IDs are in CONFIG.
      --------------------------------------------------------------------- */
   var ga4On = isConfigured(CONFIG.GA4_ID);
