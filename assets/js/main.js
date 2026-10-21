@@ -421,14 +421,16 @@
   }
 
   /* ---------------------------------------------------------------------
-     3D tilt: fine pointers with hover only, never on the quote form card.
+     3D tilt: fine pointers with hover only. The quote card tilts gently (data-tilt-max) and
+     stops while a field in it has focus.
      --------------------------------------------------------------------- */
   var canTilt = !reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   if (canTilt) {
     root.classList.add('has-tilt');
     var resetters = [];
     Array.prototype.forEach.call(doc.querySelectorAll('[data-tilt]'), function (card) {
-      if (card.closest('.quote-card')) return;
+      var cardMax = Math.min(CONFIG.TILT_MAX_DEG, parseFloat(card.getAttribute('data-tilt-max')) || CONFIG.TILT_MAX_DEG);
+      var typing = false; // the quote card holds still while someone is filling it in
       var frame = 0;
       var next = '';
       var box = null; // untransformed rect, captured on enter, so the tilt itself can't trigger a leave
@@ -444,7 +446,7 @@
         if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) { reset(); return; }
         var x = (event.clientX - box.left) / box.width - 0.5;
         var y = (event.clientY - box.top) / box.height - 0.5;
-        var max = CONFIG.TILT_MAX_DEG;
+        var max = cardMax;
         var rx = Math.max(-max, Math.min(max, -y * 2 * max));
         var ry = Math.max(-max, Math.min(max, x * 2 * max));
         next = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
@@ -453,10 +455,16 @@
         }
       }
       card.addEventListener('pointerenter', function (event) {
-        if (box || event.pointerType !== 'mouse') return;
+        if (box || typing || event.pointerType !== 'mouse') return;
         box = card.getBoundingClientRect();
         doc.addEventListener('pointermove', onMove);
         onMove(event);
+      });
+      card.addEventListener('focusin', function (event) {
+        if (/^(INPUT|SELECT|TEXTAREA)$/.test(event.target.tagName)) { typing = true; reset(); }
+      });
+      card.addEventListener('focusout', function () {
+        window.setTimeout(function () { if (!card.contains(doc.activeElement)) typing = false; }, 0);
       });
       resetters.push(reset);
     });

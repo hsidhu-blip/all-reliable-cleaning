@@ -29,6 +29,7 @@ Set for the owner, who is starting out and asked for working defaults. They're b
 | What | Set to | Where it shows |
 |---|---|---|
 | Business name / location | All Reliable Cleaning, Perth WA | Everywhere; JSON-LD locality Perth, region WA |
+| Phone | 0452 431 033 (links dial +61452431033) | Header, phone menu, sticky bar, hero, contact, footer, exit pop-up, privacy, JSON-LD |
 | End of lease, from | 1 bed $249 / 2 bed $349 / 3 bed $449 | End of lease page, home |
 | Regular house clean, from (per visit) | weekly $129 / fortnightly $149 / one-off $199 | Regular cleaning page, home |
 | Office clean, from (per visit) | small $99 / medium $189 / large $329 | Office page, home |
@@ -54,8 +55,7 @@ These were claims about the business that can't be made up. Inventing them would
 
 | Placeholder | Where | Replace with |
 |---|---|---|
-| `{{PHONE}}` | Every page (text and `tel:` links) | The business phone number, e.g. `04xx xxx xxx` |
-| `{{EMAIL}}` | Every page, privacy policy | Enquiries email |
+| `{{EMAIL}}` | Every page, privacy policy | Enquiries email, once the domain is bought |
 | `{{ABN}}` | Footer | ABN. Check the business name is registered to it on abr.business.gov.au. |
 | `{{SITE_URL}}` | Canonical links, JSON-LD, `robots.txt`, `sitemap.xml` | Live domain, no trailing slash, e.g. `https://www.allreliablecleaning.com.au` |
 | `{{GHL_WEBHOOK_URL}}`, `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | `main.js` and form `action`s | See Integrations below |
