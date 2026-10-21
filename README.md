@@ -57,6 +57,7 @@ These were claims about the business that can't be made up. Inventing them would
 |---|---|---|
 | `{{EMAIL}}` | Every page, privacy policy | Enquiries email, once the domain is bought |
 | `{{ABN}}` | Footer | ABN. Check the business name is registered to it on abr.business.gov.au. |
+| `{{JSS_DIGITAL_URL}}` | Footer credit ("Website by JSS Digital") on every page | Your JSS Digital website address, e.g. `https://jssdigital.com.au` |
 | `{{SITE_URL}}` | Canonical links, JSON-LD, `robots.txt`, `sitemap.xml` | Live domain, no trailing slash, e.g. `https://www.allreliablecleaning.com.au` |
 | `{{GHL_WEBHOOK_URL}}`, `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | `main.js` and form `action`s | See Integrations below |
 
