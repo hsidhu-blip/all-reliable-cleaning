@@ -11,10 +11,12 @@ and photos point at their Unsplash originals because GHL can't serve the
 repo's assets/ folder.
 """
 import base64
+import json
 import os
 import re
 import sys
 
+SITE_URL = 'https://allreliablecleaning.com.au'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'ghl')
 
@@ -72,6 +74,30 @@ def rewrite_links(html):
     return re.sub(pattern, repl, html)
 
 
+def ghl_ld(raw):
+    """Point the structured data at GHL page paths. The logo file isn't on
+    GHL, so its logo/image keys are dropped rather than left broken."""
+    data = json.loads(raw)
+
+    def fix(node):
+        if isinstance(node, dict):
+            for key in ('logo', 'image'):
+                if isinstance(node.get(key), str) and '/assets/' in node[key]:
+                    del node[key]
+            return {k: fix(v) for k, v in node.items()}
+        if isinstance(node, list):
+            return [fix(v) for v in node]
+        if isinstance(node, str) and node.startswith(SITE_URL + '/'):
+            path = node[len(SITE_URL):]
+            for page, ghl_path in PATHS.items():
+                if path.startswith('/' + page):
+                    rest = path[len(page) + 1:]
+                    return SITE_URL + ('' if ghl_path == '/' and rest else ghl_path) + rest
+        return node
+
+    return '<script type="application/ld+json">%s</script>' % json.dumps(fix(data), ensure_ascii=False, separators=(',', ':'))
+
+
 def strip_css_comments(css):
     # Keep the brand-colour comments in :root so the owner can still find them.
     return re.sub(r'/\*(?![^*]*\{\{)[\s\S]*?\*/', '', css)
@@ -86,7 +112,7 @@ def build(page):
     # needs data-thank-you to fire the conversion).
     body_attrs = re.findall(r'([\w-]+)(?:="([^"]*)")?', open_tag.group(1))
     title = re.search(r'<title>(.*?)</title>', head).group(1)
-    ld = re.findall(r'<script type="application/ld\+json">.*?</script>', head, re.S)
+    ld = [ghl_ld(m) for m in re.findall(r'<script type="application/ld\+json">(.*?)</script>', head, re.S)]
 
     body = re.sub(r'assets/img/photos/([a-z-]+)\.jpg', photo_url, body)
     body = body.replace('assets/img/logo.svg', svg_data_uri('logo.svg'))

@@ -42,6 +42,8 @@ Set for the owner, who is starting out and asked for working defaults. They're b
 | Reschedule / cancel notice | 24 hours (owner's answer) | FAQs, office and regular pages, About |
 | Carpet drying time | 4 to 6 hours | Carpet page |
 | Privacy policy | `privacy.html` (new page) | Form notes, footer |
+| Email | admin@allreliablecleaning.com.au | Every page, privacy policy, JSON-LD |
+| Site URL | https://allreliablecleaning.com.au | Canonical links, JSON-LD, `robots.txt`, `sitemap.xml` |
 
 **Prices are starting points, not fixed prices.** Every price shows as "from $X". The copy says the final price depends on size and condition and is confirmed before the job starts, so the owner can quote each job up or down. The figures are pitched near or slightly below typical Perth rates for 2025–26 so a new business can win work. Review them once he has priced his first few jobs.
 
@@ -62,9 +64,7 @@ These were claims about the business that can't be made up. Inventing them would
 
 | Placeholder | Where | Replace with |
 |---|---|---|
-| `{{EMAIL}}` | Every page, privacy policy | Enquiries email, once the domain is bought |
 | `{{JSS_DIGITAL_URL}}` | Footer credit ("Website by JSS Digital") on every page | Your JSS Digital website address, e.g. `https://jssdigital.com.au` |
-| `{{SITE_URL}}` | Canonical links, JSON-LD, `robots.txt`, `sitemap.xml` | Live domain, no trailing slash, e.g. `https://www.allreliablecleaning.com.au` |
 | `{{GHL_WEBHOOK_URL}}`, `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | `main.js` and form `action`s | See Integrations below |
 
 ### Reviews (placeholders until real reviews come in)
@@ -211,7 +211,7 @@ All 13 photos are free stock photos from **Unsplash**, used under the [Unsplash 
 **Final**
 - [ ] The grep command in section 1 returns nothing except the brand-colour comments.
 - [ ] Spot-check at 390px and on desktop. The landing-page quote form, including the submit button, should sit above the fold on a phone.
-- [ ] Submit `{{SITE_URL}}/sitemap.xml` in Google Search Console.
+- [ ] Submit `https://allreliablecleaning.com.au/sitemap.xml` in Google Search Console.
 
 ## 3. Deploy
 
@@ -221,7 +221,7 @@ The site is plain files. Deploy the repository root as-is; it has no build comma
 1. Netlify → **Add new site → Import an existing project** (or drag the folder into **Deploy manually**).
 2. Leave the build command empty and set the publish directory to `/` (the repo root).
 3. Deploy, then **Domain management → Add a domain** and enable HTTPS.
-4. Set `{{SITE_URL}}` to the final domain and redeploy.
+4. If the live domain isn't `https://allreliablecleaning.com.au`, replace it in every page, `robots.txt` and `sitemap.xml`, then redeploy.
 
 ### Cloudflare Pages
 1. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git** (or **Upload assets**).
