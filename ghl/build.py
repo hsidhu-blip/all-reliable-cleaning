@@ -79,8 +79,12 @@ def strip_css_comments(css):
 
 def build(page):
     src = read(page)
-    head = src[:src.index('<body>')]
-    body = src[src.index('<body>') + len('<body>'):src.index('</body>')]
+    open_tag = re.search(r'<body([^>]*)>', src)
+    head = src[:open_tag.start()]
+    body = src[open_tag.end():src.index('</body>')]
+    # GHL owns <body>, so copy the page's body attributes onto it (thank-you
+    # needs data-thank-you to fire the conversion).
+    body_attrs = re.findall(r'([\w-]+)(?:="([^"]*)")?', open_tag.group(1))
     title = re.search(r'<title>(.*?)</title>', head).group(1)
     ld = re.findall(r'<script type="application/ld\+json">.*?</script>', head, re.S)
 
@@ -96,7 +100,9 @@ def build(page):
     parts = [
         '<!-- All Reliable Cleaning: %s -->' % title,
         '<!-- Paste into a GHL Custom Code element (full width, no section padding). -->',
-        "<script>document.documentElement.classList.add('js')</script>",
+        "<script>document.documentElement.classList.add('js')%s</script>" % ''.join(
+            ";document.body.classList.add('%s')" % v if k == 'class' else
+            ";document.body.setAttribute('%s','%s')" % (k, v) for k, v in body_attrs),
         '<style>',
         GHL_CSS,
         css,
