@@ -232,6 +232,7 @@ The site is plain files. Deploy the repository root as-is; it has no build comma
 ### GoHighLevel funnel embed
 Use either option.
 - **Option A, host elsewhere and link from GHL (recommended):** deploy to Netlify or Cloudflare, then point your Ads final URLs at the landing pages. The forms post straight into your GHL workflow via the webhook.
+- **Option A2, GHL website with one Custom Code block per page:** run `python3 ghl/build.py` to write `ghl/<page>.html`, each a single paste-in block with the page's HTML, `styles.css` and `main.js` inlined. Page links point at GHL paths (`/`, `/about`, `/contact`, `/end-of-lease-cleaning-perth`, …, `/thank-you`, `/privacy`), so give each GHL page that exact path. Photos load from Unsplash. Unfilled placeholders show as `[[NAME]]` instead of `{{NAME}}`, because GHL reads `{{ }}` as its own merge fields.
 - **Option B, inside a GHL funnel:**
   1. Upload `assets/css/styles.css`, `assets/js/main.js` and the three SVGs to **Media Library**, and copy their URLs.
   2. Create one funnel step per page. Add a **Custom JS/HTML** element set to full width, with no section padding.

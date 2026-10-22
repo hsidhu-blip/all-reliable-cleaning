@@ -1,0 +1,1561 @@
+<!-- All Reliable Cleaning: All Reliable Cleaning | Cleaners in Perth, WA -->
+<!-- Paste into a GHL Custom Code element (full width, no section padding). -->
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* GHL wrapper reset */
+.c-custom-code, .c-custom-code > div, [class*="custom-code"] { padding: 0 !important; margin: 0 !important; max-width: none !important; width: 100% !important; }
+.c-section:has(.c-custom-code), .c-row:has(.c-custom-code), .c-column:has(.c-custom-code), .c-section:has(.c-custom-code) .inner, .c-row:has(.c-custom-code) .inner, .c-column:has(.c-custom-code) .inner { padding: 0 !important; margin: 0 !important; max-width: none !important; width: 100% !important; }
+:root {
+  --primary-colour: #0B1F3A; /* [[PRIMARY_COLOUR]] navy */
+  --accent-colour: #22D3EE;  /* [[ACCENT_COLOUR]] aqua */
+  --cta-colour: #FF7A1A;     /* [[CTA_COLOUR]] orange: conversion buttons only */
+  --primary-deep: color-mix(in srgb, var(--primary-colour) 78%, #000);
+  --primary-soft: color-mix(in srgb, var(--primary-colour) 86%, #fff);
+  --ink: var(--primary-colour);
+  --ink-muted: color-mix(in srgb, var(--primary-colour) 80%, #fff);
+  --surface: #fff;
+  --surface-tint: color-mix(in srgb, var(--accent-colour) 6%, #fff);
+  --line: color-mix(in srgb, var(--primary-colour) 14%, #fff);
+  --line-strong: color-mix(in srgb, var(--primary-colour) 38%, #fff);
+  --accent-ink: color-mix(in srgb, var(--accent-colour) 45%, var(--primary-colour));
+  --accent-wash: color-mix(in srgb, var(--accent-colour) 16%, #fff);
+  --on-dark: #fff;
+  --on-dark-muted: color-mix(in srgb, #fff 82%, var(--primary-colour));
+  --error: color-mix(in srgb, var(--cta-colour) 55%, #000);
+  --glass-bg: color-mix(in srgb, #fff 9%, transparent);
+  --glass-line: color-mix(in srgb, #fff 18%, transparent);
+  --glass-solid: color-mix(in srgb, var(--primary-colour) 84%, #fff);
+  --cta-glow: color-mix(in srgb, var(--cta-colour) 55%, transparent);
+  --focus: color-mix(in srgb, var(--accent-colour) 70%, #fff);
+  --radius: 18px;
+  --radius-sm: 10px;
+  --shadow: 0 18px 50px -24px color-mix(in srgb, var(--primary-colour) 55%, transparent);
+  --container: 1180px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@supports not (color: color-mix(in srgb, red, blue)) {
+  :root {
+    --primary-deep: var(--primary-colour);
+    --primary-soft: var(--primary-colour);
+    --ink-muted: var(--primary-colour);
+    --surface-tint: #fff;
+    --line: var(--primary-colour);
+    --line-strong: var(--primary-colour);
+    --accent-ink: var(--primary-colour);
+    --accent-wash: #fff;
+    --on-dark-muted: #fff;
+    --error: var(--primary-colour);
+    --glass-bg: var(--primary-colour);
+    --glass-line: var(--accent-colour);
+    --glass-solid: var(--primary-colour);
+    --cta-glow: var(--cta-colour);
+    --focus: var(--accent-colour);
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 16px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--surface);
+  overflow-wrap: anywhere;
+  padding-bottom: 76px; 
+}
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3 { line-height: 1.15; margin: 0 0 .6em; letter-spacing: -.01em; }
+h1 { font-size: clamp(1.6rem, 1.05rem + 2.6vw, 3.1rem); font-weight: 800; }
+h2 { font-size: clamp(1.45rem, 1.1rem + 1.5vw, 2.25rem); font-weight: 800; }
+h3 { font-size: 1.12rem; font-weight: 700; }
+p { margin: 0 0 1em; }
+a { color: var(--accent-ink); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+ul { padding-left: 1.2em; }
+.container { width: min(var(--container), 100% - 32px); margin-inline: auto; }
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+.skip-link { position: absolute; left: 16px; top: -60px; z-index: 100; background: #fff; color: var(--ink); padding: 8px 14px; border-radius: 8px; }
+.skip-link:focus { top: 8px; }
+.icon { flex: none; }
+.btn {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 50px; padding: .8rem 1.4rem;
+  border: 2px solid transparent; border-radius: 999px;
+  font: inherit; font-weight: 800; font-size: 1rem; line-height: 1.2;
+  text-decoration: none; text-align: center; cursor: pointer;
+  transition: transform .2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn::before { content: ""; position: absolute; left: 0; right: 0; top: 0; bottom: -3px; border-radius: inherit; }
+.btn:active { transform: translateY(0); }
+.btn-cta {
+  background: var(--cta-colour);
+  color: var(--primary-colour);
+  box-shadow: 0 8px 22px -10px var(--cta-glow);
+}
+.btn-cta::after {
+  content: ""; position: absolute; inset: -2px; border-radius: inherit; pointer-events: none;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--cta-colour) 22%, transparent), 0 14px 34px -8px var(--cta-glow);
+  opacity: 0; transition: opacity .25s ease;
+}
+.btn-cta:hover::after, .btn-cta:focus-visible::after { opacity: 1; }
+.btn-call { background: transparent; color: var(--on-dark); border-color: var(--accent-colour); }
+.btn-call:hover { background: color-mix(in srgb, var(--accent-colour) 14%, transparent); }
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-block { width: 100%; }
+.btn[aria-busy="true"] { cursor: progress; }
+.site-header { position: relative; z-index: 50; background: var(--primary-colour); color: var(--on-dark); border-bottom: 1px solid var(--glass-line); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.logo { flex: none; display: inline-flex; color: var(--on-dark); text-decoration: none; }
+.logo svg { width: 176px; height: auto; }
+.logo .logo-word { fill: currentColor; }
+.logo .logo-sub, .logo .logo-accent { fill: var(--accent-colour); }
+.logo .logo-tile { fill: var(--primary-deep); }
+.header-actions { display: flex; align-items: center; gap: 14px; flex: none; }
+.header-cta { white-space: nowrap; }
+.header-phone { display: none; align-items: center; gap: 8px; color: var(--on-dark); font-weight: 700; text-decoration: none; white-space: nowrap; }
+.header-phone .icon { color: var(--accent-colour); }
+.header-cta { display: none; }
+.nav-toggle {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 14px;
+  background: transparent; color: var(--on-dark); border: 1.5px solid var(--glass-line); border-radius: 999px;
+  font: inherit; font-weight: 700; cursor: pointer;
+}
+html:not(.js) .nav-toggle { display: none; }
+.site-nav ul { list-style: none; margin: 0; padding: 0; }
+.site-nav a { display: block; color: var(--on-dark); text-decoration: none; font-weight: 600; padding: 12px 0; white-space: nowrap; }
+.site-nav a[aria-current="page"] { color: var(--accent-colour); }
+.site-nav a:hover { color: var(--accent-colour); }
+html.js .site-nav { display: none; }
+html.js.nav-open .site-nav { display: block; }
+.site-nav { border-top: 1px solid var(--glass-line); padding: 4px 0 12px; }
+html:not(.js) .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 18px; }
+@media (min-width: 768px) {
+  html { scroll-padding-top: 92px; }
+  .site-header { position: sticky; top: 0; }
+  .header-inner { min-height: 76px; }
+  .logo svg { width: 200px; }
+  .header-cta { display: inline-flex; }
+  .header-phone { display: inline-flex; }
+}
+@media (min-width: 1024px) {
+  .nav-toggle { display: none; }
+  .header-inner { flex-wrap: nowrap; }
+  html.js .site-nav, .site-nav { display: block; border: 0; padding: 0; }
+  .site-nav ul, html:not(.js) .site-nav ul { display: flex; gap: 22px; }
+  .site-nav a { padding: 8px 0; }
+  .header-full .site-nav { order: 0; }
+}
+@media (max-width: 1023.98px) {
+  .header-full .header-inner { flex-wrap: wrap; }
+  .header-full .header-inner { padding-block: 8px; }
+  .header-full .site-nav { flex-basis: 100%; order: 3; }
+}
+.menu-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 12px 0; background: none; border: 0; cursor: pointer;
+  color: var(--on-dark); font: inherit; font-weight: 600;
+}
+.menu-btn:hover, .has-menu.is-current > .menu-btn { color: var(--accent-colour); }
+.menu-chevron { transition: transform .2s ease; }
+.has-menu.is-open .menu-chevron { transform: rotate(180deg); }
+.menu-title { margin: 0 0 6px; font-size: .74rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-colour); }
+.site-nav .menu-panel .menu-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.menu-panel a { white-space: normal; }
+.menu-panel a strong { display: block; font-weight: 700; }
+.menu-panel a span { display: block; font-size: .86rem; font-weight: 500; color: var(--on-dark-muted); }
+@media (max-width: 1023.98px) {
+  .menu-btn { display: none; }
+  .menu-panel { display: grid; gap: 14px; padding: 10px 0 6px; }
+  .menu-panel a { padding: 8px 0; }
+}
+@media (min-width: 1024px) {
+  .has-menu { position: relative; }
+  .menu-btn { padding: 8px 0; }
+  .menu-panel {
+    position: absolute; top: calc(100% + 18px); left: -20px; z-index: 70;
+    width: 560px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+    padding: 22px; border-radius: 16px; background: var(--surface); color: var(--ink);
+    box-shadow: 0 30px 70px -24px color-mix(in srgb, #000 55%, transparent);
+    opacity: 0; visibility: hidden; transform: translate3d(0, -8px, 0);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+  }
+  .menu-panel::before { content: ""; position: absolute; left: 0; right: 0; top: -18px; height: 18px; } 
+  .has-menu.is-open .menu-panel, .has-menu:focus-within .menu-panel {
+    opacity: 1; visibility: visible; transform: none; transition: opacity .18s ease, transform .18s ease, visibility 0s;
+  }
+  .menu-title { color: var(--accent-ink); }
+  .menu-panel a { color: var(--ink); padding: 9px 12px; margin: 0 -12px; border-radius: 10px; }
+  .menu-panel a:hover, .menu-panel a[aria-current="page"] { color: var(--ink); background: var(--accent-wash); }
+  .menu-panel a span { color: var(--ink-muted); }
+}
+@media (min-width: 1024px) and (hover: hover) {
+  .has-menu:hover .menu-panel { opacity: 1; visibility: visible; transform: none; transition: opacity .18s ease, transform .18s ease, visibility 0s; }
+}
+.exit-modal {
+  width: min(480px, calc(100% - 32px)); max-height: calc(100% - 32px); overflow: auto;
+  border: 0; border-radius: 20px; padding: 30px 28px 22px;
+  background: var(--surface); color: var(--ink);
+  box-shadow: 0 40px 90px -30px color-mix(in srgb, #000 70%, transparent);
+}
+.exit-modal::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; border-radius: 20px 20px 0 0; background: linear-gradient(90deg, var(--accent-colour), color-mix(in srgb, var(--accent-colour) 35%, var(--primary-colour))); }
+.exit-modal::backdrop { background: color-mix(in srgb, var(--primary-colour) 72%, transparent); }
+.exit-modal[open] { animation: exit-in .22s ease-out; }
+@keyframes exit-in { from { opacity: 0; transform: translate3d(0, 14px, 0) scale(.98); } to { opacity: 1; transform: none; } }
+.exit-modal h2 { font-size: 1.55rem; margin-bottom: .35em; padding-right: 32px; }
+.exit-sub { color: var(--ink-muted); margin-bottom: 16px; }
+.exit-close {
+  position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; display: grid; place-items: center;
+  border: 0; border-radius: 50%; background: var(--surface-tint); color: var(--ink); cursor: pointer;
+}
+.exit-close:hover { background: var(--accent-wash); }
+.exit-or { margin: 14px 0 4px; text-align: center; color: var(--ink-muted); }
+.exit-or a { font-weight: 800; }
+.exit-dismiss { display: block; margin: 0 auto; font-size: .9rem; color: var(--ink-muted); }
+.nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after { transition: transform .2s ease, opacity .2s ease; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars::before { transform: translateY(5px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars::after { transform: translateY(-5px) rotate(-45deg); }
+.nav-toggle[aria-expanded="true"] { border-color: var(--accent-colour); }
+@media (max-width: 1023.98px) {
+  html.js.nav-open .site-nav { padding-bottom: 16px; border-bottom: 1px solid var(--glass-line); }
+  .menu-panel a span { display: none; }
+  .menu-panel a { padding: 8px 0; }
+  .menu-panel { gap: 10px; }
+  .site-nav .menu-panel .menu-group ul { gap: 0; }
+  .site-nav > ul > li:not(.has-menu) { border-top: 1px solid var(--glass-line); }
+  .site-nav > ul > li.has-menu + li { margin-top: 8px; }
+}
+@media (min-width: 600px) and (max-width: 1023.98px) {
+  .menu-panel { grid-template-columns: 1fr 1fr; column-gap: 32px; }
+  .site-nav > ul { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+  .site-nav > ul > li.has-menu { grid-column: 1 / -1; }
+  .site-nav > ul > li:not(.has-menu) { margin-top: 8px; }
+}
+.mobile-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: var(--primary-colour); border-top: 1px solid var(--glass-line);
+}
+.mobile-bar .btn { min-height: 52px; padding: .6rem .8rem; }
+@media (min-width: 768px) {
+  .mobile-bar { display: none; }
+  body { padding-bottom: 0; }
+}
+.hero {
+  position: relative; overflow: hidden;
+  color: var(--on-dark);
+  background-color: var(--primary-colour);
+  background-image:
+    radial-gradient(55% 70% at 92% 4%, color-mix(in srgb, var(--accent-colour) 32%, transparent), transparent 70%),
+    radial-gradient(45% 55% at 0% 100%, color-mix(in srgb, var(--accent-colour) 16%, transparent), transparent 72%),
+    linear-gradient(165deg, var(--primary-colour) 0%, var(--primary-deep) 100%);
+  padding: 22px 0 40px;
+}
+.hero a:not(.btn) { color: var(--accent-colour); }
+.hero-grid { display: grid; gap: 22px; grid-template-areas: "copy" "form" "extra"; }
+.hero-copy { grid-area: copy; }
+.hero-form { grid-area: form; }
+.hero-extra { grid-area: extra; }
+.hero-grid.no-form { grid-template-areas: "copy" "extra"; }
+.eyebrow { display: inline-block; margin: 0 0 10px; font-size: .82rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-colour); }
+.hero h1 { margin-bottom: .35em; }
+.hero-lead { font-size: 1.06rem; color: var(--on-dark-muted); margin-bottom: 0; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.hero-points { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 8px; }
+.hero-points li { display: flex; gap: 10px; align-items: flex-start; }
+.hero-points .icon { color: var(--accent-colour); margin-top: 3px; }
+@media (min-width: 960px) {
+  .hero { padding: 64px 0 72px; }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); column-gap: 56px; row-gap: 26px;
+    grid-template-areas: "copy form" "extra form"; align-items: start;
+  }
+  .hero-grid.no-form { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "extra"; max-width: 860px; }
+  .hero-lead { font-size: 1.18rem; }
+}
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-line);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: var(--glass-solid); }
+}
+.trust { list-style: none; margin: 0; padding: 14px; border-radius: var(--radius); display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; font-size: .9rem; color: var(--on-dark); }
+.trust li { display: flex; gap: 8px; align-items: flex-start; line-height: 1.35; }
+.trust li:last-child { grid-column: 1 / -1; }
+.trust .icon { color: var(--accent-colour); margin-top: 1px; }
+.trust strong { display: block; }
+@media (min-width: 600px) {
+  .trust { grid-template-columns: repeat(3, 1fr); }
+  .trust li:last-child { grid-column: auto; }
+}
+.quote-card {
+  background: var(--surface); color: var(--ink);
+  border-radius: 20px; padding: 18px 16px 16px;
+  box-shadow: 0 24px 60px -28px color-mix(in srgb, #000 70%, transparent);
+}
+.quote-title { font-size: 1.25rem; margin: 0 0 2px; }
+.quote-sub { margin: 0 0 12px; color: var(--ink-muted); font-size: .92rem; }
+@media (max-width: 599.98px) {
+  .quote-sub { display: none; }
+  .quote-title { margin-bottom: 10px; }
+  .hero-lead { font-size: 1rem; line-height: 1.5; }
+}
+.quote-form { display: grid; gap: 8px; }
+.field { display: grid; gap: 3px; align-content: start; }
+.field-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+.field label { font-weight: 700; font-size: .92rem; }
+.field .optional { font-weight: 500; color: var(--ink-muted); }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 46px; padding: 10px 12px;
+  font: inherit; font-size: 1rem; color: var(--ink);
+  background: #fff; border: 1.5px solid var(--line-strong); border-radius: var(--radius-sm);
+}
+.field textarea { min-height: 46px; resize: vertical; }
+.field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 36px; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent-ink); }
+.field-error { margin: 0; min-height: 0; font-size: .86rem; font-weight: 700; color: var(--error); }
+.field-error:empty { display: none; }
+.field [aria-invalid="true"] { border-color: var(--error); border-width: 2px; }
+.form-note { margin: 2px 0 0; font-size: .82rem; color: var(--ink-muted); text-align: center; }
+.svc-summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--accent-wash); font-size: .95rem; }
+.svc-summary strong { font-weight: 800; }
+.link-btn { padding: 4px 0; background: none; border: 0; font: inherit; font-weight: 700; color: var(--accent-ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.note-toggle { justify-self: start; font-size: .92rem; }
+.hp-field { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.quote-form .btn-cta { margin-top: 4px; min-height: 52px; }
+@media (min-width: 768px) {
+  .quote-card { padding: 26px 26px 22px; }
+  .quote-form { gap: 12px; }
+  .field-row { gap: 12px; }
+}
+.section { padding: 56px 0; }
+.section-tint { background: var(--surface-tint); }
+.section-dark {
+  color: var(--on-dark);
+  background-color: var(--primary-colour);
+  background-image: radial-gradient(60% 80% at 100% 0%, color-mix(in srgb, var(--accent-colour) 18%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--primary-colour), var(--primary-deep));
+}
+.section-dark a:not(.btn) { color: var(--accent-colour); }
+.section-head { max-width: 760px; margin-bottom: 28px; }
+.section-head p { color: var(--ink-muted); font-size: 1.05rem; margin: 0; }
+.section-dark .section-head p { color: var(--on-dark-muted); }
+.section-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 30px 0 0; }
+.section-cta .cta-note { margin: 0; color: var(--ink-muted); font-size: .95rem; }
+.section-dark .section-cta .cta-note { color: var(--on-dark-muted); }
+@media (min-width: 768px) { .section { padding: 88px 0; } }
+.grid { display: grid; gap: 18px; }
+@media (min-width: 700px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .grid-3, .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+.card h3 { margin-bottom: .4em; }
+.card p:last-child { margin-bottom: 0; }
+[data-tilt] { transform-style: preserve-3d; will-change: transform; }
+html.has-tilt [data-tilt] { transition: transform .18s ease-out; }
+.service-card { display: flex; flex-direction: column; text-decoration: none; color: var(--ink); }
+.service-card p { color: var(--ink-muted); }
+.service-card .from { margin-top: auto; font-weight: 800; color: var(--ink); }
+.service-card .go { margin-top: 8px; font-weight: 700; color: var(--accent-ink); text-decoration: underline; text-underline-offset: 3px; }
+.checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.checklist li { display: flex; gap: 10px; align-items: flex-start; }
+.checklist .icon { color: var(--accent-ink); margin-top: 3px; }
+.section-dark .checklist .icon { color: var(--accent-colour); }
+.addons { margin-top: 22px; padding: 16px 18px; border-radius: var(--radius-sm); background: var(--accent-wash); }
+.addons p { margin: 0; }
+.promise { display: grid; gap: 14px; }
+.promise .card { display: flex; gap: 14px; align-items: flex-start; }
+.promise .icon { color: var(--accent-ink); }
+@media (min-width: 900px) { .promise { grid-template-columns: repeat(3, 1fr); } }
+.steps { list-style: none; margin: 0; padding: 22px; border-radius: var(--radius); display: grid; gap: 22px; counter-reset: step; }
+.steps li { position: relative; padding-left: 56px; counter-increment: step; }
+.steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 0;
+  width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
+  font-weight: 800; color: var(--primary-colour); background: var(--accent-colour);
+}
+.steps h3 { margin-bottom: .25em; }
+.steps p { margin: 0; color: var(--on-dark-muted); }
+@media (min-width: 900px) {
+  .steps { grid-template-columns: repeat(4, 1fr); padding: 30px; }
+  .steps li { padding-left: 0; padding-top: 56px; }
+}
+.price-card { text-align: left; }
+.price-card .price-label { font-weight: 700; color: var(--ink-muted); margin-bottom: 6px; }
+.price-card .price { font-size: 2rem; font-weight: 800; line-height: 1.1; margin-bottom: 4px; }
+.price-card .price small { font-size: .95rem; font-weight: 700; color: var(--ink-muted); }
+.price-card .price-unit { color: var(--ink-muted); font-size: .92rem; margin-bottom: 12px; }
+.price-card ul { margin: 0; padding-left: 1.1em; color: var(--ink-muted); font-size: .95rem; }
+.price-note { margin-top: 18px; color: var(--ink-muted); font-size: .95rem; }
+.guarantee { padding: 24px; border-radius: var(--radius); display: grid; gap: 22px; }
+.guarantee .big { font-size: 1.12rem; color: var(--on-dark); }
+.guarantee h3 { color: var(--accent-colour); }
+.guarantee ol { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; color: var(--on-dark-muted); }
+@media (min-width: 900px) { .guarantee { grid-template-columns: 1fr 1.2fr; padding: 36px; gap: 40px; } }
+.testimonial { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.testimonial blockquote { margin: 0; font-size: 1.05rem; }
+.testimonial blockquote p { margin: 0; }
+.testimonial figcaption { font-weight: 700; color: var(--ink-muted); }
+.ph-badge { align-self: flex-start; font-size: .75rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; border: 1.5px dashed var(--ink-muted); color: var(--ink-muted); }
+.suburbs { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.suburbs li { padding: 6px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: .93rem; font-weight: 600; }
+.faq { display: grid; gap: 14px; }
+.faq .card { box-shadow: none; }
+.faq h3 { font-size: 1.05rem; }
+.faq p { color: var(--ink-muted); }
+@media (min-width: 900px) { .faq { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.final-cta { text-align: left; }
+.final-cta .section-cta { margin-top: 18px; }
+.contact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.contact-list li { display: flex; gap: 12px; align-items: flex-start; }
+.contact-list .icon { color: var(--accent-colour); margin-top: 3px; }
+.contact-list strong { display: block; }
+.prose { max-width: 760px; }
+.prose p, .prose li { color: var(--ink-muted); }
+.ph-block { border: 1.5px dashed var(--line-strong); border-radius: var(--radius-sm); padding: 14px 16px; }
+.photo { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); aspect-ratio: 3 / 2; background: var(--primary-colour); isolation: isolate; }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.photo:hover img { transform: scale(1.04); }
+.photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 55%, color-mix(in srgb, var(--primary-deep) 70%, transparent)); }
+.photo figcaption {
+  position: absolute; left: 14px; bottom: 14px; right: 14px; z-index: 1;
+  display: inline-flex; align-items: center; gap: 8px; width: fit-content; max-width: calc(100% - 28px);
+  padding: 7px 12px; border-radius: 999px; background: var(--primary-colour); color: var(--on-dark);
+  font-size: .88rem; font-weight: 700; line-height: 1.3;
+}
+.photo figcaption .icon { color: var(--accent-colour); flex: none; }
+.photo-grid { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.photo-grid .photo:first-child { grid-column: 1 / -1; }
+@media (max-width: 599.98px) { .photo-grid .photo:not(:first-child) figcaption { display: none; } } 
+@media (min-width: 900px) {
+  .photo-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 18px; } 
+  .photo-grid .photo:first-child { grid-column: 1; grid-row: 1 / span 2; aspect-ratio: auto; }
+}
+.section-photos { padding-bottom: 40px; }
+@media (min-width: 768px) { .section-photos { padding-bottom: 56px; } }
+.service-card.has-photo { padding-top: 0; overflow: hidden; }
+.card-photo { margin: 0 -22px; aspect-ratio: 16 / 10; overflow: hidden; background: var(--primary-colour); }
+.card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.service-card:hover .card-photo img { transform: scale(1.05); }
+.service-card.has-photo .tile { position: relative; margin-top: -24px; box-shadow: 0 0 0 4px var(--surface); }
+.about-grid { display: grid; gap: 28px; align-items: start; }
+@media (min-width: 900px) { .about-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; } }
+.photo-tall { aspect-ratio: 3 / 2; }
+.privacy h2 { font-size: 1.3rem; margin: 1.6em 0 .5em; }
+.privacy h2:first-child { margin-top: 0; }
+.privacy ul { display: grid; gap: 8px; }
+.privacy a { overflow-wrap: anywhere; }
+.site-footer { background: var(--primary-deep); color: var(--on-dark-muted); padding: 44px 0 28px; font-size: .94rem; }
+.site-footer a { color: var(--on-dark); }
+.footer-grid { display: grid; gap: 26px; }
+.footer-grid h2 { font-size: 1rem; color: var(--on-dark); margin-bottom: .6em; }
+.footer-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.footer-brand { color: var(--on-dark); font-weight: 800; font-size: 1.1rem; margin-bottom: .3em; }
+.footer-legal { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--glass-line); font-size: .86rem; }
+.footer-legal p { margin: 0 0 .4em; }
+@media (min-width: 800px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+.hl { color: var(--accent-colour); }
+.hero h1 { letter-spacing: -.025em; }
+h2 { letter-spacing: -.02em; }
+.site-header::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--accent-colour) 30%, color-mix(in srgb, var(--accent-colour) 40%, transparent) 70%, transparent);
+  opacity: .55;
+}
+.header-call {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 8px 14px;
+  border-radius: 999px; border: 1.5px solid var(--accent-colour); color: var(--on-dark);
+  font-weight: 800; text-decoration: none;
+}
+.header-call .icon { color: var(--accent-colour); }
+.nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after { display: block; width: 16px; height: 2px; border-radius: 2px; background: currentColor; }
+.nav-toggle-bars { position: relative; }
+.nav-toggle-bars::before, .nav-toggle-bars::after { content: ""; position: absolute; left: 0; }
+.nav-toggle-bars::before { top: -5px; }
+.nav-toggle-bars::after { top: 5px; }
+@media (max-width: 767.98px) {
+  .header-full .logo svg { width: 150px; }
+  .header-actions { gap: 8px; }
+  .nav-toggle { padding: 8px 12px; }
+}
+@media (min-width: 768px) { .header-call { display: none; } }
+.hero { isolation: isolate; }
+.hero > .container { position: relative; z-index: 1; }
+.hero-decor { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.hero-decor::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(color-mix(in srgb, #fff 14%, transparent) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(70% 60% at 70% 30%, #000, transparent 75%);
+  mask-image: radial-gradient(70% 60% at 70% 30%, #000, transparent 75%);
+  opacity: .6;
+}
+.blob { position: absolute; border-radius: 50%; will-change: transform; }
+.blob-a { width: 520px; height: 520px; right: -140px; top: -180px; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-colour) 42%, transparent), transparent); animation: drift-a 18s ease-in-out infinite alternate; }
+.blob-b { width: 420px; height: 420px; left: -160px; top: 420px; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-colour) 24%, transparent), transparent); animation: drift-b 22s ease-in-out infinite alternate; }
+.blob-c { width: 300px; height: 300px; left: 38%; top: 240px; background: radial-gradient(closest-side, color-mix(in srgb, #fff 8%, transparent), transparent); animation: drift-a 26s ease-in-out infinite alternate-reverse; }
+@keyframes drift-a { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(-60px, 40px, 0) scale(1.12); } }
+@keyframes drift-b { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(70px, -30px, 0) scale(1.08); } }
+.spark { position: absolute; fill: var(--accent-colour); opacity: .8; animation: twinkle 4.5s ease-in-out infinite; }
+.spark-1 { top: 5%; right: 3%; }
+.spark-2 { top: 34%; right: 46%; animation-delay: -1.2s; fill: #fff; opacity: .55; }
+.spark-3 { bottom: 14%; left: 2%; animation-delay: -2.4s; }
+.spark-4 { top: 4%; left: 46%; animation-delay: -3.3s; fill: #fff; }
+@keyframes twinkle { 0%, 100% { transform: scale(.6) rotate(0deg); opacity: .25; } 50% { transform: scale(1) rotate(45deg); opacity: .9; } }
+.spark-2 { display: none; }
+@media (max-width: 1279.98px) { .spark { display: none; } }
+@media (max-width: 959.98px) { .blob-c { display: none; } }
+.hero-wave { position: absolute; left: 0; bottom: -1px; width: 100%; height: 34px; z-index: 1; display: block; }
+.wave-surface path { fill: var(--surface); }
+.wave-tint path { fill: var(--surface-tint); }
+.hero:has(.hero-wave) { padding-bottom: 64px; }
+@media (min-width: 960px) { .hero-wave { height: 64px; } .hero:has(.hero-wave) { padding-bottom: 104px; } }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+.hero-pills span {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px 4px 9px; border-radius: 999px;
+  font-size: .8rem; font-weight: 700; color: var(--on-dark);
+  background: color-mix(in srgb, var(--accent-colour) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent-colour) 38%, transparent);
+}
+.hero-pills span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-colour); }
+@media (max-width: 599.98px) {
+  .hero { padding-top: 16px; }
+  .hero-pills { margin-bottom: 10px; }
+  .hero-pills span:nth-child(n+3) { display: none; }
+  .hero h1 { margin-bottom: .25em; }
+}
+.trust-ico { display: grid; place-items: center; flex: none; width: 30px; height: 30px; border-radius: 9px; background: color-mix(in srgb, var(--accent-colour) 16%, transparent); color: var(--accent-colour); }
+.trust .trust-ico .icon { margin: 0; }
+.quote-card { position: relative; overflow: hidden; }
+.quote-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: linear-gradient(90deg, var(--accent-colour), color-mix(in srgb, var(--accent-colour) 35%, var(--primary-colour))); }
+.quote-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 10px; }
+.quote-badges { display: flex; gap: 6px; margin: 0 0 8px; }
+.quote-badges span { font-size: .72rem; font-weight: 800; letter-spacing: .02em; padding: 3px 8px; border-radius: 999px; background: var(--accent-wash); color: var(--accent-ink); }
+@media (max-width: 599.98px) { .quote-badges { display: none; } }
+.form-note a { color: var(--ink-muted); }
+.btn .icon-arrow { transition: transform .2s ease; }
+.btn:hover .icon-arrow { transform: translateX(4px); }
+.btn-sm { min-height: 46px; padding: .65rem 1rem; font-size: .95rem; }
+.kicker { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 10px !important; font-size: .78rem !important; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink) !important; }
+.kicker::before { content: ""; width: 26px; height: 2px; border-radius: 2px; background: currentColor; }
+.section-dark .kicker { color: var(--accent-colour) !important; }
+.tile {
+  display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 14px;
+  color: var(--primary-colour);
+  background: linear-gradient(140deg, var(--accent-colour), color-mix(in srgb, var(--accent-colour) 45%, #fff));
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--primary-colour) 14%, transparent);
+}
+.service-card .tile { margin-bottom: 16px; }
+.card { position: relative; }
+.card::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
+  box-shadow: 0 28px 60px -28px color-mix(in srgb, var(--primary-colour) 60%, transparent);
+  transition: opacity .25s ease;
+}
+a.card:hover::after, .card[data-tilt]:hover::after { opacity: 1; }
+.service-card { transition: transform .2s ease; }
+.service-card:hover { transform: translateY(-4px); }
+html.has-tilt .service-card:hover { transform: none; }
+.service-card .go { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.service-card .go .icon-arrow { transition: transform .2s ease; }
+.service-card:hover .go .icon-arrow { transform: translateX(4px); }
+.check-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.check-head h3 { margin: 0; }
+.check-card { border-top: 3px solid var(--accent-colour); }
+.addons { display: flex; gap: 12px; align-items: flex-start; border: 1px dashed color-mix(in srgb, var(--accent-colour) 60%, var(--primary-colour)); }
+.addons .icon { color: var(--accent-ink); flex: none; margin-top: 2px; }
+.steps li::before { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent-colour) 18%, transparent); }
+@media (max-width: 899.98px) {
+  .steps li:not(:last-child)::after { content: ""; position: absolute; left: 19px; top: 46px; bottom: -18px; width: 2px; background: linear-gradient(var(--accent-colour), transparent); opacity: .5; }
+}
+@media (min-width: 900px) {
+  .steps li:not(:last-child)::after { content: ""; position: absolute; left: 52px; right: -12px; top: 19px; height: 2px; background: linear-gradient(90deg, var(--accent-colour), transparent); opacity: .5; }
+}
+.price-grid { align-items: stretch; }
+.price-card { display: flex; flex-direction: column; }
+.price-card .price { font-size: 2.3rem; letter-spacing: -.02em; }
+.price-card .cur { font-size: .6em; vertical-align: .55em; margin-right: 2px; color: var(--accent-ink); }
+.price-list { list-style: none; padding: 0 !important; margin: 0 0 18px !important; display: grid; gap: 6px; }
+.price-list li { display: flex; gap: 8px; align-items: flex-start; }
+.price-list .icon { color: var(--accent-ink); margin-top: 4px; }
+.price-card .btn { margin-top: auto; }
+.price-card--feature { color: var(--on-dark); border-color: transparent; background-color: var(--primary-colour); background-image: radial-gradient(80% 60% at 100% 0%, color-mix(in srgb, var(--accent-colour) 30%, transparent), transparent 70%), linear-gradient(160deg, var(--primary-soft), var(--primary-deep)); }
+.price-card--feature .price-label, .price-card--feature .price-unit, .price-card--feature .price small, .price-card--feature .price-list { color: var(--on-dark-muted); }
+.price-card--feature .cur, .price-card--feature .price-list .icon { color: var(--accent-colour); }
+@media (min-width: 1024px) { .price-card--feature { transform: translateY(-10px); } }
+.guarantee-lead { position: relative; }
+.seal { width: 132px; height: 132px; margin-bottom: 14px; }
+.seal svg { width: 100%; height: 100%; overflow: visible; }
+.seal-outer { fill: color-mix(in srgb, var(--accent-colour) 12%, transparent); stroke: var(--accent-colour); stroke-width: 2; }
+.seal-line { fill: var(--primary-deep); stroke: color-mix(in srgb, var(--accent-colour) 50%, transparent); stroke-width: 1.5; stroke-dasharray: 3 5; }
+.seal-text { fill: var(--accent-colour); font: 800 15px var(--font); letter-spacing: 2px; }
+.seal-spin { transform-box: view-box; transform-origin: 50% 50%; animation: spin 36s linear infinite; }
+.seal .mk-roof { stroke: #fff; }
+.seal .mk-check { stroke: var(--accent-colour); }
+.seal .mk-spark { fill: var(--accent-colour); }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (min-width: 900px) { .seal { width: 168px; height: 168px; } }
+.testimonial { border-bottom: 3px solid var(--accent-colour); }
+.quote-glyph { fill: var(--accent-colour); opacity: .9; }
+.testimonial figcaption { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+.testimonial figcaption small { display: block; font-weight: 600; }
+.avatar { display: grid; place-items: center; flex: none; width: 42px; height: 42px; border-radius: 50%; color: var(--primary-colour); background: linear-gradient(140deg, var(--accent-colour), color-mix(in srgb, var(--accent-colour) 40%, #fff)); }
+.suburbs li { display: inline-flex; align-items: center; gap: 8px; transition: transform .2s ease; }
+.suburbs li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-colour); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-colour) 22%, transparent); }
+.suburbs li:hover { transform: translateY(-2px); }
+.faq h3 { display: flex; gap: 12px; align-items: flex-start; }
+.faq h3::before {
+  content: "Q"; flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px;
+  font-size: .85rem; font-weight: 800; color: var(--primary-colour); background: var(--accent-wash);
+}
+.faq p { padding-left: 40px; }
+.promise-card { align-items: flex-start; }
+.promise-card h3 { margin-bottom: .3em; }
+.promise-card p { color: var(--ink-muted); }
+.final-cta { position: relative; overflow: hidden; isolation: isolate; }
+.final-cta .container { position: relative; z-index: 1; }
+.big-mark { position: absolute; right: -60px; bottom: -80px; width: 360px; height: 360px; z-index: 0; opacity: .14; transform: rotate(-12deg); }
+.big-mark .mk-roof { stroke: #fff; }
+.big-mark .mk-check { stroke: var(--accent-colour); }
+.big-mark .mk-spark { fill: var(--accent-colour); }
+@media (min-width: 900px) { .big-mark { right: 4%; bottom: -60px; width: 420px; height: 420px; opacity: .18; } }
+.site-footer .footer-legal { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; }
+.site-footer .footer-legal p { margin: 0; }
+.made-by {
+  position: relative; overflow: hidden; isolation: isolate;
+  display: inline-flex; align-items: center; gap: 8px; flex: none;
+  padding: 8px 14px 8px 13px; border-radius: 999px;
+  font-size: .86rem; text-decoration: none; color: var(--on-dark-muted);
+  background: color-mix(in srgb, var(--accent-colour) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-colour) 45%, transparent);
+  box-shadow: 0 0 0 0 transparent, inset 0 1px 0 color-mix(in srgb, #fff 10%, transparent);
+  transition: transform .2s ease;
+}
+.site-footer a.made-by { color: var(--on-dark-muted); }
+.made-by::before { 
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(100deg, transparent 20%, color-mix(in srgb, var(--accent-colour) 35%, transparent) 50%, transparent 80%);
+  transform: translateX(-110%); transition: transform .6s ease;
+}
+.made-by::after { 
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none;
+  box-shadow: 0 0 22px -4px color-mix(in srgb, var(--accent-colour) 55%, transparent);
+  opacity: .35; transition: opacity .25s ease;
+}
+.made-by:hover { transform: translateY(-1px); }
+.made-by:hover::before { transform: translateX(110%); }
+.made-by:hover::after { opacity: 1; }
+.made-by-label { font-weight: 600; letter-spacing: .01em; }
+.made-by-name { font-weight: 800; letter-spacing: .02em; color: var(--accent-colour); }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .made-by-name { background: linear-gradient(90deg, var(--accent-colour), color-mix(in srgb, var(--accent-colour) 35%, #fff)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+}
+.made-by-arrow { color: var(--accent-colour); transition: transform .2s ease; }
+.made-by:hover .made-by-arrow { transform: translate(2px, -2px); }
+.made-by:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+@media (max-width: 599.98px) {
+  .site-footer .footer-legal { flex-direction: column; align-items: center; text-align: center; }
+}
+.footer-brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.footer-brand-row .footer-brand { margin: 0; }
+.footer-mark { flex: none; }
+.footer-mark .mk-tile { fill: color-mix(in srgb, #fff 8%, transparent); }
+.footer-mark .mk-roof { stroke: #fff; }
+.footer-mark .mk-check { stroke: var(--accent-colour); }
+.footer-mark .mk-spark { fill: var(--accent-colour); }
+.section-tint { background-image: radial-gradient(50% 60% at 100% 0%, color-mix(in srgb, var(--accent-colour) 10%, transparent), transparent 70%); }
+html.js .reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1);
+}
+html.js .reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  html.js .reveal { opacity: 1; transform: none; }
+  .btn:hover { transform: none; }
+  [data-tilt] { transform: none !important; }
+  .price-card--feature { transform: none; }
+  .blob, .spark, .seal-spin { animation: none !important; }
+  .photo:hover img, .service-card:hover .card-photo img { transform: none; }
+}
+</style>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header header-full">
+  <div class="container header-inner">
+    <a class="logo" href="/">
+    <svg viewBox="0 0 280 64" width="200" height="46" role="img" aria-labelledby="logo-title-h">
+      <title id="logo-title-h">All Reliable Cleaning</title>
+      <rect class="logo-tile" width="64" height="64" rx="16"/>
+      <path d="M13 31 32 15l19 16" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="logo-check" d="m20 38 9 8 16-16" fill="none" stroke="var(--accent-colour)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="logo-accent" d="M50 40c.9 3.4 2.3 4.8 5.6 5.6-3.3.9-4.7 2.3-5.6 5.6-.9-3.3-2.3-4.7-5.6-5.6 3.3-.8 4.7-2.2 5.6-5.6z"/>
+      <text class="logo-word" x="77" y="33" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="-0.4">All Reliable</text>
+      <text class="logo-sub" x="78" y="53" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="12.5" font-weight="700" letter-spacing="4.6">CLEANING</text>
+    </svg>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+          <li class="has-menu"><button class="menu-btn" type="button" aria-expanded="false" aria-controls="services-menu">Services<svg class="icon menu-chevron" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="menu-panel" id="services-menu"><div class="menu-group"><p class="menu-title">Residential</p><ul><li><a href="/end-of-lease-cleaning-perth"><strong>End of lease cleaning</strong><span>Bond cleans with a re-clean guarantee</span></a></li><li><a href="/regular-house-cleaning-perth"><strong>Regular house cleaning</strong><span>Weekly or fortnightly, no lock-in</span></a></li><li><a href="/carpet-deep-cleaning-perth"><strong>Carpet steam cleaning</strong><span>Hot water extraction for stains and odours</span></a></li><li><a href="/contact?service=Other%20residential%20cleaning#quote"><strong>Other residential cleaning</strong><span>Any other home clean: tell us what you need</span></a></li></ul></div><div class="menu-group"><p class="menu-title">Commercial</p><ul><li><a href="/office-cleaning-perth"><strong>Office cleaning</strong><span>After hours, priced per visit</span></a></li><li><a href="/contact?service=Other%20commercial%20cleaning#quote"><strong>Other commercial cleaning</strong><span>Any other business site: tell us what you need</span></a></li></ul></div></div></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+61452431033" data-call-location="header"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>0452 431 033</a>
+      <a class="header-call" href="tel:+61452431033" data-call-location="header-mobile"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>Call</span></a>
+      <a class="btn btn-cta header-cta" href="#quote">Get My Free Quote</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-label">Menu</span></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="hero-decor" aria-hidden="true">
+    <span class="blob blob-a"></span><span class="blob blob-b"></span><span class="blob blob-c"></span>
+    <svg class="spark spark-1" viewBox="0 0 24 24" width="22" height="22" focusable="false"><path d="M12 0c1.3 6.4 4.6 9.7 12 12-7.4 2.3-10.7 5.6-12 12C10.7 17.6 7.4 14.3 0 12 7.4 9.7 10.7 6.4 12 0z"/></svg>
+    <svg class="spark spark-2" viewBox="0 0 24 24" width="14" height="14" focusable="false"><path d="M12 0c1.3 6.4 4.6 9.7 12 12-7.4 2.3-10.7 5.6-12 12C10.7 17.6 7.4 14.3 0 12 7.4 9.7 10.7 6.4 12 0z"/></svg>
+    <svg class="spark spark-3" viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M12 0c1.3 6.4 4.6 9.7 12 12-7.4 2.3-10.7 5.6-12 12C10.7 17.6 7.4 14.3 0 12 7.4 9.7 10.7 6.4 12 0z"/></svg>
+    <svg class="spark spark-4" viewBox="0 0 24 24" width="10" height="10" focusable="false"><path d="M12 0c1.3 6.4 4.6 9.7 12 12-7.4 2.3-10.7 5.6-12 12C10.7 17.6 7.4 14.3 0 12 7.4 9.7 10.7 6.4 12 0z"/></svg>
+  </div>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="hero-pills"><span>Free quote</span><span>Same-day response</span><span>3-day guarantee</span></p>
+      <h1>Perth Cleaners Who Turn Up, Clean to a Checklist and <span class="hl">Guarantee It</span></h1>
+      <p class="hero-lead">End of lease, regular house, office and carpet steam cleaning. Free quote, same-day response.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-call" href="tel:+61452431033" data-call-location="hero"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call 0452 431 033</a>
+      </div>
+    </div>
+    <div class="hero-form">
+<div class="quote-card" id="quote" data-tilt data-tilt-max="3">
+  <div class="quote-head">
+    <h2 class="quote-title">Your free quote, same day</h2>
+    <p class="quote-badges" aria-label="Quote promises"><span>Free</span><span>No obligation</span><span>60 seconds</span></p>
+  </div>
+  <p class="quote-sub">Takes about 60 seconds. No obligation, no spam.</p>
+  <form class="quote-form" action="[[GHL_WEBHOOK_URL]]" method="post" novalidate data-quote-form>
+    <div class="field-row">
+    <div class="field">
+      <label for="q-name">Your name</label>
+      <input id="q-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="q-name-error">
+      <p class="field-error" id="q-name-error" aria-live="polite"></p>
+    </div>
+    <div class="field">
+      <label for="q-phone">Phone</label>
+      <input id="q-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required aria-describedby="q-phone-error">
+      <p class="field-error" id="q-phone-error" aria-live="polite"></p>
+    </div>
+    </div>
+    <div class="field">
+      <label for="q-suburb">Suburb</label>
+      <input id="q-suburb" name="suburb" type="text" autocomplete="address-level2" maxlength="60" required aria-describedby="q-suburb-error">
+      <p class="field-error" id="q-suburb-error" aria-live="polite"></p>
+    </div>
+    <div class="field">
+      <label for="q-service">Service</label>
+      <select id="q-service" name="service" required aria-describedby="q-service-error">
+        <option value="" selected>Choose a service</option>
+        <optgroup label="Residential">
+          <option value="End of lease cleaning">End of lease cleaning</option>
+          <option value="Regular house cleaning">Regular house cleaning</option>
+          <option value="Carpet steam cleaning">Carpet steam cleaning</option>
+          <option value="Other residential cleaning">Other residential cleaning</option>
+        </optgroup>
+        <optgroup label="Commercial">
+          <option value="Office cleaning">Office cleaning</option>
+          <option value="Other commercial cleaning">Other commercial cleaning</option>
+        </optgroup>
+      </select>
+      <p class="field-error" id="q-service-error" aria-live="polite"></p>
+    </div>
+    <div class="field">
+      <label for="q-message">Anything we should know? <span class="optional">(optional)</span></label>
+      <textarea id="q-message" name="message" rows="1" maxlength="1000" aria-describedby="q-message-error"></textarea>
+      <p class="field-error" id="q-message-error" aria-live="polite"></p>
+    </div>
+    <div class="hp-field" aria-hidden="true">
+      <label for="q-fax">Leave this field empty</label>
+      <input id="q-fax" name="fax" type="text" tabindex="-1" autocomplete="off" data-hp>
+    </div>
+    <button class="btn btn-cta btn-block" type="submit"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    <p class="form-note">We reply the same day. Details are only used for your quote. <a href="/privacy" target="_blank" rel="noopener">Privacy policy</a></p>
+  </form>
+</div>
+    </div>
+    <div class="hero-extra">
+      <ul class="trust glass" aria-label="Why customers book with us">
+    <li><span class="trust-ico"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></span><span><strong>Free quotes</strong>no obligation to book</span></li>
+    <li><span class="trust-ico"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><strong>Same-day response</strong>on requests in by 2pm</span></li>
+    <li><span class="trust-ico"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg></span><span><strong>3-day guarantee</strong>free re-clean if anything is missed</span></li>
+    <li><span class="trust-ico"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg></span><span><strong>Checklist cleans</strong>the same standard every visit</span></li>
+    <li><span class="trust-ico"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><strong>No lock-in contracts</strong>on regular and office cleans</span></li>
+  </ul>
+    </div>
+  </div>
+  <svg class="hero-wave wave-tint" viewBox="0 0 1440 64" width="1440" height="64" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 64V34c160 22 320 30 520 14S920 0 1120 8s250 26 320 34v22z"/></svg>
+</section>
+<section class="section section-tint">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Services</p>
+      <h2>Residential and commercial cleaning with upfront prices</h2>
+      <p>Every service comes with a free quote and a same-day response.</p>
+    </div>
+    <div class="grid grid-4 reveal">
+      <a class="card service-card has-photo" href="/end-of-lease-cleaning-perth" data-tilt>
+        <figure class="card-photo"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&h=800&fit=crop&auto=format&q=75" width="1200" height="800" loading="lazy" decoding="async" alt="End of lease cleaning result"></figure>
+        <span class="tile"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg></span>
+        <h3>End of lease cleaning</h3>
+        <p>Bond cleans to the checklist property managers inspect, with a 3-day bond-back guarantee.</p>
+        <p class="from">From $249 <small>1 bed</small></p>
+        <span class="go">See end of lease cleaning prices <svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card service-card has-photo" href="/regular-house-cleaning-perth" data-tilt>
+        <figure class="card-photo"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop&auto=format&q=75" width="1200" height="800" loading="lazy" decoding="async" alt="Regular house cleaning result"></figure>
+        <span class="tile"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 4.5 3 6.5 7.5 7.5-4.5 1-6.5 3-7.5 7.5-1-4.5-3-6.5-7.5-7.5C9 9.5 11 7.5 12 3z"/></svg></span>
+        <h3>Regular house cleaning</h3>
+        <p>Weekly or fortnightly cleans, priced per visit, with no lock-in contract.</p>
+        <p class="from">From $149 <small>per visit</small></p>
+        <span class="go">See regular house cleaning prices <svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card service-card has-photo" href="/office-cleaning-perth" data-tilt>
+        <figure class="card-photo"><img src="https://images.unsplash.com/photo-1462826303086-329426d1aef5?w=1200&h=800&fit=crop&auto=format&q=75" width="1200" height="800" loading="lazy" decoding="async" alt="Office cleaning result"></figure>
+        <span class="tile"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/></svg></span>
+        <h3>Office cleaning</h3>
+        <p>After-hours office cleaning to a written checklist agreed before the first clean.</p>
+        <p class="from">From $99 <small>per visit</small></p>
+        <span class="go">See office cleaning prices <svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card service-card has-photo" href="/carpet-deep-cleaning-perth" data-tilt>
+        <figure class="card-photo"><img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=1200&h=800&fit=crop&auto=format&q=75" width="1200" height="800" loading="lazy" decoding="async" alt="Carpet steam cleaning result"></figure>
+        <span class="tile"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M4 9h16M4 15h16M2 7v2M2 15v2M22 7v2M22 15v2"/></svg></span>
+        <h3>Carpet steam cleaning</h3>
+        <p>Hot water extraction that lifts stains and pet odours, with a receipt for your property manager.</p>
+        <p class="from">From $79 <small>per room</small></p>
+        <span class="go">See carpet steam cleaning prices <svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+<section class="section ">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Why book with us</p>
+      <h2>Three promises on every booking</h2>
+    </div>
+    <div class="promise reveal">
+      <div class="card promise-card"><span class="tile"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg></span><div><h3>Free upfront quote</h3><p>We confirm your price before we start, so there are no surprises on the day.</p></div></div>
+      <div class="card promise-card"><span class="tile"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><h3>Same-day response</h3><p>Quote requests received by 2pm, any day of the week, get a reply the same day.</p></div></div>
+      <div class="card promise-card"><span class="tile"><svg class="icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg></span><div><h3>Bond-back guarantee</h3><p>End of lease cleans include a free re-clean if your property manager flags a cleaning item within 3 days.</p></div></div>
+    </div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+<section class="section section-dark section-steps">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">How it works</p>
+      <h2>How booking works</h2>
+      <p>Four steps from quote to a clean home or office.</p>
+    </div>
+    <ol class="steps glass reveal">
+      <li><h3>Request your quote</h3><p>Fill in the form in about 60 seconds, or call us.</p></li>
+      <li><h3>Get your quote</h3><p>We reply the same day with your price and available times.</p></li>
+      <li><h3>We clean to the checklist</h3><p>Leave a key or be home. We follow the same checklist every time.</p></li>
+      <li><h3>Guaranteed result</h3><p>If anything is missed, tell us within 3 days and we re-clean it free.</p></li>
+    </ol>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+<section class="section section-tint section-prices">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Upfront pricing</p>
+      <h2>Starting prices</h2>
+      <p>Prices for a standard-condition property. Your written quote confirms the exact price before you book.</p>
+    </div>
+    <div class="grid grid-3 price-grid reveal">
+      <div class="card price-card" data-tilt>
+        <p class="price-label">End of lease, 1 bedroom</p>
+        <p class="price"><small>from </small><span class="cur">$</span>249</p>
+        <p class="price-unit">unit or apartment</p>
+        <ul class="price-list"><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Full bond clean checklist</span></li><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Bond-back guarantee</span></li></ul>
+        <a class="btn btn-cta btn-block btn-sm" href="#quote" data-service="End of lease cleaning"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="card price-card price-card--feature" data-tilt>
+        <p class="price-label">Regular clean, fortnightly</p>
+        <p class="price"><small>from </small><span class="cur">$</span>149</p>
+        <p class="price-unit">per visit</p>
+        <ul class="price-list"><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>No lock-in contract</span></li><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Same checklist every visit</span></li></ul>
+        <a class="btn btn-cta btn-block btn-sm" href="#quote" data-service="Regular house cleaning"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="card price-card" data-tilt>
+        <p class="price-label">Carpet steam clean, 1 room</p>
+        <p class="price"><small>from </small><span class="cur">$</span>79</p>
+        <p class="price-unit">per room</p>
+        <ul class="price-list"><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Pre-treatment included</span></li><li><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg><span>Receipt for your property manager</span></li></ul>
+        <a class="btn btn-cta btn-block btn-sm" href="#quote" data-service="Carpet steam cleaning"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <p class="price-note">Office cleaning starts from $99 per visit after a walkthrough. Your final price is confirmed before we start.</p>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+<section class="section section-dark section-guarantee">
+  <div class="container">
+    <div class="guarantee glass reveal">
+      <div class="guarantee-lead">
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 200 200" width="168" height="168" focusable="false">
+            <defs><path id="seal-ring" d="M100 100m-80 0a80 80 0 1 1 160 0a80 80 0 1 1-160 0"/></defs>
+            <circle class="seal-outer" cx="100" cy="100" r="97"/>
+            <circle class="seal-line" cx="100" cy="100" r="64"/>
+            <g class="seal-spin"><text class="seal-text"><textPath href="#seal-ring" textLength="496" lengthAdjust="spacingAndGlyphs">BOND-BACK GUARANTEE &#8226; FREE RE-CLEAN &#8226; 3-DAY CLAIM WINDOW &#8226; </textPath></text></g>
+            <g transform="translate(64 62) scale(1.12)"><path class="mk-roof" d="M13 31 32 15l19 16" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-check" d="m20 38 9 8 16-16" fill="none" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-spark" d="M50 40c.9 3.4 2.3 4.8 5.6 5.6-3.3.9-4.7 2.3-5.6 5.6-.9-3.3-2.3-4.7-5.6-5.6 3.3-.8 4.7-2.2 5.6-5.6z"/></g>
+          </svg>
+        </div>
+        <p class="eyebrow">Our guarantee</p>
+        <h2>Bond-back guarantee: we re-clean until it passes</h2>
+        <p class="big">If your property manager or landlord lists a cleaning item on the exit inspection, we come back and re-clean it at no charge.</p>
+        <p>Regular house and office cleans carry the same 3-day free re-clean guarantee.</p>
+      </div>
+      <div>
+        <h3>Guarantee terms</h3>
+        <ol>
+          <li>Tell us within 3 days of your clean and send the property manager&rsquo;s written list of cleaning items.</li>
+          <li>We return and re-clean the listed items free, at the first time the property manager allows access.</li>
+          <li>The property must be vacant and unchanged since our clean, with power and water still connected.</li>
+          <li>Covers items on our end of lease checklist plus any add-ons you booked. It excludes damage, wear and tear, permanent stains and areas we could not access on the day.</li>
+          <li>The guarantee is a free re-clean. We do not pay out or refund bond money.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+<section class="section section-reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Reviews</p>
+      <h2>What Perth customers say</h2>
+      <p>These blocks are placeholders. Replace them with real, verified reviews before the site goes live.</p>
+    </div>
+    <div class="grid grid-3 reveal">
+      <figure class="card testimonial" data-tilt>
+        <span class="ph-badge">Placeholder review: replace before launch</span>
+        <svg class="quote-glyph" width="40" height="32" viewBox="0 0 40 32" aria-hidden="true" focusable="false"><path d="M0 32V19C0 8.6 5.4 2.2 16 0l2 4.4C12 6.6 9.4 10 9 15h8v17zm22 0V19C22 8.6 27.4 2.2 38 0l2 4.4C34 6.6 31.4 10 31 15h8v17z"/></svg>
+        <blockquote><p>&ldquo;[[TESTIMONIAL_1_QUOTE]]&rdquo;</p></blockquote>
+        <figcaption><span class="avatar"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><span>[[TESTIMONIAL_1_NAME]]<small>[[TESTIMONIAL_1_SUBURB]]</small></span></figcaption>
+      </figure>
+      <figure class="card testimonial" data-tilt>
+        <span class="ph-badge">Placeholder review: replace before launch</span>
+        <svg class="quote-glyph" width="40" height="32" viewBox="0 0 40 32" aria-hidden="true" focusable="false"><path d="M0 32V19C0 8.6 5.4 2.2 16 0l2 4.4C12 6.6 9.4 10 9 15h8v17zm22 0V19C22 8.6 27.4 2.2 38 0l2 4.4C34 6.6 31.4 10 31 15h8v17z"/></svg>
+        <blockquote><p>&ldquo;[[TESTIMONIAL_2_QUOTE]]&rdquo;</p></blockquote>
+        <figcaption><span class="avatar"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><span>[[TESTIMONIAL_2_NAME]]<small>[[TESTIMONIAL_2_SUBURB]]</small></span></figcaption>
+      </figure>
+      <figure class="card testimonial" data-tilt>
+        <span class="ph-badge">Placeholder review: replace before launch</span>
+        <svg class="quote-glyph" width="40" height="32" viewBox="0 0 40 32" aria-hidden="true" focusable="false"><path d="M0 32V19C0 8.6 5.4 2.2 16 0l2 4.4C12 6.6 9.4 10 9 15h8v17zm22 0V19C22 8.6 27.4 2.2 38 0l2 4.4C34 6.6 31.4 10 31 15h8v17z"/></svg>
+        <blockquote><p>&ldquo;[[TESTIMONIAL_3_QUOTE]]&rdquo;</p></blockquote>
+        <figcaption><span class="avatar"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><span>[[TESTIMONIAL_3_NAME]]<small>[[TESTIMONIAL_3_SUBURB]]</small></span></figcaption>
+      </figure>
+    </div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+<section class="section section-tint section-suburbs">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Service area</p>
+      <h2>We clean all of Perth</h2>
+      <p>We clean right across Perth, including the suburbs below. Don&rsquo;t see yours? Add it to the form and we&rsquo;ll confirm the same day.</p>
+    </div>
+    <ul class="suburbs reveal"><li>Perth CBD</li><li>Subiaco</li><li>Leederville</li><li>Mount Lawley</li><li>Victoria Park</li><li>South Perth</li><li>Como</li><li>Applecross</li><li>Fremantle</li><li>Cottesloe</li><li>Claremont</li><li>Nedlands</li><li>Scarborough</li><li>Karrinyup</li><li>Joondalup</li><li>Hillarys</li><li>Wanneroo</li><li>Ellenbrook</li><li>Midland</li><li>Morley</li><li>Bayswater</li><li>Belmont</li><li>Cannington</li><li>Canning Vale</li><li>Willetton</li><li>Murdoch</li><li>Cockburn Central</li><li>Baldivis</li><li>Rockingham</li><li>Armadale</li></ul>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+<section class="section section-faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">FAQ</p>
+      <h2>Questions before you book</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="card"><h3>How much will my clean cost?</h3><p>Every job gets a free quote. Starting prices are listed above. Your final price depends on size and condition, and we confirm it before we start.</p></div>
+      <div class="card"><h3>Do you guarantee I get my bond back?</h3><p>If your property manager flags a cleaning item within 3 days of our end of lease clean, we re-clean it free. We don&rsquo;t pay out bond money.</p></div>
+      <div class="card"><h3>Do I need to be home?</h3><p>No. Leave a key or lockbox code, or arrange access through your agent or building manager. We lock up when we finish.</p></div>
+      <div class="card"><h3>Are pets OK?</h3><p>Yes. Tell us about pets in the form. We remove pet hair, and we can add carpet steam cleaning or odour treatment.</p></div>
+      <div class="card"><h3>Can I change or rebook my clean?</h3><p>Yes. Tell us at least 24 hours before your booking and we move it at no cost.</p></div>
+      <div class="card"><h3>How fast will you reply?</h3><p>Quote requests received by 2pm, any day of the week, get a reply the same day. Call 0452 431 033 if it&rsquo;s urgent.</p></div>
+    </div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+<section class="section section-dark final-cta">
+  <svg class="big-mark" viewBox="0 0 64 64" width="360" height="360" aria-hidden="true" focusable="false"><path class="mk-roof" d="M13 31 32 15l19 16" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-check" d="m20 38 9 8 16-16" fill="none" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-spark" d="M50 40c.9 3.4 2.3 4.8 5.6 5.6-3.3.9-4.7 2.3-5.6 5.6-.9-3.3-2.3-4.7-5.6-5.6 3.3-.8 4.7-2.2 5.6-5.6z"/></svg>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">Free quote</p>
+      <h2>Get your free quote today.</h2>
+      <p>Tell us what you need in about 60 seconds. We reply the same day.</p>
+    </div>
+    <div class="section-cta"><a class="btn btn-cta " href="#quote"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><p class="cta-note">or call <a href="tel:+61452431033" data-call-location="final-cta">0452 431 033</a></p></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-row"><svg class="footer-mark" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="16" class="mk-tile"/><path class="mk-roof" d="M13 31 32 15l19 16" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-check" d="m20 38 9 8 16-16" fill="none" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><path class="mk-spark" d="M50 40c.9 3.4 2.3 4.8 5.6 5.6-3.3.9-4.7 2.3-5.6 5.6-.9-3.3-2.3-4.7-5.6-5.6 3.3-.8 4.7-2.2 5.6-5.6z"/></svg><p class="footer-brand">All Reliable Cleaning</p></div>
+        <p>End of lease, regular house, office and carpet steam cleaning across Perth. Free quotes with a same-day response.</p>
+      </div>
+      <div>
+        <h2>Residential and commercial</h2>
+        <ul>
+          <li><a href="/end-of-lease-cleaning-perth">End of lease cleaning</a></li>
+          <li><a href="/regular-house-cleaning-perth">Regular house cleaning</a></li>
+          <li><a href="/office-cleaning-perth">Office cleaning</a></li>
+          <li><a href="/carpet-deep-cleaning-perth">Carpet steam cleaning</a></li>
+          <li><a href="/contact?service=Other%20commercial%20cleaning#quote">Other commercial cleaning</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="tel:+61452431033" data-call-location="footer">0452 431 033</a></li>
+          <li><a href="mailto:[[EMAIL]]">[[EMAIL]]</a></li>
+          <li><a href="/about">About us</a></li>
+          <li><a href="/contact">Contact and quotes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>&copy; All Reliable Cleaning &middot; ABN 48 702 993 397 &middot; Servicing Perth, Western Australia &middot; <a href="/privacy" target="_blank" rel="noopener">Privacy policy</a></p>
+      <a class="made-by" href="[[JSS_DIGITAL_URL]]" target="_blank" rel="noopener" data-credit><span class="made-by-label">Website by</span><span class="made-by-name">JSS Digital</span><svg class="icon made-by-arrow" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</footer>
+<div class="mobile-bar" role="region" aria-label="Quick contact">
+  <a class="btn btn-call" href="tel:+61452431033" data-call-location="mobile-bar"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call Now</a>
+  <a class="btn btn-cta" href="#quote">Get My Free Quote</a>
+</div>
+<dialog class="exit-modal" id="exit-modal" aria-labelledby="exit-title">
+  <button class="exit-close" type="button" data-exit-close aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <p class="kicker">Before you go</p>
+  <h2 id="exit-title">Before you go: get your free quote</h2>
+  <p class="exit-sub">Leave your name and number. We&rsquo;ll call or text the same day with a quote. No obligation.</p>
+  <form class="quote-form exit-form" action="[[GHL_WEBHOOK_URL]]" method="post" novalidate data-quote-form data-form-type="exit-intent">
+    <div class="field-row">
+    <div class="field">
+      <label for="x-name">Your name</label>
+      <input id="x-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="x-name-error">
+      <p class="field-error" id="x-name-error" aria-live="polite"></p>
+    </div>
+    <div class="field">
+      <label for="x-phone">Phone</label>
+      <input id="x-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required aria-describedby="x-phone-error">
+      <p class="field-error" id="x-phone-error" aria-live="polite"></p>
+    </div>
+    </div>
+    <div class="hp-field" aria-hidden="true">
+      <label for="x-fax">Leave this field empty</label>
+      <input id="x-fax" name="fax" type="text" tabindex="-1" autocomplete="off" data-hp>
+    </div>
+    <button class="btn btn-cta btn-block" type="submit"><span>Get My Free Quote</span><svg class="icon icon-arrow" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </form>
+  <p class="exit-or">Prefer to talk? <a href="tel:+61452431033" data-call-location="exit-intent">Call 0452 431 033</a></p>
+  <button class="link-btn exit-dismiss" type="button" data-exit-close>No thanks, I&rsquo;ll keep browsing</button>
+</dialog>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"[[SITE_URL]]/#business","name":"All Reliable Cleaning","url":"[[SITE_URL]]/","logo":"[[SITE_URL]]/assets/img/logo.svg","image":"[[SITE_URL]]/assets/img/logo.svg","telephone":"+61 452 431 033","email":"[[EMAIL]]","description":"All Reliable Cleaning provides end of lease, regular house, office and carpet steam cleaning across Perth.","areaServed":"Perth, Western Australia","openingHours":"Mo-Su 09:30-17:00","taxID":"48 702 993 397","address":{"@type":"PostalAddress","addressLocality":"Perth","addressRegion":"WA","addressCountry":"AU"]]</script>
+<script>
+/* All Reliable Cleaning site script. Loaded with defer on every page. No libraries. */
+(function () {
+  'use strict';
+
+  /* ---------------------------------------------------------------------
+     CONFIG: the only values to edit. Anything still containing "[[" is
+     treated as not configured and stays switched off.
+     --------------------------------------------------------------------- */
+  var CONFIG = {
+    GA4_ID: '[[GA4_ID]]',                         // e.g. G-XXXXXXXXXX
+    GADS_ID_AND_LABEL: '[[GADS_ID_AND_LABEL]]',   // lead form conversion, e.g. AW-123456789/AbCdEfGhIjk
+    GADS_CALL_ID_AND_LABEL: '[[GADS_CALL_ID_AND_LABEL]]', // optional: website call-click conversion
+    GHL_WEBHOOK_URL: '[[GHL_WEBHOOK_URL]]',       // GoHighLevel inbound webhook URL
+    THANK_YOU_URL: '/thank-you',
+    REDIRECT_AFTER_MS: 1500,
+    LEAD_FLAG: 'arc_lead',
+    EC_KEY: 'arc_ec',             // enhanced conversions: phone held until the thank-you page, then deleted
+    ATTR_KEY: 'arc_attr',         // ad click attribution (gclid / UTM), kept 90 days
+    ATTR_DAYS: 90,
+    SUBMITTED_KEY: 'arc_submitted', // set once a lead is sent: exit-intent pop-up stops for this visit
+    EXIT_REARM_MS: 2000,            // pause after closing before the pop-up can show again
+    TILT_MAX_DEG: 6
+  };
+
+  var doc = document;
+  var root = doc.documentElement;
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function isConfigured(value) {
+    return typeof value === 'string' && value.length > 0 && value.indexOf('[[') === -1;
+  }
+
+  function storage(action, key, value) {
+    try {
+      if (action === 'get') return window.sessionStorage.getItem(key);
+      if (action === 'set') window.sessionStorage.setItem(key, value);
+      if (action === 'remove') window.sessionStorage.removeItem(key);
+    } catch (e) { /* storage blocked: carry on */ }
+    return null;
+  }
+
+  /* ---------------------------------------------------------------------
+     Open every new page at the top. Browsers do this anyway, but some
+     embedded viewers (e.g. a preview frame that grows to the page height)
+     keep the outer scroll position between pages. Links to a section
+     (#hash), back/forward and reload keep their normal behaviour.
+     --------------------------------------------------------------------- */
+  (function startAtTop() {
+    if (window.location.hash) return;
+    var nav = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+    var type = nav ? nav.type : (window.performance && performance.navigation ? ['navigate', 'reload', 'back_forward'][performance.navigation.type] : 'navigate');
+    if (type === 'back_forward' || type === 'reload') return;
+    window.scrollTo(0, 0);
+    var pad = root.style.scrollPaddingTop;
+    root.style.scrollPaddingTop = '0px'; // the sticky-header offset is for #section links, not for the top of the page
+    try { root.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'instant' }); } catch (e) { root.scrollIntoView(true); }
+    root.style.scrollPaddingTop = pad;
+  })();
+
+  /* ---------------------------------------------------------------------
+     Tracking: gtag.js is injected only once real IDs are in CONFIG.
+     --------------------------------------------------------------------- */
+  var ga4On = isConfigured(CONFIG.GA4_ID);
+  var adsOn = isConfigured(CONFIG.GADS_ID_AND_LABEL);
+  var callOn = isConfigured(CONFIG.GADS_CALL_ID_AND_LABEL);
+  var adsAccount = adsOn ? CONFIG.GADS_ID_AND_LABEL.split('/')[0] : (callOn ? CONFIG.GADS_CALL_ID_AND_LABEL.split('/')[0] : '');
+  var trackingOn = ga4On || !!adsAccount;
+
+  if (trackingOn) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    if (ga4On) window.gtag('config', CONFIG.GA4_ID);
+    if (adsAccount) window.gtag('config', adsAccount, { allow_enhanced_conversions: true });
+    var tag = doc.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4On ? CONFIG.GA4_ID : adsAccount);
+    doc.head.appendChild(tag);
+  }
+
+  function track(eventName, params) {
+    if (trackingOn && typeof window.gtag === 'function') window.gtag('event', eventName, params || {});
+  }
+
+  /* Ad click attribution: capture gclid / gbraid / wbraid / UTMs from the
+     landing URL so every lead in GHL says which campaign and keyword it came from. */
+  var ATTR_FIELDS = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  function readAttribution() {
+    try {
+      var saved = JSON.parse(window.localStorage.getItem(CONFIG.ATTR_KEY) || 'null');
+      if (saved && Date.now() - saved.ts < CONFIG.ATTR_DAYS * 864e5) return saved;
+    } catch (e) { /* blocked or corrupt: ignore */ }
+    return null;
+  }
+  (function captureAttribution() {
+    var params;
+    try { params = new URLSearchParams(window.location.search); } catch (e) { return; }
+    var found = { ts: Date.now(), landing_page: window.location.pathname };
+    var any = false;
+    ATTR_FIELDS.forEach(function (key) {
+      var value = (params.get(key) || '').slice(0, 200);
+      found[key] = value;
+      if (value) any = true;
+    });
+    if (!any) return; // keep the earlier click; a plain visit doesn't overwrite it
+    try { window.localStorage.setItem(CONFIG.ATTR_KEY, JSON.stringify(found)); } catch (e) { /* ignore */ }
+  })();
+
+  // Australian numbers to E.164 for enhanced conversions (+61412345678).
+  function toE164(raw) {
+    var digits = raw.replace(/[^\d+]/g, '');
+    if (/^\+61[23478]\d{8}$/.test(digits)) return digits;
+    if (/^61[23478]\d{8}$/.test(digits)) return '+' + digits;
+    if (/^0[23478]\d{8}$/.test(digits)) return '+61' + digits.slice(1);
+    return '';
+  }
+
+  // click_to_call on every tel: tap, via one delegated listener.
+  doc.addEventListener('click', function (event) {
+    var link = event.target.closest ? event.target.closest('a[href^="tel:"]') : null;
+    if (!link) return;
+    track('click_to_call', {
+      link_location: link.getAttribute('data-call-location') || 'inline',
+      page_path: window.location.pathname
+    });
+    if (callOn) track('conversion', { send_to: CONFIG.GADS_CALL_ID_AND_LABEL });
+  });
+
+  // Conversion: thank-you page only, once per submitted lead.
+  if (doc.body && doc.body.hasAttribute('data-thank-you')) {
+    if (storage('get', CONFIG.LEAD_FLAG)) {
+      storage('remove', CONFIG.LEAD_FLAG); // reloads must not double-count
+      var ecPhone = storage('get', CONFIG.EC_KEY);
+      storage('remove', CONFIG.EC_KEY);
+      if (adsOn) {
+        if (ecPhone) window.gtag('set', 'user_data', { phone_number: ecPhone });
+        track('conversion', { send_to: CONFIG.GADS_ID_AND_LABEL });
+      }
+      if (ga4On) track('generate_lead', { send_to: CONFIG.GA4_ID });
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Landing pages: match the headline to a suburb ad group (?area=Joondalup).
+     Only suburbs already listed on the page are accepted.
+     --------------------------------------------------------------------- */
+  (function personaliseArea() {
+    var targets = doc.querySelectorAll('[data-area]');
+    if (!targets.length) return;
+    var wanted;
+    var norm = function (t) { return t.trim().toLowerCase().replace(/[\u2018\u2019`]/g, "'").replace(/[\s_-]+/g, ' '); };
+    try { wanted = norm(new URLSearchParams(window.location.search).get('area') || ''); } catch (e) { return; }
+    if (!wanted) return;
+    var match = null;
+    Array.prototype.forEach.call(doc.querySelectorAll('.suburbs li'), function (li) {
+      if (!match && norm(li.textContent) === wanted) match = li.textContent.trim();
+    });
+    if (!match) return;
+    Array.prototype.forEach.call(targets, function (el) { el.textContent = match; });
+    var suburb = doc.getElementById('q-suburb');
+    if (suburb && !suburb.value) suburb.value = match;
+  })();
+
+  /* ---------------------------------------------------------------------
+     Mobile navigation toggle (full-site pages only)
+     --------------------------------------------------------------------- */
+  var navToggle = doc.querySelector('.nav-toggle');
+  if (navToggle) {
+    var navLabel = navToggle.querySelector('.nav-toggle-label');
+    var setNav = function (open) {
+      navToggle.setAttribute('aria-expanded', String(open));
+      root.classList.toggle('nav-open', open);
+      if (navLabel) navLabel.textContent = open ? 'Close' : 'Menu';
+    };
+    navToggle.addEventListener('click', function () {
+      setNav(navToggle.getAttribute('aria-expanded') !== 'true');
+    });
+    doc.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && root.classList.contains('nav-open')) { setNav(false); navToggle.focus(); }
+    });
+  }
+
+  // Services dropdown: click or tap to open, Escape or outside click to close. Hover and focus also open it (CSS).
+  var menu = doc.querySelector('.has-menu');
+  if (menu) {
+    var menuBtn = menu.querySelector('.menu-btn');
+    var setMenu = function (open) { menu.classList.toggle('is-open', open); menuBtn.setAttribute('aria-expanded', String(open)); };
+    menuBtn.addEventListener('click', function () { setMenu(!menu.classList.contains('is-open')); });
+    doc.addEventListener('click', function (event) { if (!menu.contains(event.target)) setMenu(false); });
+    doc.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && menu.classList.contains('is-open')) { setMenu(false); menuBtn.focus(); }
+    });
+    menu.addEventListener('focusout', function (event) { if (!menu.contains(event.relatedTarget)) setMenu(false); });
+  }
+
+  /* ---------------------------------------------------------------------
+     Quote form: inline validation, honeypot, webhook POST, redirect.
+     --------------------------------------------------------------------- */
+  var FIELDS = ['name', 'phone', 'suburb', 'service', 'message'];
+
+  function isAustralianPhone(raw) {
+    var digits = raw.replace(/[\s\-().]/g, '');
+    return /^(?:\+?61|0)[23478]\d{8}$/.test(digits) || // mobiles and landlines
+      /^1[38]00\d{6}$/.test(digits) ||                 // 1300 / 1800
+      /^13\d{4}$/.test(digits);                         // 13 numbers
+  }
+
+  var RULES = {
+    name: function (v) { return v.length >= 2 ? '' : 'Enter your name so we know who to ask for.'; },
+    phone: function (v) {
+      if (!v) return 'Enter your phone number so we can send your quote.';
+      return isAustralianPhone(v) ? '' : 'Enter an Australian number, e.g. 04XX XXX XXX or 08 XXXX XXXX.';
+    },
+    suburb: function (v) { return v.length >= 2 ? '' : 'Enter your suburb so we can confirm we cover it.'; },
+    service: function (v) { return v ? '' : 'Choose the service you need.'; }
+  };
+
+  function validate(input) {
+    var rule = RULES[input.name];
+    if (!rule) return true;
+    var message = rule(input.value.trim());
+    var error = doc.getElementById(input.id + '-error');
+    if (message) {
+      input.setAttribute('aria-invalid', 'true');
+      if (error) error.textContent = message;
+      return false;
+    }
+    input.removeAttribute('aria-invalid');
+    if (error) error.textContent = '';
+    return true;
+  }
+
+  function goToThankYou(state) {
+    if (state.done) return;
+    state.done = true;
+    window.location.href = CONFIG.THANK_YOU_URL; // no personal data in the URL
+  }
+
+  /* Fewer visible fields = more leads. On ad landing pages the service is
+     already known, so it collapses to a one-line summary; the optional note
+     collapses to a link on every form. Without JS the full form shows. */
+  function compactForm(form) {
+    var select = form.elements.service;
+    if (form.hasAttribute('data-lock-service') && select && select.value) {
+      var field = select.closest('.field');
+      var summary = doc.createElement('p');
+      summary.className = 'svc-summary';
+      summary.innerHTML = '<span>Service: <strong></strong></span><button type="button" class="link-btn">Change</button>';
+      summary.querySelector('strong').textContent = select.value;
+      field.parentNode.insertBefore(summary, field);
+      field.hidden = true;
+      summary.querySelector('button').addEventListener('click', function () {
+        field.hidden = false;
+        summary.parentNode.removeChild(summary);
+        select.focus();
+      });
+    }
+    var note = form.elements.message;
+    if (note && !note.value) {
+      var noteField = note.closest('.field');
+      var toggle = doc.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'link-btn note-toggle';
+      toggle.textContent = '+ Add a note (optional)';
+      noteField.parentNode.insertBefore(toggle, noteField);
+      noteField.hidden = true;
+      toggle.addEventListener('click', function () {
+        noteField.hidden = false;
+        toggle.parentNode.removeChild(toggle);
+        note.focus();
+      });
+    }
+  }
+
+  Array.prototype.forEach.call(doc.querySelectorAll('form[data-quote-form]'), function (form) {
+    compactForm(form);
+    form.addEventListener('focusout', function (event) {
+      if (RULES[event.target.name]) validate(event.target);
+    });
+    form.addEventListener('change', function (event) {
+      if (event.target.tagName === 'SELECT') validate(event.target);
+    });
+    form.addEventListener('input', function (event) {
+      if (event.target.getAttribute('aria-invalid') === 'true') validate(event.target);
+    });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (form.getAttribute('data-sending')) return;
+
+      var firstInvalid = null;
+      Object.keys(RULES).forEach(function (name) {
+        var input = form.elements[name];
+        if (input && !validate(input) && !firstInvalid) firstInvalid = input;
+      });
+      if (firstInvalid) { firstInvalid.focus(); return; }
+
+      form.setAttribute('data-sending', '1');
+      var button = form.querySelector('button[type="submit"]');
+      if (button) button.setAttribute('aria-busy', 'true');
+      var state = { done: false };
+
+      // Honeypot filled: act as if it worked, send nothing, record no lead.
+      var trap = form.querySelector('[data-hp]');
+      if (trap && trap.value) { goToThankYou(state); return; }
+
+      if (!isConfigured(CONFIG.GHL_WEBHOOK_URL)) {
+        console.error('Quote form: the GHL_WEBHOOK_URL placeholder in assets/js/main.js has not been replaced, so this lead was NOT sent. Add the GoHighLevel webhook URL before launch.');
+        goToThankYou(state);
+        return;
+      }
+
+      var body = new URLSearchParams();
+      FIELDS.forEach(function (name) {
+        var input = form.elements[name];
+        body.append(name, input ? input.value.trim() : '');
+      });
+      var attribution = readAttribution() || {};
+      ATTR_FIELDS.concat('landing_page').forEach(function (key) { body.append(key, attribution[key] || ''); });
+      body.append('submitted_from', window.location.pathname);
+      body.append('form_type', form.getAttribute('data-form-type') || 'main');
+      storage('set', CONFIG.SUBMITTED_KEY, '1');
+
+      storage('set', CONFIG.LEAD_FLAG, '1');
+      if (adsOn) {
+        var e164 = toE164(form.elements.phone.value);
+        if (e164) storage('set', CONFIG.EC_KEY, e164);
+      }
+      window.setTimeout(function () { goToThankYou(state); }, CONFIG.REDIRECT_AFTER_MS);
+      try {
+        fetch(CONFIG.GHL_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          keepalive: true,
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body: body.toString()
+        }).then(function () { goToThankYou(state); }, function () { goToThankYou(state); });
+      } catch (err) {
+        goToThankYou(state);
+      }
+    });
+  });
+
+  // "Get My Free Quote" links to an on-page form: focus the first field after the scroll.
+  doc.addEventListener('click', function (event) {
+    var link = event.target.closest ? event.target.closest('a[href="#quote"]') : null;
+    if (!link) return;
+    var first = doc.querySelector('#quote input[name="name"]');
+    if (!first) return;
+    var wanted = link.getAttribute('data-service');
+    var select = doc.getElementById('q-service');
+    if (wanted && select) { select.value = wanted; validate(select); }
+    window.setTimeout(function () {
+      try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); }
+    }, reducedMotion ? 0 : 450);
+  });
+
+  // contact.html?service=Office%20cleaning#quote preselects that service.
+  (function preselectService() {
+    var select = doc.getElementById('q-service');
+    if (!select) return;
+    var wanted;
+    try { wanted = new URLSearchParams(window.location.search).get('service'); } catch (e) { return; }
+    if (!wanted) return;
+    Array.prototype.forEach.call(select.options, function (opt) { if (opt.value && opt.value === wanted) select.value = wanted; });
+  })();
+
+  /* ---------------------------------------------------------------------
+     Exit-intent pop-up (desktop only). Opens every time the pointer leaves
+     through the top of the window. Easy to close; never blocks leaving, never
+     touches the back button (both required by Google Ads policy). Re-arms
+     EXIT_REARM_MS after closing.
+     --------------------------------------------------------------------- */
+  (function exitIntent() {
+    var modal = doc.getElementById('exit-modal');
+    if (!modal || typeof modal.showModal !== 'function') return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var armed = false;
+    window.setTimeout(function () { armed = true; }, 1500); // ignore a cursor that starts at the top edge
+
+    function open() {
+      if (!armed || modal.open || storage('get', CONFIG.SUBMITTED_KEY)) return;
+      armed = false;
+      modal.showModal();
+      track('exit_intent_shown', { page_path: window.location.pathname });
+      var first = modal.querySelector('input[name="name"]');
+      if (first) first.focus();
+    }
+    function close() { if (modal.open) modal.close(); }
+
+    doc.addEventListener('mouseout', function (event) {
+      if (event.relatedTarget || event.toElement) return; // still inside the page
+      if (event.clientY > 0) return;                     // left through the sides or bottom
+      open();
+    });
+    // Re-arm only by timer. Leaving through the top again needs the pointer back on the page anyway.
+    modal.addEventListener('close', function () {
+      window.setTimeout(function () { armed = true; }, CONFIG.EXIT_REARM_MS);
+    });
+    Array.prototype.forEach.call(modal.querySelectorAll('[data-exit-close]'), function (btn) { btn.addEventListener('click', close); });
+    modal.addEventListener('click', function (event) { // click on the dimmed backdrop closes it
+      if (event.target !== modal) return;
+      var box = modal.getBoundingClientRect();
+      if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) close();
+    });
+  })();
+
+  /* ---------------------------------------------------------------------
+     Scroll reveal: replays every time (class added on enter, removed on leave).
+     --------------------------------------------------------------------- */
+  var revealEls = doc.querySelectorAll('.reveal');
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(revealEls, function (el) { el.classList.add('is-visible'); });
+  } else {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle('is-visible', entry.isIntersecting);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
+    Array.prototype.forEach.call(revealEls, function (el) { observer.observe(el); });
+  }
+
+  /* ---------------------------------------------------------------------
+     3D tilt: fine pointers with hover only. The quote card tilts gently (data-tilt-max) and
+     stops while a field in it has focus.
+     --------------------------------------------------------------------- */
+  var canTilt = !reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (canTilt) {
+    root.classList.add('has-tilt');
+    var resetters = [];
+    Array.prototype.forEach.call(doc.querySelectorAll('[data-tilt]'), function (card) {
+      var cardMax = Math.min(CONFIG.TILT_MAX_DEG, parseFloat(card.getAttribute('data-tilt-max')) || CONFIG.TILT_MAX_DEG);
+      var typing = false; // the quote card holds still while someone is filling it in
+      var frame = 0;
+      var next = '';
+      var box = null; // untransformed rect, captured on enter, so the tilt itself can't trigger a leave
+
+      function reset() {
+        if (!box) return;
+        box = null;
+        doc.removeEventListener('pointermove', onMove);
+        if (frame) { window.cancelAnimationFrame(frame); frame = 0; }
+        card.style.transform = '';
+      }
+      function onMove(event) {
+        if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) { reset(); return; }
+        var x = (event.clientX - box.left) / box.width - 0.5;
+        var y = (event.clientY - box.top) / box.height - 0.5;
+        var max = cardMax;
+        var rx = Math.max(-max, Math.min(max, -y * 2 * max));
+        var ry = Math.max(-max, Math.min(max, x * 2 * max));
+        next = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+        if (!frame) {
+          frame = window.requestAnimationFrame(function () { frame = 0; if (box) card.style.transform = next; });
+        }
+      }
+      card.addEventListener('pointerenter', function (event) {
+        if (box || typing || event.pointerType !== 'mouse') return;
+        box = card.getBoundingClientRect();
+        doc.addEventListener('pointermove', onMove);
+        onMove(event);
+      });
+      card.addEventListener('focusin', function (event) {
+        if (/^(INPUT|SELECT|TEXTAREA)$/.test(event.target.tagName)) { typing = true; reset(); }
+      });
+      card.addEventListener('focusout', function () {
+        window.setTimeout(function () { if (!card.contains(doc.activeElement)) typing = false; }, 0);
+      });
+      resetters.push(reset);
+    });
+    window.addEventListener('scroll', function () { resetters.forEach(function (fn) { fn(); }); }, { passive: true });
+  }
+})();
+</script>
