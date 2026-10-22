@@ -65,7 +65,7 @@ These were claims about the business that can't be made up. Inventing them would
 
 | Placeholder | Where | Replace with |
 |---|---|---|
-| `{{GHL_WEBHOOK_URL}}`, `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | `main.js` and form `action`s | See Integrations below |
+| `{{WEB3FORMS_ACCESS_KEY}}`, `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | Forms and `main.js` | See Integrations below |
 
 ### Reviews (placeholders until real reviews come in)
 
@@ -93,21 +93,21 @@ grep -rn "{{" --include=*.html --include=*.js --include=*.txt --include=*.xml .
 
 | Placeholder | File(s) | Replace with |
 |---|---|---|
-| `{{GHL_WEBHOOK_URL}}` | `assets/js/main.js` (`CONFIG`), and the form `action` on `index.html`, `contact.html` and the 4 landing pages (no-JS fallback) | GoHighLevel inbound webhook URL (Automation → Workflow → trigger "Inbound Webhook") |
+| `{{WEB3FORMS_ACCESS_KEY}}` | Hidden `access_key` input in every quote form (all pages except thank-you and privacy) | Web3Forms access key. Sign the business up for the free plan (250 leads a month) at web3forms.com with the email that should receive leads. Leads arrive by email; the key is meant to be public. |
 | `{{GA4_ID}}` | `assets/js/main.js` (`CONFIG`) | GA4 Measurement ID, e.g. `G-XXXXXXXXXX` |
 | `{{GADS_ID_AND_LABEL}}` | `assets/js/main.js` (`CONFIG`) | Google Ads **lead form** conversion `send_to` value, e.g. `AW-123456789/AbCdEfGhIjk` |
 | `{{GADS_CALL_ID_AND_LABEL}}` | `assets/js/main.js` (`CONFIG`) | Optional. A second Ads conversion action for **website call clicks** (category "Phone call lead"), e.g. `AW-123456789/XyZ123`. Leave the placeholder to switch it off. |
 
 gtag.js only loads once an ID no longer contains `{{`. The honeypot field (`fax`) is never sent.
 
-### What the webhook receives
+### What each lead email contains
 
-Every lead POSTs these URL-encoded fields. Map them to GHL contact fields; create custom fields for the attribution ones.
+Every lead POSTs these URL-encoded fields to Web3Forms (`https://api.web3forms.com/submit`, the form `action`), which emails them. The subject reads "New quote request: {service}, {suburb}". Attribution fields are only sent when they have a value.
 
 | Field | Contents |
 |---|---|
 | `name`, `phone`, `suburb`, `service`, `message` | What the visitor typed or chose |
-| `gclid`, `gbraid`, `wbraid` | Google Ads click IDs from the ad's landing URL. Turn on **auto-tagging** in Google Ads. They let you import offline conversions ("booked job") from GHL back into Ads. |
+| `gclid`, `gbraid`, `wbraid` | Google Ads click IDs from the ad's landing URL. Turn on **auto-tagging** in Google Ads. They let you import offline conversions ("booked job") back into Ads (keep the `gclid` from the lead email with the booking). |
 | `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content` | UTM tags from the landing URL. Use a tracking template such as `{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}`. |
 | `landing_page` | The page the ad click landed on |
 | `submitted_from` | The page the form was sent from |
@@ -116,7 +116,7 @@ Click IDs and UTMs are kept in the visitor's browser for 90 days, so a lead who 
 
 ### Form length
 
-On the four landing pages, visitors see only **name, phone and suburb**. The service is already chosen from the ad and shows as a one-line summary with a "Change" link. The optional note sits behind "+ Add a note (optional)". The home and contact pages still show the Service dropdown. The webhook receives the same fields either way, and without JavaScript the full form shows.
+On the four landing pages, visitors see only **name, phone and suburb**. The service is already chosen from the ad and shows as a one-line summary with a "Change" link. The optional note sits behind "+ Add a note (optional)". The home and contact pages still show the Service dropdown. Web3Forms receives the same fields either way, and without JavaScript the full form shows.
 
 ### Exit-intent pop-up
 
@@ -129,7 +129,7 @@ On desktop, every page except thank-you shows a short **name + phone** pop-up wh
 
 ### Service dropdown values
 
-The form's **Service** dropdown is grouped the same way as the site menu. GHL receives one of these exact values in `service`, so you can branch the workflow on them:
+The form's **Service** dropdown is grouped the same way as the site menu. The lead email shows one of these exact values in `service`:
 
 - Residential: `End of lease cleaning`, `Regular house cleaning`, `Carpet steam cleaning`, `Other residential cleaning`
 - Commercial: `Office cleaning`, `Other commercial cleaning`
@@ -181,21 +181,21 @@ All 13 photos are free stock photos from **Unsplash**, used under the [Unsplash 
 
 ## 2. Pre-launch checklist
 
-**Webhook**
-- [ ] `{{GHL_WEBHOOK_URL}}` replaced in `main.js` and in the form `action` attributes.
-- [ ] Submit a test lead on every page with a form. Check that the GHL contact gets `name`, `phone`, `suburb`, `service` and `message`, and that the landing pages send the right preselected service.
-- [ ] Fill in the hidden honeypot in DevTools (`document.querySelector('[data-hp]').value='x'`), then submit. You should land on thank-you.html and no contact should appear in GHL.
-- [ ] The DevTools console shows no "GHL_WEBHOOK_URL placeholder" error.
+**Lead form**
+- [ ] `{{WEB3FORMS_ACCESS_KEY}}` replaced in every form.
+- [ ] Submit a test lead on every page with a form. Check that the lead email has `name`, `phone`, `suburb`, `service` and `message`, and that the landing pages send the right preselected service.
+- [ ] Fill in the hidden honeypot in DevTools (`document.querySelector('[data-hp]').value='x'`), then submit. You should land on thank-you.html and no lead email should arrive.
+- [ ] The DevTools console shows no "WEB3FORMS_ACCESS_KEY placeholder" error.
 
 **GA4 and Google Ads**
 - [ ] IDs set in `CONFIG`. In GA4 DebugView / Tag Assistant, confirm `page_view` fires on every page.
 - [ ] Tap a phone link and confirm a `click_to_call` event, plus the call conversion if `GADS_CALL_ID_AND_LABEL` is set.
-- [ ] Open a landing page with `?gclid=test123&utm_campaign=test`, submit a lead, and check the GHL contact shows `gclid=test123` and `utm_campaign=test`.
+- [ ] Open a landing page with `?gclid=test123&utm_campaign=test`, submit a lead, and check the lead email shows `gclid=test123` and `utm_campaign=test`.
 - [ ] Open a landing page with `?area=Joondalup` and check the headline and suburb field update.
 - [ ] Submit a test lead and confirm `generate_lead` (GA4) and the Ads `conversion` fire once on thank-you.html. Reload the page: neither should fire again. Opening thank-you.html directly should fire neither.
 - [ ] In Google Ads, set the conversion action to "Count: one" and check it shows "Recording conversions".
 - [ ] Mark `generate_lead` as a key event in GA4.
-- [ ] In Google Ads, turn on auto-tagging and enhanced conversions for leads. Optionally set up offline conversion import from GHL using `gclid`.
+- [ ] In Google Ads, turn on auto-tagging and enhanced conversions for leads. Optionally import booked jobs as offline conversions using `gclid`.
 
 **Walk the owner through what the site promises**
 - [ ] The starting prices above, and that each job's final price is confirmed before he starts.
@@ -231,7 +231,7 @@ The site is plain files. Deploy the repository root as-is; it has no build comma
 
 ### GoHighLevel funnel embed
 Use either option.
-- **Option A, host elsewhere and link from GHL (recommended):** deploy to Netlify or Cloudflare, then point your Ads final URLs at the landing pages. The forms post straight into your GHL workflow via the webhook.
+- **Option A, host elsewhere and link from GHL (recommended):** deploy to Netlify or Cloudflare, then point your Ads final URLs at the landing pages. The forms send leads by email through Web3Forms.
 - **Option A2, GHL website with one Custom Code block per page:** run `python3 ghl/build.py` to write `ghl/<page>.html`, each a single paste-in block with the page's HTML, `styles.css` and `main.js` inlined. Page links point at GHL paths (`/`, `/about`, `/contact`, `/end-of-lease-cleaning-perth`, …, `/thank-you`, `/privacy`), so give each GHL page that exact path. Photos load from Unsplash. Unfilled placeholders show as `[[NAME]]` instead of `{{NAME}}`, because GHL reads `{{ }}` as its own merge fields.
 - **Option B, inside a GHL funnel:**
   1. Upload `assets/css/styles.css`, `assets/js/main.js` and the three SVGs to **Media Library**, and copy their URLs.

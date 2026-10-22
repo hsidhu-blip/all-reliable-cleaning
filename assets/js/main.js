@@ -10,7 +10,6 @@
     GA4_ID: '{{GA4_ID}}',                         // e.g. G-XXXXXXXXXX
     GADS_ID_AND_LABEL: '{{GADS_ID_AND_LABEL}}',   // lead form conversion, e.g. AW-123456789/AbCdEfGhIjk
     GADS_CALL_ID_AND_LABEL: '{{GADS_CALL_ID_AND_LABEL}}', // optional: website call-click conversion
-    GHL_WEBHOOK_URL: '{{GHL_WEBHOOK_URL}}',       // GoHighLevel inbound webhook URL
     THANK_YOU_URL: 'thank-you.html',
     REDIRECT_AFTER_MS: 1500,
     LEAD_FLAG: 'arc_lead',
@@ -194,7 +193,8 @@
   }
 
   /* ---------------------------------------------------------------------
-     Quote form: inline validation, honeypot, webhook POST, redirect.
+     Quote form: inline validation, honeypot, Web3Forms POST, redirect.
+     Each form posts to its own action (Web3Forms) with its hidden access_key.
      --------------------------------------------------------------------- */
   var FIELDS = ['name', 'phone', 'suburb', 'service', 'message'];
 
@@ -304,19 +304,26 @@
       var trap = form.querySelector('[data-hp]');
       if (trap && trap.value) { goToThankYou(state); return; }
 
-      if (!isConfigured(CONFIG.GHL_WEBHOOK_URL)) {
-        console.error('Quote form: the GHL_WEBHOOK_URL placeholder in assets/js/main.js has not been replaced, so this lead was NOT sent. Add the GoHighLevel webhook URL before launch.');
+      var key = form.elements.access_key ? form.elements.access_key.value : '';
+      if (!isConfigured(key)) {
+        console.error('Quote form: the WEB3FORMS_ACCESS_KEY placeholder has not been replaced, so this lead was NOT sent. Add the Web3Forms access key before launch.');
         goToThankYou(state);
         return;
       }
 
       var body = new URLSearchParams();
+      body.append('access_key', key);
       FIELDS.forEach(function (name) {
         var input = form.elements[name];
         body.append(name, input ? input.value.trim() : '');
       });
+      var service = form.elements.service ? form.elements.service.value : '';
+      var suburb = form.elements.suburb ? form.elements.suburb.value.trim() : '';
+      body.append('subject', 'New quote request' + (service ? ': ' + service : '') + (suburb ? ', ' + suburb : ''));
+      body.append('from_name', 'All Reliable Cleaning website');
+      // Ad attribution only when present, so the lead email stays short.
       var attribution = readAttribution() || {};
-      ATTR_FIELDS.concat('landing_page').forEach(function (key) { body.append(key, attribution[key] || ''); });
+      ATTR_FIELDS.concat('landing_page').forEach(function (key) { if (attribution[key]) body.append(key, attribution[key]); });
       body.append('submitted_from', window.location.pathname);
       body.append('form_type', form.getAttribute('data-form-type') || 'main');
       storage('set', CONFIG.SUBMITTED_KEY, '1');
@@ -328,7 +335,7 @@
       }
       window.setTimeout(function () { goToThankYou(state); }, CONFIG.REDIRECT_AFTER_MS);
       try {
-        fetch(CONFIG.GHL_WEBHOOK_URL, {
+        fetch(form.getAttribute('action'), {
           method: 'POST',
           mode: 'no-cors',
           keepalive: true,
