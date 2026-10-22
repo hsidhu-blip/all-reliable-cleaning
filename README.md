@@ -44,6 +44,7 @@ Set for the owner, who is starting out and asked for working defaults. They're b
 | Privacy policy | `privacy.html` (new page) | Form notes, footer |
 | Email | admin@allreliablecleaning.com.au | Every page, privacy policy, JSON-LD |
 | Site URL | https://allreliablecleaning.com.au | Canonical links, JSON-LD, `robots.txt`, `sitemap.xml` |
+| JSS Digital link | https://jssdigital.com.au | Footer credit ("Website by JSS Digital") on every page |
 
 **Prices are starting points, not fixed prices.** Every price shows as "from $X". The copy says the final price depends on size and condition and is confirmed before the job starts, so the owner can quote each job up or down. The figures are pitched near or slightly below typical Perth rates for 2025–26 so a new business can win work. Review them once he has priced his first few jobs.
 
@@ -64,7 +65,6 @@ These were claims about the business that can't be made up. Inventing them would
 
 | Placeholder | Where | Replace with |
 |---|---|---|
-| `{{JSS_DIGITAL_URL}}` | Footer credit ("Website by JSS Digital") on every page | Your JSS Digital website address, e.g. `https://jssdigital.com.au` |
 | `{{GHL_WEBHOOK_URL}}`, `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | `main.js` and form `action`s | See Integrations below |
 
 ### Reviews (placeholders until real reviews come in)
