@@ -17,6 +17,8 @@ import re
 import sys
 
 SITE_URL = 'https://allreliablecleaning.com.au'
+# Bump when the blocks change, so a pasted page can be matched to its file.
+VERSION = 'v5 (23 Oct 2026): email, domain, Web3Forms, Google Analytics'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'ghl')
 
@@ -125,6 +127,7 @@ def build(page):
 
     parts = [
         '<!-- All Reliable Cleaning: %s -->' % title,
+        '<!-- Page: %s | Version %s -->' % (PATHS[page], VERSION),
         '<!-- Paste into a GHL Custom Code element (full width, no section padding). -->',
         "<script>document.documentElement.classList.add('js')%s</script>" % ''.join(
             ";document.body.classList.add('%s')" % v if k == 'class' else
