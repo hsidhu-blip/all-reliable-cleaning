@@ -44,6 +44,7 @@ Set for the owner, who is starting out and asked for working defaults. They're b
 | Privacy policy | `privacy.html` (new page) | Form notes, footer |
 | Email | admin@allreliablecleaning.com.au | Every page, privacy policy, JSON-LD |
 | Site URL | https://allreliablecleaning.com.au | Canonical links, JSON-LD, `robots.txt`, `sitemap.xml` |
+| Web3Forms access key | b2d294a9-8059-4317-859f-abf50bca88eb (account: admin@allreliablecleaning.com.au, free plan, 250 leads a month) | Hidden `access_key` input in every quote form. Leads arrive by email; the key is meant to be public. |
 | JSS Digital link | https://jssdigital.com.au | Footer credit ("Website by JSS Digital") on every page |
 
 **Prices are starting points, not fixed prices.** Every price shows as "from $X". The copy says the final price depends on size and condition and is confirmed before the job starts, so the owner can quote each job up or down. The figures are pitched near or slightly below typical Perth rates for 2025–26 so a new business can win work. Review them once he has priced his first few jobs.
@@ -65,7 +66,7 @@ These were claims about the business that can't be made up. Inventing them would
 
 | Placeholder | Where | Replace with |
 |---|---|---|
-| `{{WEB3FORMS_ACCESS_KEY}}`, `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | Forms and `main.js` | See Integrations below |
+| `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | Forms and `main.js` | See Integrations below |
 
 ### Reviews (placeholders until real reviews come in)
 
@@ -93,7 +94,6 @@ grep -rn "{{" --include=*.html --include=*.js --include=*.txt --include=*.xml .
 
 | Placeholder | File(s) | Replace with |
 |---|---|---|
-| `{{WEB3FORMS_ACCESS_KEY}}` | Hidden `access_key` input in every quote form (all pages except thank-you and privacy) | Web3Forms access key. Sign the business up for the free plan (250 leads a month) at web3forms.com with the email that should receive leads. Leads arrive by email; the key is meant to be public. |
 | `{{GA4_ID}}` | `assets/js/main.js` (`CONFIG`) | GA4 Measurement ID, e.g. `G-XXXXXXXXXX` |
 | `{{GADS_ID_AND_LABEL}}` | `assets/js/main.js` (`CONFIG`) | Google Ads **lead form** conversion `send_to` value, e.g. `AW-123456789/AbCdEfGhIjk` |
 | `{{GADS_CALL_ID_AND_LABEL}}` | `assets/js/main.js` (`CONFIG`) | Optional. A second Ads conversion action for **website call clicks** (category "Phone call lead"), e.g. `AW-123456789/XyZ123`. Leave the placeholder to switch it off. |
@@ -182,7 +182,6 @@ All 13 photos are free stock photos from **Unsplash**, used under the [Unsplash 
 ## 2. Pre-launch checklist
 
 **Lead form**
-- [ ] `{{WEB3FORMS_ACCESS_KEY}}` replaced in every form.
 - [ ] Submit a test lead on every page with a form. Check that the lead email has `name`, `phone`, `suburb`, `service` and `message`, and that the landing pages send the right preselected service.
 - [ ] Fill in the hidden honeypot in DevTools (`document.querySelector('[data-hp]').value='x'`), then submit. You should land on thank-you.html and no lead email should arrive.
 - [ ] The DevTools console shows no "WEB3FORMS_ACCESS_KEY placeholder" error.
