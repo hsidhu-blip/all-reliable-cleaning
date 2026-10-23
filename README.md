@@ -44,6 +44,7 @@ Set for the owner, who is starting out and asked for working defaults. They're b
 | Privacy policy | `privacy.html` (new page) | Form notes, footer |
 | Email | admin@allreliablecleaning.com.au | Every page, privacy policy, JSON-LD |
 | Site URL | https://allreliablecleaning.com.au | Canonical links, JSON-LD, `robots.txt`, `sitemap.xml` |
+| GA4 Measurement ID | G-9S45Z39XPJ | `assets/js/main.js` `CONFIG.GA4_ID`. Don't also add the Google tag in GHL's tracking code, or every visit counts twice. |
 | Web3Forms access key | b2d294a9-8059-4317-859f-abf50bca88eb (account: admin@allreliablecleaning.com.au, free plan, 250 leads a month) | Hidden `access_key` input in every quote form. Leads arrive by email; the key is meant to be public. |
 | JSS Digital link | https://jssdigital.com.au | Footer credit ("Website by JSS Digital") on every page |
 
@@ -66,7 +67,7 @@ These were claims about the business that can't be made up. Inventing them would
 
 | Placeholder | Where | Replace with |
 |---|---|---|
-| `{{GA4_ID}}`, `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | Forms and `main.js` | See Integrations below |
+| `{{GADS_ID_AND_LABEL}}`, `{{GADS_CALL_ID_AND_LABEL}}` | Forms and `main.js` | See Integrations below |
 
 ### Reviews (placeholders until real reviews come in)
 
@@ -94,7 +95,6 @@ grep -rn "{{" --include=*.html --include=*.js --include=*.txt --include=*.xml .
 
 | Placeholder | File(s) | Replace with |
 |---|---|---|
-| `{{GA4_ID}}` | `assets/js/main.js` (`CONFIG`) | GA4 Measurement ID, e.g. `G-XXXXXXXXXX` |
 | `{{GADS_ID_AND_LABEL}}` | `assets/js/main.js` (`CONFIG`) | Google Ads **lead form** conversion `send_to` value, e.g. `AW-123456789/AbCdEfGhIjk` |
 | `{{GADS_CALL_ID_AND_LABEL}}` | `assets/js/main.js` (`CONFIG`) | Optional. A second Ads conversion action for **website call clicks** (category "Phone call lead"), e.g. `AW-123456789/XyZ123`. Leave the placeholder to switch it off. |
 
