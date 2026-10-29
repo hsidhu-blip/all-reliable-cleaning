@@ -18,7 +18,7 @@ import sys
 
 SITE_URL = 'https://allreliablecleaning.com.au'
 # Bump when the blocks change, so a pasted page can be matched to its file.
-VERSION = 'v5 (23 Oct 2026): email, domain, Web3Forms, Google Analytics'
+VERSION = 'v6 (29 Oct 2026): real Google reviews, 5-star badge on home'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'ghl')
 
