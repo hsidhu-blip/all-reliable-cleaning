@@ -56,9 +56,11 @@
       "offers": {
         "@type": "Offer",
         "url": "https://allreliablecleaning.com.au/office-cleaning-perth",
+        "price": 99,
         "priceCurrency": "AUD",
         "priceSpecification": {
           "@type": "PriceSpecification",
+          "price": 99,
           "minPrice": 99,
           "priceCurrency": "AUD",
           "description": "From $99 per visit"

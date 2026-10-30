@@ -56,9 +56,11 @@
       "offers": {
         "@type": "Offer",
         "url": "https://allreliablecleaning.com.au/carpet-deep-cleaning-perth",
+        "price": 79,
         "priceCurrency": "AUD",
         "priceSpecification": {
           "@type": "PriceSpecification",
+          "price": 79,
           "minPrice": 79,
           "priceCurrency": "AUD",
           "description": "From $79 per room"

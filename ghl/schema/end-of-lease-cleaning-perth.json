@@ -56,9 +56,11 @@
       "offers": {
         "@type": "Offer",
         "url": "https://allreliablecleaning.com.au/end-of-lease-cleaning-perth",
+        "price": 249,
         "priceCurrency": "AUD",
         "priceSpecification": {
           "@type": "PriceSpecification",
+          "price": 249,
           "minPrice": 249,
           "priceCurrency": "AUD",
           "description": "From $249 1 bedroom unit"

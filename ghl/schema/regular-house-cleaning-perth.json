@@ -56,9 +56,11 @@
       "offers": {
         "@type": "Offer",
         "url": "https://allreliablecleaning.com.au/regular-house-cleaning-perth",
+        "price": 149,
         "priceCurrency": "AUD",
         "priceSpecification": {
           "@type": "PriceSpecification",
+          "price": 149,
           "minPrice": 149,
           "priceCurrency": "AUD",
           "description": "From $149 per visit"
