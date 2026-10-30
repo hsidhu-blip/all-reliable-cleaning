@@ -789,6 +789,17 @@ html.has-tilt .service-card:hover { transform: none; }
 /* Soft tinted backdrop on light sections */
 .section-tint { background-image: radial-gradient(50% 60% at 100% 0%, color-mix(in srgb, var(--accent-colour) 10%, transparent), transparent 70%); }
 
+/* ---------- 404: best-match suggestion ---------- */
+.suggest { padding: 22px; border-radius: var(--radius); color: var(--on-dark); max-width: 460px; }
+.suggest-label { margin: 0 0 6px; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-colour); }
+.suggest-title { margin: 0 0 4px; font-size: 1.45rem; font-weight: 800; line-height: 1.2; }
+.suggest-desc { margin: 0 0 18px; color: var(--on-dark-muted); }
+.suggest-alt { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin-top: 14px; font-weight: 700; }
+.suggest-path { margin: 14px 0 0; font-size: .85rem; color: var(--on-dark-muted); text-align: center; overflow-wrap: anywhere; }
+.suggest-path code { padding: 2px 6px; border-radius: 6px; background: color-mix(in srgb, #fff 10%, transparent); color: var(--on-dark); }
+.lost-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; margin: 28px 0 0; font-weight: 700; }
+.lost-links a { color: var(--accent-ink); text-underline-offset: 3px; }
+
 /* ---------- Scroll reveal (only when JS is running) ---------- */
 html.js .reveal {
   opacity: 0;
