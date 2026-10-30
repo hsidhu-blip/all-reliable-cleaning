@@ -10,9 +10,11 @@
     GA4_ID: '{{GA4_ID}}',                         // e.g. G-XXXXXXXXXX
     GADS_ID_AND_LABEL: '{{GADS_ID_AND_LABEL}}',   // lead form conversion, e.g. AW-123456789/AbCdEfGhIjk
     GADS_CALL_ID_AND_LABEL: '{{GADS_CALL_ID_AND_LABEL}}', // optional: website call-click conversion
-    GHL_WEBHOOK_URL: '{{GHL_WEBHOOK_URL}}',       // GoHighLevel inbound webhook URL
+    WEB3FORMS_ACCESS_KEY: '{{WEB3FORMS_ACCESS_KEY}}', // from web3forms.com: leads are emailed to the address the key was made for
+    WEB3FORMS_URL: 'https://api.web3forms.com/submit',
+    PHONE_DISPLAY: '0452 431 033',
     THANK_YOU_URL: 'thank-you.html',
-    REDIRECT_AFTER_MS: 1500,
+    SEND_TIMEOUT_MS: 15000,
     LEAD_FLAG: 'arc_lead',
     EC_KEY: 'arc_ec',             // enhanced conversions: phone held until the thank-you page, then deleted
     ATTR_KEY: 'arc_attr',         // ad click attribution (gclid / UTM), kept 90 days
@@ -83,7 +85,7 @@
   }
 
   /* Ad click attribution: capture gclid / gbraid / wbraid / UTMs from the
-     landing URL so every lead in GHL says which campaign and keyword it came from. */
+     landing URL so every lead email says which campaign and keyword it came from. */
   var ATTR_FIELDS = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
   function readAttribution() {
     try {
@@ -194,7 +196,7 @@
   }
 
   /* ---------------------------------------------------------------------
-     Quote form: inline validation, honeypot, webhook POST, redirect.
+     Quote form: inline validation, honeypot, Web3Forms email, redirect.
      --------------------------------------------------------------------- */
   var FIELDS = ['name', 'phone', 'suburb', 'service', 'message'];
 
@@ -304,42 +306,67 @@
       var trap = form.querySelector('[data-hp]');
       if (trap && trap.value) { goToThankYou(state); return; }
 
-      if (!isConfigured(CONFIG.GHL_WEBHOOK_URL)) {
-        console.error('Quote form: the GHL_WEBHOOK_URL placeholder in assets/js/main.js has not been replaced, so this lead was NOT sent. Add the GoHighLevel webhook URL before launch.');
-        goToThankYou(state);
+      if (!isConfigured(CONFIG.WEB3FORMS_ACCESS_KEY)) {
+        console.error('Quote form: the WEB3FORMS_ACCESS_KEY placeholder in assets/js/main.js has not been replaced, so this lead was NOT sent. Add the Web3Forms access key before launch.');
+        failSend(form, button);
         return;
       }
 
-      var body = new URLSearchParams();
-      FIELDS.forEach(function (name) {
-        var input = form.elements[name];
-        body.append(name, input ? input.value.trim() : '');
-      });
+      var value = function (name) { var input = form.elements[name]; return input ? input.value.trim() : ''; };
       var attribution = readAttribution() || {};
-      ATTR_FIELDS.concat('landing_page').forEach(function (key) { body.append(key, attribution[key] || ''); });
-      body.append('submitted_from', window.location.pathname);
-      body.append('form_type', form.getAttribute('data-form-type') || 'main');
-      storage('set', CONFIG.SUBMITTED_KEY, '1');
+      // Readable labels: these become the rows of the lead email.
+      var lead = {
+        access_key: CONFIG.WEB3FORMS_ACCESS_KEY,
+        subject: 'New quote request: ' + (value('service') || 'cleaning') + ' in ' + (value('suburb') || 'Perth'),
+        from_name: 'All Reliable Cleaning website',
+        'Name': value('name'),
+        'Phone': value('phone'),
+        'Suburb': value('suburb'),
+        'Service': value('service'),
+        'Message': value('message'),
+        'Form': form.getAttribute('data-form-type') === 'exit-intent' ? 'Exit pop-up' : 'Main quote form',
+        'Page': window.location.pathname
+      };
+      ATTR_FIELDS.concat('landing_page').forEach(function (key) { if (attribution[key]) lead[key] = attribution[key]; });
 
-      storage('set', CONFIG.LEAD_FLAG, '1');
-      if (adsOn) {
-        var e164 = toE164(form.elements.phone.value);
-        if (e164) storage('set', CONFIG.EC_KEY, e164);
-      }
-      window.setTimeout(function () { goToThankYou(state); }, CONFIG.REDIRECT_AFTER_MS);
-      try {
-        fetch(CONFIG.GHL_WEBHOOK_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          keepalive: true,
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          body: body.toString()
-        }).then(function () { goToThankYou(state); }, function () { goToThankYou(state); });
-      } catch (err) {
+      var timedOut = false;
+      var timer = window.setTimeout(function () { timedOut = true; failSend(form, button); }, CONFIG.SEND_TIMEOUT_MS);
+      fetch(CONFIG.WEB3FORMS_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(lead)
+      }).then(function (res) { return res.json(); }).then(function (data) {
+        window.clearTimeout(timer);
+        if (timedOut) return;
+        if (!data || !data.success) throw new Error((data && data.message) || 'not sent');
+        storage('set', CONFIG.SUBMITTED_KEY, '1');
+        storage('set', CONFIG.LEAD_FLAG, '1');
+        if (adsOn) {
+          var e164 = toE164(value('phone'));
+          if (e164) storage('set', CONFIG.EC_KEY, e164);
+        }
         goToThankYou(state);
-      }
+      }).catch(function (err) {
+        window.clearTimeout(timer);
+        if (!timedOut) failSend(form, button);
+        if (window.console) console.error('Quote form: lead not sent.', err);
+      });
     });
   });
+
+  // Sending failed: keep what they typed and point them to the phone, rather than a false "thanks".
+  function failSend(form, button) {
+    form.removeAttribute('data-sending');
+    if (button) button.removeAttribute('aria-busy');
+    var status = form.querySelector('.form-status');
+    if (!status) {
+      status = doc.createElement('p');
+      status.className = 'field-error form-status';
+      status.setAttribute('role', 'alert');
+      (button ? button.parentNode : form).insertBefore(status, button ? button.nextSibling : null);
+    }
+    status.textContent = 'Sorry, that didn\u2019t send. Please try again, or call us on ' + CONFIG.PHONE_DISPLAY + '.';
+  }
 
   // "Get My Free Quote" links to an on-page form: focus the first field after the scroll.
   doc.addEventListener('click', function (event) {
