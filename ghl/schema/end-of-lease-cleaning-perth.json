@@ -1,0 +1,122 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://allreliablecleaning.com.au/#business",
+      "name": "All Reliable Cleaning",
+      "url": "https://allreliablecleaning.com.au",
+      "telephone": "+61 452 431 033",
+      "email": "admin@allreliablecleaning.com.au",
+      "description": "All Reliable Cleaning provides end of lease, regular house, office and carpet steam cleaning across Perth.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Perth",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Western Australia"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Perth",
+        "addressRegion": "WA",
+        "addressCountry": "AU"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:30",
+        "closes": "17:00"
+      },
+      "taxID": "48 702 993 397",
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "name": "End of lease cleaning in Perth",
+      "serviceType": "Bond cleaning",
+      "description": "Perth end of lease cleaning to the checklist property managers inspect, with a 3-day bond-back guarantee.",
+      "url": "https://allreliablecleaning.com.au/end-of-lease-cleaning-perth",
+      "provider": {
+        "@id": "https://allreliablecleaning.com.au/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Perth"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://allreliablecleaning.com.au/end-of-lease-cleaning-perth",
+        "priceCurrency": "AUD",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 249,
+          "priceCurrency": "AUD",
+          "description": "From $249 1 bedroom unit"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does end of lease cleaning cost in Perth?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prices start from $249 for a 1 bedroom unit. Your final price depends on bedrooms, bathrooms and condition, and we confirm it before we start."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my property manager isn’t happy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Send us their list within 3 days and we re-clean the cleaning items free. That’s our bond-back guarantee."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to be there on the day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Most renters leave a key, a lockbox code or arrange access through the agent. We lock up and confirm when we’re done."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I had pets. Can you remove the hair and smell?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We remove pet hair from floors, skirting boards and vents. Many leases require carpet steam cleaning after pets, so add it to your quote and we’ll do both in one visit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My move date changed. Can I rebook?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tell us at least 24 hours before your booking and we move it to a new date at no cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is carpet steam cleaning included?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It’s an add-on, so you only pay for it if your lease requires it. Add it in the form and it goes on the same quote."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://allreliablecleaning.com.au/#business",
+      "name": "All Reliable Cleaning",
+      "url": "https://allreliablecleaning.com.au",
+      "telephone": "+61 452 431 033",
+      "email": "admin@allreliablecleaning.com.au",
+      "description": "All Reliable Cleaning provides end of lease, regular house, office and carpet steam cleaning across Perth.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Perth",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Western Australia"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Perth",
+        "addressRegion": "WA",
+        "addressCountry": "AU"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:30",
+        "closes": "17:00"
+      },
+      "taxID": "48 702 993 397",
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "name": "Office cleaning in Perth",
+      "serviceType": "Commercial cleaning",
+      "description": "After-hours office cleaning in Perth on your schedule, priced per visit with no lock-in contract.",
+      "url": "https://allreliablecleaning.com.au/office-cleaning-perth",
+      "provider": {
+        "@id": "https://allreliablecleaning.com.au/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Perth"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://allreliablecleaning.com.au/office-cleaning-perth",
+        "priceCurrency": "AUD",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 99,
+          "priceCurrency": "AUD",
+          "description": "From $99 per visit"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is office cleaning priced?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Small offices start from $99 per visit. Your price depends on floor area, amenities and how often we visit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you require a contract or upfront bond?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There’s no upfront bond and no lock-in contract. Cancel any time with 24 hours’ notice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do your cleaners get in after hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We hold keys or access cards securely, use your alarm code and lock up after every visit. We follow your sign-in process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "We have an office dog. Is that a problem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Tell us in the form and we’ll vacuum pet hair from floors and soft furnishings on every visit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we change nights or pause over the holidays?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tell us at least 24 hours before and we move, add or pause visits at no cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you bring your own equipment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We bring the vacuums, mops and products. If you prefer particular products, leave them out and we’ll use them."
+          }
+        }
+      ]
+    }
+  ]
+}

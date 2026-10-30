@@ -1,0 +1,122 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://allreliablecleaning.com.au/#business",
+      "name": "All Reliable Cleaning",
+      "url": "https://allreliablecleaning.com.au",
+      "telephone": "+61 452 431 033",
+      "email": "admin@allreliablecleaning.com.au",
+      "description": "All Reliable Cleaning provides end of lease, regular house, office and carpet steam cleaning across Perth.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Perth",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Western Australia"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Perth",
+        "addressRegion": "WA",
+        "addressCountry": "AU"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:30",
+        "closes": "17:00"
+      },
+      "taxID": "48 702 993 397",
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "name": "Carpet steam cleaning in Perth",
+      "serviceType": "Carpet cleaning",
+      "description": "Carpet steam cleaning in Perth using hot water extraction to lift dirt, stains and pet odours.",
+      "url": "https://allreliablecleaning.com.au/carpet-deep-cleaning-perth",
+      "provider": {
+        "@id": "https://allreliablecleaning.com.au/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Perth"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://allreliablecleaning.com.au/carpet-deep-cleaning-perth",
+        "priceCurrency": "AUD",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 79,
+          "priceCurrency": "AUD",
+          "description": "From $79 per room"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does carpet steam cleaning cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prices start from $79 for one room. Your price depends on rooms, stairs and stain treatment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will it pass my end of lease inspection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We clean to the standard property managers expect and give you a receipt. If they reject the carpets within 3 days, we re-clean free."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to be home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only to let us in, or leave a key or lockbox code. We lock up and send you drying advice when we finish."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you remove pet stains and odours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our pet odour treatment targets urine at the base of the fibres, not just the surface. Add it in the form for a quoted price."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I change my booking time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tell us at least 24 hours before and we move it at no cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long until I can walk on the carpet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Carpets are typically dry in 4 to 6 hours. Open windows and run fans to speed it up."
+          }
+        }
+      ]
+    }
+  ]
+}

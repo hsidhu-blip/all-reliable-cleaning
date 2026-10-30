@@ -1,0 +1,122 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://allreliablecleaning.com.au/#business",
+      "name": "All Reliable Cleaning",
+      "url": "https://allreliablecleaning.com.au",
+      "telephone": "+61 452 431 033",
+      "email": "admin@allreliablecleaning.com.au",
+      "description": "All Reliable Cleaning provides end of lease, regular house, office and carpet steam cleaning across Perth.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Perth",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Western Australia"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Perth",
+        "addressRegion": "WA",
+        "addressCountry": "AU"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:30",
+        "closes": "17:00"
+      },
+      "taxID": "48 702 993 397",
+      "priceRange": "$$"
+    },
+    {
+      "@type": "Service",
+      "name": "Regular house cleaning in Perth",
+      "serviceType": "House cleaning",
+      "description": "Weekly or fortnightly house cleaning in Perth, priced per visit with no lock-in contract.",
+      "url": "https://allreliablecleaning.com.au/regular-house-cleaning-perth",
+      "provider": {
+        "@id": "https://allreliablecleaning.com.au/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Perth"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://allreliablecleaning.com.au/regular-house-cleaning-perth",
+        "priceCurrency": "AUD",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 149,
+          "priceCurrency": "AUD",
+          "description": "From $149 per visit"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does a regular house clean cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fortnightly cleans start from $149 per visit. Your price depends on home size and how often we visit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a bond, deposit or lock-in contract?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There’s no upfront bond and no lock-in contract. Cancel any time with 24 hours’ notice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to be home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Most clients leave a key or lockbox code, and we lock up when we finish. You can also be home if you prefer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "We have pets. Is that OK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tell us about your pets in the form. We vacuum pet hair every visit, and we ask you to secure any pet that might slip out the door."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I skip or move a visit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tell us at least 24 hours before and we move or skip that visit at no cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you bring your own products?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We bring the vacuum, mop and products. If you want us to use your own products, leave them out and we’ll use them."
+          }
+        }
+      ]
+    }
+  ]
+}
