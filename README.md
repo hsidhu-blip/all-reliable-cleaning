@@ -13,6 +13,7 @@ contact.html                        Contact and quote form
 thank-you.html                      Post-submit page (noindex), fires the conversion
 privacy.html                        Privacy policy (Google Ads requirement for lead forms)
 404.html                            Page not found (noindex): suggests the page the broken link meant
+ghl/404-custom-html.html            Same 404 page as one paste-in block for a GHL Custom JS/HTML element
 assets/css/styles.css               Shared styles. Brand colours live in :root
 assets/js/main.js                   Shared script (defer). CONFIG object at the top
 assets/img/logo.svg                 Wordmark and mark for light backgrounds
@@ -241,5 +242,5 @@ Use either option.
   3. Paste the page's `<body>` contents into the element. Paste `<link rel="stylesheet" href="…styles.css">`, `<script>document.documentElement.classList.add('js')</script>` and `<script src="…main.js" defer></script>` into the step's **Tracking Code → Header**. Use the Media Library URLs in place of the relative `assets/…` paths.
   4. Rename the internal links to your funnel step paths: `thank-you.html` in `CONFIG.THANK_YOU_URL` in main.js, plus the nav and footer links.
   5. Set each step's SEO title and description from the page `<title>` and meta description, and set the thank-you step to noindex.
-  6. For the 404 page, create a page from `404.html`, set it to noindex, and pick it under **Settings → Domains → Edit → Set default 404/Error Page**. Change the `href` values in its `ROUTES` script (and its links) to your GHL page paths. It uses root paths (`/about.html`) rather than relative ones, because it can be shown at any URL depth.
+  6. For the 404 page, paste `ghl/404-custom-html.html` (self-contained: own styles, no shared CSS or JS needed) into a Custom JS/HTML element on a new page, set it to noindex, and pick it under **Settings → Domains → Edit → Set default 404/Error Page**. Set the paths in its `PAGES` list to your GHL page paths. (`404.html` is the static-host version: on Netlify or Cloudflare it needs no setup, and uses root paths so it works at any URL depth.)
   7. Test with the pre-launch checklist above. GHL can also inject its own tracking, so don't add GA4 twice.
